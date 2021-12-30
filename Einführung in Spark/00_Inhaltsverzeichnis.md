@@ -2,7 +2,7 @@
 
 #### [Zum Anfang](README.md "Hier gelangen Sie zur Startseite")
 
-* [1 Spark](01_Spark.md "Einführung in Spark und seinem Ökosystem") D A
+* [1 Spark](01_Spark.md "Einführung in Spark und seinem Ökosystem") C A
     * Was ist Spark C V 1.0
     * Bisherige Entwicklungsgeschichte C V 1.0
     * Sprachunterstützung C V 1.0
@@ -28,7 +28,7 @@
 
 * [3 Mögliche Umgebungen für Spark C V 1.0](03_Mögliche_Umgebungen_für_Spark.md "Überblick über mögliche Umgebungen für 
   Spark")
-    * Spark in der Cloud (Azure, Amazon, Google) in Bearbeitung
+    * Spark in der Cloud (Azure, Amazon, Google)
     * Spark mit Google Colaboratory (Colab)
     * Spark mit Docker
         * Dockerimage
