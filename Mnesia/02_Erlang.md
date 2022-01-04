@@ -8,5 +8,4 @@ relevant:
 * Fehlertoleranz
 * Updates im laufenden Betrieb
 
-
-Die Programmiersprache Erlang wuirde 1987 von Joe Armstrong, Robert Virding und Mike Williams ei Ericson entwickelt TODO: ZITAT. Sie wurde mti Ausblick auf Parallelität, Nebenläufigkeit und Fehlertolerenz mit dem Ziel entworfen, Netwerkproblemstellungen (z.B. Implementierungen einer Telefonanlage zu lösen. Folgende bekannte Firmen und Projekte verwenden Erlang:
+Die Nebenläufigkeit ist eine Kernkompetenz der Programmiersprache. Abläufe werden
