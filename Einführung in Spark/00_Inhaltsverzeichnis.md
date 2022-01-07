@@ -1,33 +1,33 @@
 # Inhaltsverzeichnis 
 
-#### [Zum Anfang](README.md "Hier gelangen Sie zur Startseite")
+#### [Zum Anfang](README.md "zur Startseite")
 
-* [1 Spark](01_Spark.md "Einführung in Spark und seinem Ökosystem") C A
-    * Was ist Spark C V 1.0
-    * Bisherige Entwicklungsgeschichte C V 1.0
-    * Sprachunterstützung C V 1.0
-    * Überblick über das Spark Ökosystem A
-        * SQL (SparkSQL) A
-        * Maschine Learning (Mllib) A
-        * Graphdatenbanken (GraphX) A
-        * Streaming (Spark Streaming) A
+* [1 Spark](01_Spark_Umfeld.md "zum Kapitel")
+    * Was ist Spark
+    * Bisherige Entwicklungsgeschichte
+    * Sprachunterstützung
+      * PySpark
+      * SparkR
+    * Spark Ökosystem und Erweiterungen
+      * SparkSQL
+      * MLlib
+      * GraphX
+      * Spark Streaming 
 
-* [2 Datenstrukturen C V 1.0](02_Datenstrukturen.md "Überblick über grundlegende Datenstrukturen in Spark")
+* [2 Datenstrukturen](02_Datenstrukturen.md "zum Kapitel")
     * Hadoop
-      * Hadoop Common in Arbeit
-      * Hadoop Distributed File System (HDFS) evtl. erweitern
-      * Map Reduce in Arbeit
-      * Yet Another Resource Negotiator (YARN) evtl. erweitern
+      * Yet Another Resource Negotiator (YARN) 
+      * Hadoop Distributed File System (HDFS)
+      * Hadoop Map Reduce
     * Spark
       * Spark RDDs
-      * Spark Dataframes
+      * Spark Dataframes 
       * Spark Datasets
       * Spark DataFrame vs Spark DataSets
       * Optimierungen
       * RDD bis DataSet in a nutshell
 
-* [3 Mögliche Umgebungen für Spark C V 1.0](03_Mögliche_Umgebungen_für_Spark.md "Überblick über mögliche Umgebungen für 
-  Spark")
+* [3 Mögliche Umgebungen für Spark](03_Mögliche_Umgebungen_für_Spark.md "zum Kapitel")
     * Spark in der Cloud (Azure, Amazon, Google)
     * Spark mit Google Colaboratory (Colab)
     * Spark mit Docker
@@ -36,18 +36,10 @@
         * Zugriff auf das Jupyter Notebook
         * Vor- und Nachteile
   
-* [4 Wordcount mit Spark RDDs und Python C V 1.0](04_Wordcount_mit_Spark_RDDs_und_Python.md "Beispiel einer realen 
-  Anwendung mit Spark RDDS und Python")
+* [4 Wordcount mit Spark RDDs und Python](04_Wordcount_mit_Spark_RDDs_und_Python.md "zum Kapitel")
 
-* [5 Wordcount mit Spark DataFrames und Python C V 1.0](05_Wordcount_mit_Spark_DataFrames_und_Python.md "Beispiel einer 
-  realen Anwendung mit Spark DataFrames und Python")
-
-### Nachweise
-
-* [Literaturnachweise](90_Literaturnachweise.md "Nachweis der verwendeten Literatur")
-* [Bildnachweise](91_Bildnachweise.md "Nachweis der verwendeten Bilder")
+* [5 Wordcount mit Spark DataFrames und Python](05_Wordcount_mit_Spark_DataFrames_und_Python.md "zum Kapitel")
 
 ### Anhänge
 
-* [Anhang Linksliste](https://github.com/ChristianKitte/SparkProjekt/blob/main/Anhang_Linkliste.md
-  "Hier befindet sich eine Liste mit weiteren Webressourcen zum Thema")
+* [Anhang Linksliste](Anhang_Linkliste.md "zum Kapitel")
