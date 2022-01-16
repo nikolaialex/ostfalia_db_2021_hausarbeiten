@@ -49,3 +49,22 @@ Binaries sind eine Datenstruktur, um große Datenmengen effizient (platzeffiezie
 ```
 
 ### TODO: Evtl noch etwas zu Records?
+
+## Programmstruktur
+### Module
+Die Programmstruktur ist relativ einfach. Abläufe werden in Funktionen definiert, diese Funktionen wiederum werden in sogenannten *Modulen* zusammengefasst. Module werden in Dateien mit dem Suffix **.erl** abgespeichert. Um dieses Modul nutzen zu können, muss es vorher kompiliert werden. Anschließend ist eine *.beam* Datei erstellt worden. Analog zu Java  .java -> .class gibt es bei Erlang .erl -> .beam.
+Ein Modul wird definiert durch einen Namen und einer Liste an Funktionen die es bereitstellt. Bei diesen Funktionen wird außerdem angegeben, wieviele Parameter sie erwarten.
+``` erlang
+-module(elephant).
+-export([toot/0]).
+
+toot() -> io:format("Tooot").
+```
+
+### Funktionen
+In Erlang haben Funktionen eine Bezeichnung, sowie eine Anzahl an Variablen. Erlang arbeitet extensiv mit Pattern-Matching, d.h. beim Aufruf einer Funktion wird meist schon zu Beginn in eine bestimmte *Clause* gesprungen
+``` erlang
+animal_noise(elephant) -> "Tooot";
+animal_noise(cat) -> "Meow";
+animal_noise(dog) -> "Wuff";
+animal_noise(Unknown) -> "???".
