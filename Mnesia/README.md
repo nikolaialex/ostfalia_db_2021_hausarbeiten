@@ -5,7 +5,7 @@ Diese Ausarbeitung soll eine kleine Einführung in die Welt von Erlang und genau
 ## Autor
 |  Name |  Matrikelnummer | Hochschule | E-Mail |
 |-------|-----------------|------------|--------|
-| Martin Bruhns | 287098 | TH-Lübeck | martin.bruhns@stud.th-luebeck.de | 
+| Martin Bruhns | xxxxxx | TH-Lübeck | martin.bruhns@stud.th-luebeck.de | 
 
 ## Inhaltsverzeichnis
 1. Einleitung
