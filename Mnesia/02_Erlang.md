@@ -22,8 +22,13 @@ Erlang unterscheided Ganzzahlen (Integer) und Gleitkommazahlen (Float), wobei be
 Möchte man verschiedene Information gekapselt verwalten, bietet sich unter Erlang der Datentyp *Tuple* an. Sie verhalten sich ähnlich wie *Structs* in C, sind allerdings anonym. SIe werden mit geschweiften Klammern umrandet.
 
 ``` erlang
-Hund = {hund,
+Hund = {dog,
           {name, "Bello"},
           {race, labrador}
           {colour, brown}}.
 ```
+
+### List
+Listen können verwendet werden, um eine Menge von gleichen Elementen zu speichern. Eine Vereinfachung im Arbeiten mit Listen ist die Unterteilung in **[H|T]**, wobei *H* für Head, also das erste Element der Liste und *T* für Tail, die restlichen Elemente der Liste steht. Dies erlaub in vielen Anwendungsfällen einen eleganten umgang mit Listen.
+``` erlang
+Suitcase = [{socks,3}, {trousers,2}]
