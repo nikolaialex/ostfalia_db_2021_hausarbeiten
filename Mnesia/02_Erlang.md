@@ -40,3 +40,12 @@ Strings sind Erlang eine Sonderlösung, eigentlich sind es nur Integerlisten, wo
 7> [72,97,108,108,111].
 "Hallo"
 ```
+
+### Binaries
+Binaries sind eine Datenstruktur, um große Datenmengen effizient (platzeffiezient) abzulegen. Es können Strings und Integer abgelegt werden. In diesem Fall sind Strings ASCII kodiert und Integer können nicht größer als 255 sein.  Binaries können außerdem verwendet werden, um UTF-8 kodierte Strings zu definieren.
+``` erlang
+17> Z = <<"Tür"/utf8>>. 
+<<"Tür"/utf8>>
+```
+
+### TODO: Evtl noch etwas zu Records?
