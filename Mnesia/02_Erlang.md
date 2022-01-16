@@ -32,3 +32,11 @@ Hund = {dog,
 Listen können verwendet werden, um eine Menge von gleichen Elementen zu speichern. Eine Vereinfachung im Arbeiten mit Listen ist die Unterteilung in **[H|T]**, wobei *H* für Head, also das erste Element der Liste und *T* für Tail, die restlichen Elemente der Liste steht. Dies erlaub in vielen Anwendungsfällen einen eleganten umgang mit Listen.
 ``` erlang
 Suitcase = [{socks,3}, {trousers,2}]
+```
+
+### Strings
+Strings sind Erlang eine Sonderlösung, eigentlich sind es nur Integerlisten, wobei die Zahlen der ISO-8859-1 Kodierung entsprechen. Wenn in der Erlang Shell eine Liste mit gültigen Codes eingegeben wird, wird der entsprechende String zurückgegeben.
+``` erlang
+7> [72,97,108,108,111].
+"Hallo"
+```
