@@ -1,6 +1,6 @@
 # Einführung in Spark V1.0
 
-![Apache Spark Logo](https://www.apache.org/logos/res/spark/spark.png "Logo von Apache Spark")
+![Apache Spark Logo](https://www.apache.org/logos/res/spark/spark.png "Offizielles Logo von Apache Spark")
 
 (Das Apache Spark Loge ist ein eingetragenes Logo
 der [Apache Software Foundation](https://www.apache.org "zur Webseite")
@@ -14,12 +14,12 @@ der [Apache Software Foundation](https://www.apache.org "zur Webseite")
 ---
 
 ToDo:
-* Links zu Dokus mit "zur Dokumentation/ GitHub / Wikipedia" annotieren Prio 2
-* Bilder mit einem Text versehen Prio 3 
-* Mehr Fachwörter mit einem Querverweis versehen ? Prio 4
-* Codebeispiel zur GrapX und MLlib ? Prio 5
-* Kapitel Hadoop - Warum keine DB Prinzip..., überall "Apache Hadoop" ? Prio 6
-
+* Ergänzung zu Coloums ? P1
+* Fett/nicht Fett P2 
+* Links testen P3
+* Finales Korrekturlesen P4
+* Links testen P5
+ 
 ---
 
 Zu Anfang der Beschäftigung mit Apache Spark stößt man auf eine Vielzahl an Begriffen und Konzepten, welche gerade 
