@@ -91,6 +91,12 @@ Homepage der Maschine Learning Library
 Dokumentation der Machine Learning Library
 [Link](https://spark.apache.org/docs/latest/ml-guide.html)
 
+Dokumentation des Discretized Stream (DStream) 
+[Link](https://spark.apache.org/docs/latest/streaming-programming-guide.html#discretized-streams-dstreams)
+
+Ein Paper zu Discretized Streams (DStream)
+[Link](https://www.usenix.org/system/files/conference/hotcloud12/hotcloud12-final28.pdf)
+
 #### GraphX
 
 Homepage von GraphX
@@ -260,6 +266,9 @@ Zur Dokumentationsseite von Databricks (Spark) in Microsoft Azure
 
 Eine Preisübersicht der von Databricks (Spark) angebotenen Dienste
 [Link](https://azure.microsoft.com/de-de/pricing/details/databricks)
+
+Einstiegsseite von Zeppelin Notebooks
+[Zeppelin Notebooks](https://zeppelin.apache.org "zur Webseite")
 
 #### Amanzon Web Services (AWS)
 
