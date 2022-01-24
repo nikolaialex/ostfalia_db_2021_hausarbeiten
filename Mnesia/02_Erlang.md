@@ -44,7 +44,7 @@ Strings sind Erlang eine Sonderlösung, eigentlich sind es nur Integerlisten, wo
 ### Binaries
 Binaries sind eine Datenstruktur, um große Datenmengen effizient (platzeffiezient) abzulegen. Es können Strings und Integer abgelegt werden. In diesem Fall sind Strings ASCII kodiert und Integer können nicht größer als 255 sein.  Binaries können außerdem verwendet werden, um UTF-8 kodierte Strings zu definieren.
 ``` erlang
-17> Z = <<"Tür"/utf8>>. 
+17> Z = <<"Tür"/utf8>>.
 <<"Tür"/utf8>>
 ```
 
@@ -68,3 +68,6 @@ animal_noise(elephant) -> "Tooot";
 animal_noise(cat) -> "Meow";
 animal_noise(dog) -> "Wuff";
 animal_noise(Unknown) -> "???".
+
+## OTP
+Die Sprache Erlang steht nicht nur alleine, sie hat auch ihr eigenes Ökosystem, die sogenannte **O**pen **T**elecom **P**latform. Es stellt mehrere Bibliotheken und Vorgehensweise bereit, um Anwendungen verteilt und fehlertolerant implementieren zu können, auch bei skalierender Anforderung.
