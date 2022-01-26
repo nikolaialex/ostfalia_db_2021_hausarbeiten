@@ -11,7 +11,7 @@ Wintersemester 21/22
 
 **Inhalt**
 
-1. [Einleitung](01_Einleitung.md)
+1. [Einleitung](01_Verteilte-Datenbanken.md)
 
 2. [Vergleich der Systeme](02_Vergleich-der-Systeme.md)
 
