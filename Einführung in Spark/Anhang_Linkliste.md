@@ -1,19 +1,14 @@
 #### [Zum Anfang](README.md "zur Startseite") | [Inhaltsverzeichnis](00_Inhaltsverzeichnis.md "zum Inhaltsverzeichnis")
 
-# Anhang Linkliste
+# Linkliste
 
-Diese Linkliste beinhaltet in loser, thematischer Reihenfolge viele der im Verlauf dieser Arbeit besuchten und 
-verwendeten Webseiten mit Stand vom Januar 2020. Hierunter befinden sich neben offiziellen Dokumentationen 
-auch Verweise zu Wikipedia und als interessant erachtete Webseiten. Diese können als erste Anlaufstelle für 
-eine Vertiefung genutzt werden.
+Diese Linkliste beinhaltet in loser, thematischer Reihenfolge viele der im Verlauf dieser Arbeit besuchten und verwendeten Webseiten mit Stand vom Januar 2020. Hierunter befinden sich neben offiziellen Dokumentationen auch Verweise zu Wikipedia und als interessant erachtete Webseiten. Diese können als erste Anlaufstelle für eine Vertiefung genutzt werden.
 
-Explizit wurden auch "benachbarte" Themen wie Docker, Java oder Microsoft Azure mit aufgenommen. Ein Abschnitt zu 
-Markdown soll die Arbeit an diesen Dokument erleichtern und einfach die immer wieder benötigte Dokumentation schnell 
-verfügbar machen.
+Explizit wurden auch *benachbarte* Themen wie *Docker*, *Java* oder *Microsoft Azure* mit aufgenommen. Ein Abschnitt zu *Markdown* soll die Arbeit an diesen Dokument erleichtern und die immer wieder benötigte Dokumentation einfach verfügbar machen.
 
 ### Geschichte von Spark
 
-Kleine geschichtlicher Überblick auf Apache.org
+Geschichtlicher Überblick auf Apache.org
 [Link](https://spark.apache.org/history.html)
 
 Databricks Homepage
@@ -21,6 +16,8 @@ Databricks Homepage
 
 Databricks auf Wikipedia
 [Link](https://en.wikipedia.org/wiki/Databricks)
+
+--- 
 
 ### Sprachunterstützung in Spark
 
@@ -45,17 +42,23 @@ Dokumentation von Apache Arrow
 Wikipediaseite zur Abfragesprache SQL (Structured Query Language) 
 [Link](https://de.wikipedia.org/wiki/SQL)
 
+---
+
 #### PySpark
 
 PySpark Homepage
 [Link](https://spark.apache.org/docs/latest/api/python/index.html)
+
+---
 
 #### SparkR
 
 SparkR Homepage (R on Spark) 
 [Link](https://spark.apache.org/docs/latest/sparkr.html)
 
-### Spark Ökosystem und Erweiterungen 
+---
+
+### Spark Ökosystem und Erweiterungen
 
 Homepage von mongoDB
 [Link](https://www.mongodb.com)
@@ -75,6 +78,8 @@ Homepage von PyTorch (facebook)
 Homepage von TensorFlow (Google)
 [Link](https://www.tensorflow.org)
 
+---
+
 #### SparkSQL
 
 Homepage von SparkSQL
@@ -82,6 +87,8 @@ Homepage von SparkSQL
 
 Dokumentation von SparkSQL
 [Link](https://spark.apache.org/docs/latest/sql-programming-guide.html)
+
+---
 
 #### MLlib (Maschine Learning Library)
 
@@ -96,6 +103,8 @@ Dokumentation des Discretized Stream (DStream)
 
 Ein Paper zu Discretized Streams (DStream)
 [Link](https://www.usenix.org/system/files/conference/hotcloud12/hotcloud12-final28.pdf)
+
+---
 
 #### GraphX
 
@@ -114,13 +123,17 @@ Informationen zu Spark auf der Seite von neo4j
 Leicht verständliche Einführung in die Theorie der Graphendatenbanken 
 [Link](https://kuczera.github.io/Graphentechnologien/05_Einfuehrung_und_Theorie.html)
 
-#### Spark Streaming
+---
+
+### Spark Streaming
 
 Homepage von Spark Streaming
 [Link](https://spark.apache.org/streaming)
 
 Dokumentation von Spark Streaming
 [Link](https://spark.apache.org/docs/latest/streaming-programming-guide.html)
+
+---
 
 ### Hadoop
 
@@ -148,24 +161,30 @@ Ein ausführlicher Vergleich von Spark und Hadoop
 Ein Vergleich von Spark und Hadoop auf Basis von Kategorien
 [Link](https://logz.io/blog/hadoop-vs-spark)
 
+---
+
 #### Hadoop Common
 
 Das Maven Repository von Apache Hadoop
 [Link](https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-common)
+
+---
 
 #### HDFS (Hadoop Distributed Filesystem)
 
 Dokumentation zu HDFS
 [Link](https://hadoop.apache.org/docs/r3.3.1)
 
-Weitere Information zum Dateisysem HDFS von Hadoop
+Webseite zu HDFS
 [Link](https://www.quobyte.com/storage-explained/what-is-hdfs)
 
-Beispiel für eine Alternative: AWS S3
+Homepage zu AWS S3
 [Link](https://aws.amazon.com/de/s3)
 
-Beispiel für eine Alternative: Microsoft Blob Storage
+Homepage zu Microsoft Azure Blob Storage
 [Link](https://azure.microsoft.com/de-de/services/storage/blobs)
+
+---
 
 #### Map Reduce
 
@@ -173,37 +192,41 @@ Paper von Google zu MapReduce
 [Link](https://research.google/pubs/pub62)
 
 Dokumentation zu Hadoop Map Reduce
-[Link](https://hadoop.apache.org/docs/stable/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html
+[Link](https://hadoop.apache.org/docs/stable/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html)
+
+---
 
 #### YARN (Yet Another Resource Negotiator)
 
-Dokumentation zu HDFS
+Dokumentation zu YARN
 [Link](https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/YARN.html)
 
 Eine tiefergehende Betrachtung zu YARN
 [Link](https://www.computerweekly.com/de/definition/Apache-Hadoop-YARN-Yet-Another-Resource-Negotiator)
 
+---
+
 ### Spark
 
-Apache Sparke Homepage
+Homepage und Download zu Apache Spark
 [Link](https://spark.apache.org/) [Download](https://archive.apache.org/dist/spark/)
 
-Dokumentation von Spark in der aktuellen Version
+Dokumentation von Apache Spark in der aktuellen Version
 [Link](https://spark.apache.org/docs/latest)
 
-Apache Spark Dokumentation zur Einführung von DataFrames (nicht mehr aktuell)
+Apache Spark Dokumentation zur Einführung von DataFrames (nicht mehr aktuelle Dokumentation)
 [Link](https://spark.apache.org/docs/1.3.0 DataFrames)
 
-Apache Spark Dokumentation zur Einführung von DataSets (nicht mehr aktuell)
+Apache Spark Dokumentation zur Einführung von DataSets (nicht mehr aktuelle Dokumentation
 [Link](https://spark.apache.org/docs/1.6.0 DataSet)
 
-Apache Spark Dokumentation zur Verbindung von DataSet und DataFrames (nicht mehr aktuell)
+Apache Spark Dokumentation zur Verbindung von DataSet und DataFrames (nicht mehr aktuelle Dokumentation
 [Link](https://spark.apache.org/docs/2.0.0 DataSet und DataFrame)
 
 Spark Python API Docs
 [Link](https://spark.apache.org/docs/2.2.0/api/python/index.html)
 
-Apache Spark Tutorial Python with PySpark
+YouTube Playlist: Apache Spark Tutorial Python with PySpark
 [Link](https://www.youtube.com/playlist?list=PLot-YkcC7wZ_2sxmRTZr2c121rjcaleqv)
 
 Tutorial von Databricks
@@ -212,32 +235,28 @@ Tutorial von Databricks
 Spark auf Wikipedia
 [Link](https://de.wikipedia.org/wiki/Apache_Spark)
 
-Spark und Microsoft
+Spark Dokumentation von Microsoft
 [Link](https://docs.microsoft.com/de-de/dotnet/spark/what-is-spark)
 
-Kurse auf Coursera
-[Links](https://de.coursera.org/courses?query=apache%20spark)
-
-Umfangreiche Seite mit Informationen und Beispielen zu Spark
+Umfangreiche Seite von data-flair mit Informationen, Code und Beispielen zu Spark
 [Link](https://data-flair.training/blogs/spark-tutorial/)
 
-Unterschied zwischen RDD, DataFrame und Dataset
+Apache Spark RDD vs DataFrame vs DataSet von data-flair [Link](https://data-flair.training/blogs/apache-spark-rdd-vs-dataframe-vs-dataset)
+
+Blogbeitrag zum Unterschied zwischen RDD, DataFrame und Dataset
 [Link](https://blog.oio.de/2020/05/18/was-ist-der-unterschied-zwischen-rdd-dataframe-und-dataset-in-apache-spark)
 
-Apache Spark RDD vs DataFrame vs DataSet
-[Link](https://data-flair.training/blogs/apache-spark-rdd-vs-dataframe-vs-dataset)
-
-Eine sehr gute visuelle Präsentation zu Aktionen und Transformationen in Spark
+Eine sehr gute visuelle Präsentation zu Aktionen und Transformationen in Spark von Databricks
 [Link](https://training.databricks.com/visualapi.pdf)
 
-Guter Einstieg in Transformationen und Aktionen in Spark
+Blogbeitrag mit einem guten Einstieg in Transformationen und Aktionen in Spark
 [Link](https://blog.knoldus.com/deep-dive-into-apache-spark-transformations-and-action)
 
 ***
 
 ### Optimierung in Spark
 
-Eine gute Einführung zur Funktionsweise des Catalys Optimizers
+Eine gute Einführung zur Funktionsweise des Catalys Optimizers von data-flair
 [Link](https://data-flair.training/blogs/spark-sql-optimization/)
 
 Eine vertiefende Darstellung zur Funktionsweise des Catalyst Optimizers von databricks
@@ -268,7 +287,7 @@ Eine Preisübersicht der von Databricks (Spark) angebotenen Dienste
 [Link](https://azure.microsoft.com/de-de/pricing/details/databricks)
 
 Einstiegsseite von Zeppelin Notebooks
-[Zeppelin Notebooks](https://zeppelin.apache.org "zur Webseite")
+[Link](https://zeppelin.apache.org "zur Webseite")
 
 #### Amanzon Web Services (AWS)
 
@@ -317,42 +336,30 @@ Zur Einstiegsseite von Docker Hub
 Zur Projektseite des verwendeten Spark Containers
 [Link](https://hub.docker.com/r/jupyter/pyspark-notebook)
 
-Zur website von Jupyter Notebook
+Zur Webseite von Jupyter Notebook
 [Link](https://jupyter.org/index.html)
 
 Zur Webseite von JupyterLab
 [Link](https://jupyterlab.readthedocs.io/en/stable)
+
+---
 
 ### Java
 
 Java 8.0 Open JDK
 [Link](https://openjdk.java.net/projects/jdk8)
 
+
+
 ***
 
 ### Python
 
-FindSpark Homepage
+Homepage von FindSpark
 [Link](https://pypi.org/project/findspark) [GitHub](https://github.com/minrk/findspark)
 
-PySpark Homepage
+Homepage von PySpark
 [Link](https://pypi.org/project/pyspark) [GitHub](https://github.com/apache/spark/tree/master/python)
-
-***
-
-### Tools
-
-Docker Homepage
-[Link](https://www.docker.com/get-started)
-
-Docker Hub
-[Link](https://hub.docker.com/)
-
-Jupyter Notebook
-[Link](https://jupyter.org/index.html)
-
-JupyterLab Dokumentation
-[Link](https://jupyterlab.readthedocs.io/en/stable/)
 
 ***
 
@@ -367,4 +374,8 @@ Markdown Erweiterte Syntax
 GitHub Style Markdown
 [Link](https://github.github.com/gfm/)
 
-***
+Marktext - Ein guter Editor für Markdown mit Wysiwyg
+
+[Link](https://marktext.app/)
+
+---
