@@ -91,7 +91,7 @@ Die Datenbanksystemunabhängigkeit ist nur teilweise gegeben, da die Hersteller 
 Nach wie vor ist die Hauptursache der meisten Ausfälle im Datenbankumfeld die Hardware [5]. In der horizontalen Verteilung  wäre der Hardware-Ausfall noch möglicherweise nicht vollständig geschäftsschädigend, da nur eine Teilmenge betroffen wäre. In der vertikalen Verteilung wäre der Ausfall deutlich gravierender.
 
 
-
+[weiter](02_Vergleich-der-Systeme.md)
 
 
 
