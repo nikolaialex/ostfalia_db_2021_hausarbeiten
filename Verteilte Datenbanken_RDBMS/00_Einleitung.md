@@ -1,4 +1,4 @@
-#Einleitung
+# Einleitung
 
 Im betrieblichen Umfeld werden sehr hohe Datenmengen erzeugt und verwaltet. Die überall geforderte Digitalisierung erzeugt zusätzliche Menge an Daten, welche für weitere Analysen verwendet werden. Dabei soll es sich nicht nur über Wissensgier von Facebook und Co. handeln, sondern auch um ganz praktische Dinge wie z.B. COVID-19-Nachverfolgung, Lagerverwaltung, Verkaufsanalysen, Dokumentenmanagement und Steuerverwaltung. Die Datenmenge steigt dabei teilweise schneller als die Performance der einzelnen Serversysteme.
 
