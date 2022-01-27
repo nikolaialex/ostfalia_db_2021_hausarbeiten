@@ -96,7 +96,7 @@ Als zweiten Typ wird die Peer-zu-Peer Replikation genauer betrachtet. Laut [26] 
 ## Fazit
 Wie in Kapitel CA-Systeme beschrieben, sind Hochverfügbarkeit und Konsistenz die beiden Hauptmerkmale für diese Art der verteilten Datenbanken. Microsoft SQL Server bietet eine Vielzahl von Lösungen um Hochverfügbarkeit von Datenbanken zu gewährleisten. Hierbei liegt das Hauptaugenmerk auf der Hochverfügbarkeit und Ausfallsicherheit von SQL-Server Instanzen in verschiedenen Modi. Im Zusammenspiel mit weiteren Microsoft Produkten (wie dem Microsoft Server) wird der Einsatz von SQL-Server effektiv. In Bezug auf verteilte Datenbanken bietet der Microsoft Replikationsmodelle unter anderem mit verteilten Transaktionen an.
 
-
+[weiter](04_Zusammenfassung.md)
 
 
 
