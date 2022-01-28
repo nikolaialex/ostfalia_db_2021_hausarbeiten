@@ -1,0 +1,10 @@
+CREATE  (harry:Person:MagierIn {vorname: 'Harry', nachname: 'Potter'}),
+        (hermine:Person:MagierIn {vorname: 'Hermine', nachname: 'Granger'}),
+        (dudley:Person {vorname: 'Dudley', nachname: 'Dursley'}),
+        (hogwarts:Schule {name: 'Hogwarts'}),
+        (harry)-[:BEFREUNDET_MIT]->(hermine),
+        (hermine)-[:BEFREUNDET_MIT]->(harry),
+        (dudley)-[:VERWANDT_MIT]->(harry),
+        (harry)-[:VERWANDT_MIT]->(dudley),
+        (harry)-[:BESUCHT {zeitraum: '1991 - 1997'}]->(hogwarts),
+        (hermine)-[:BESUCHT {zeitraum: '1991 - 1997'}]->(hogwarts);
