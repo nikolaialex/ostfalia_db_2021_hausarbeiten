@@ -3,6 +3,7 @@
 Erlang ist eine funktionale Programmiersprache. Allerdings nicht nur eine Sprache, sondern ein komplettes Laufzeitsystem. Sie wurde von Joe Armstrong für Ericcson entwickelt.
 Sie wurde für einen sehr speziellen Anwenungsgrund konzipiert, nämlich die Verwendung in Telekommunkitationsnetzen. Daher sind folgende Anforderungen bereits in die Konzeption der Sprache eingeflossen:
 
+## WICHTIG, die ganze Ausarbeitung wird sich hier drauf beziehen!!!!
 * Ausfallsicherheit
 * Nebenläufigkeit
 * Fehlertoleranz
@@ -68,6 +69,11 @@ animal_noise(elephant) -> "Tooot";
 animal_noise(cat) -> "Meow";
 animal_noise(dog) -> "Wuff";
 animal_noise(Unknown) -> "???".
+```
+
+### Green Threads
+Ein Kernkonzept, dass in die Grundstruktur von Erlang eingeflossen ist, ist die *Nebenläufigkeit* von Programmcode. In Erlang wird dies vorzugsweise via *Green Threads* gelöst. Bei diesem Konzept handelt es sich um Threads, die von der Erlang Virtual Machine erstellt und verwaltet werden. Sie sind Teil der Grundstruktur der Sprache und sehr einfach zu verwalten.
+Gelöst wird dies durch sogenanntes **Message Passing** und **Prozesse**. Jede Funktion kann sehr leicht als eigener Prozess gestartet werden. Jeder neue Prozess hat dabei eine eigene Id, über die er angesprochen werden kann, indem Nachrichten an diesen Prozess geschickt werden. Diese Nachrichten werden dann in einem *first in, first out*-Prinzip abgearbeitet.
 
 ## OTP
 Die Sprache Erlang steht nicht nur alleine, sie hat auch ihr eigenes Ökosystem, die sogenannte **O**pen **T**elecom **P**latform. Es stellt mehrere Bibliotheken und Vorgehensweise bereit, um Anwendungen verteilt und fehlertolerant implementieren zu können, auch bei skalierender Anforderung.
