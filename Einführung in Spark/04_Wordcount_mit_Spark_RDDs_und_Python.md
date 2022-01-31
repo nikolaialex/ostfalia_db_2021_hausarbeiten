@@ -66,7 +66,7 @@ In diesem Abschnitt befindet sich der eigentliche Code, der mit Hilfe von Spark 
 
 Um mit Spark arbeiten zu können, muss als erstes eine ***Verbindung zu Spark*** in Form eines
 [SparkContext](https://spark.apache.org/docs/3.1.1/api/python/reference/api/pyspark.SparkContext.html "zur Dokumentation") aufgebaut werden. Weitere Informationen hierzu findet man auch im Kapitel 
-[Datenstrukturen](02_Datenstrukturen.md): 
+[Datenstrukturen](02_Datenstrukturen.md "zum Kapitel"): 
 
 ```python
 # Erzeugen eines Spark Kontext
