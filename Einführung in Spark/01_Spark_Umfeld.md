@@ -61,13 +61,13 @@ Die Verwendung von ***Java*** und ***Scala*** als höhere objektorientierte Prog
 
 ### PySpark
 
-[_zurück_](01_Spark_Umfeld.md#sprachuntersttzung "Zurück")
+[_zurück_](01_Spark_Umfeld.md#sprachunterstützung "Zurück")
 
 Für die Arbeit mit Python existiert mit [PySpark](https://spark.apache.org/docs/latest/api/python/index.html "zur Dokumentation") ein Interface, dass eine ***starke Integration mit Python*** ermöglicht. Auf Grund der existierenden Vielzahl an Erweiterungen für Python, werden Einschränkungen, welche durch die fehlende Nutzbarkeit von stark typisierten Datasets entstehen,  kompensiert. 
 
 ### SparkR
 
-[_zurück_](01_Spark_Umfeld.md#sprachuntersttzung "Zurück")
+[_zurück_](01_Spark_Umfeld.md#sprachunterstützung "Zurück")
 
 Mit [SparkR (R on Spark)](https://spark.apache.org/docs/latest/sparkr.html "zur Dokumentation") existiert ein leichtgewichtiges ***Frontend zur Nutzung von Spark mit R***. Daneben unterstützt das Paket auch das verteilte Lernen in Zusammenarbeit mit SparkML. Nach Meinung des Autors, scheint die Integration von Python jedoch bei weitem tiefergehender und in sich intuitiver zu sein. 
 
