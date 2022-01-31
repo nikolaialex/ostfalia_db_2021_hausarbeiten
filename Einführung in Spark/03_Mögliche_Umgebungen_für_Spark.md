@@ -16,7 +16,7 @@ Grundsätzlich kann Spark auch auf einem lokalen Rechner eingerichtet werden. Di
 
 ## Spark in der Cloud
 
-[_zurück_](03_Mögliche_Umgebungen_für_Spark.md#3-mgliche-umgebungen-fr-spark "Zurück")
+[_zurück_](03_Mögliche_Umgebungen_für_Spark.md#3-mögliche-umgebungen-für-spark "Zurück")
 
 Insbesondere für Unternehmen kann der Einsatz von Spark im Umfeld einer Cloud sinnvoll sein. In der Regel können Lösungen zunächst kostengünstig implementiert und mit zunehmendem Nutzen hoch skaliert werden. 
 
@@ -92,7 +92,7 @@ Nach Meinung des Autors handelt es sich im Fall von Google um ein sehr aufgeräu
 
 ## Spark mit Google Colaboratory (Colab)
 
-[_zurück_](03_Mögliche_Umgebungen_für_Spark.md#3-mgliche-umgebungen-fr-spark "Zurück")
+[_zurück_](03_Mögliche_Umgebungen_für_Spark.md#3-mögliche-umgebungen-für-spark "Zurück")
 
 Eine sehr einfache Möglichkeit, um mit Spark zu arbeiten, bietet [***Google Colaboraty***](https://colab.research.google.com/?utm_source=scs-index "zur Webseite") oder einfach ***Google Colab***. Bei *Google Colab* handelt es sich um ein von Google ***kostenlos*** zur Verfügung gestelltes
 ***Jupyter Notebook***:
