@@ -99,7 +99,7 @@ Eine erschöpfende Betrachtung würde hierbei den Rahmen und die Zielsetzung die
 
 ### SparkSQL
 
-[_zurück_](01_Spark_Umfeld.md#spark-kosystem-und-erweiterungen "Zurück")
+[_zurück_](01_Spark_Umfeld.md#spark-ökosystem-und-erweiterungen "Zurück")
 
 [SparkSQL](https://spark.apache.org/sql "zur Webseite") erweitert und vereinfacht den Umgang mit ***strukturiert vorliegenden Daten*** und stellt eine der wichtigsten Erweiterungen von Spark dar. Wichtige Punkte bei dessen Entwicklung stellen die Einführung von DataFrames und darauf folgend von DataSets dar. Diese können direkt oder aber auf Basis zugrunde liegender RDDs erstellt werden. 
 
@@ -109,7 +109,7 @@ Im Abschnitt [02 Datenstrukturen](02_Datenstrukturen.md#Spark "zum Abschnitt") w
 
 ### MLlib
 
-[_zurück_](01_Spark_Umfeld.md#spark-kosystem-und-erweiterungen "Zurück")
+[_zurück_](01_Spark_Umfeld.md#spark-ökosystem-und-erweiterungen "Zurück")
 
 Die [Maschine Learning Library (MLlib)](https://spark.apache.org/mllib "zur Webseite") von Apache Spark bietet Zugang zu einer umfangreichen Bibliothek für die Bearbeitung und Bereinigen von Daten. Hierzu gehören neben Funktionen zum Aggregieren von Daten auch ***Algorithmen für Klassifizierung, Regression oder Clustering***. 
 
@@ -120,7 +120,7 @@ Weiterhin werden die ***Erstellung von Workflows*** für die Verarbeitung (Pipel
 
 ### GraphX
 
-[_zurück_](01_Spark_Umfeld.md#spark-kosystem-und-erweiterungen "Zurück")
+[_zurück_](01_Spark_Umfeld.md#spark-ökosystem-und-erweiterungen "Zurück")
 
 Bei [GraphX](https://spark.apache.org/graphx "zur Webseite") handelt es sich um eine Erweiterung, welche die Möglichkeit eröffnet, im Kontext von Spark mit Graphen zu arbeiten. Nach [eigenen Angaben](https://spark.apache.org/docs/latest/graphx-programming-guide.html "zur Dokumentation") erweitert es die grundlegende und auf Basis der 
 [RDD](02_Datenstrukturen.md#Spark "zum Abschnitt") aufgebaute Struktur um eine ***Graphenabstraktion***. Hierzu wurden mehrere Erweiterungen für die Arbeit mit Graphen hinzugefügt. Zudem enthält es eine Reihe von ***Algorithmen für die Arbeit mit und Analyse von Graphen***, welche stetig wächst.
@@ -149,7 +149,7 @@ Gleichzeitig gibt der Graph auch einen Sachverhalt wieder, der nicht trivial in 
 
 ### Spark Streaming
 
-[_zurück_](01_Spark_Umfeld.md#spark-kosystem-und-erweiterungen "Zurück")
+[_zurück_](01_Spark_Umfeld.md#spark-ökosystem-und-erweiterungen "Zurück")
 
 Als letzte Erweiterung soll hier ein Blick auf [Spark Streaming](https://spark.apache.org/streaming "zur Webseite") geworfen werden. Spark Streaming ermöglicht die Verarbeitung von Datenströmen aus einer Vielzahl an unterschiedlichen Quellen. Ebenfalls besteht die Möglichkeit, eigene Quellen zu definieren und zu verwenden. Die folgende Abbildung wurde der [Dokumentation von Spark Streaming](https://spark.apache.org/docs/latest/streaming-programming-guide.html "zur Dokumentation") entnommen und zeigt einige der verfügbaren Quellen und Ausgabeformate.
 
