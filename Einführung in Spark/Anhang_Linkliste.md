@@ -252,7 +252,7 @@ Eine sehr gute visuelle Präsentation zu Aktionen und Transformationen in Spark 
 Blogbeitrag mit einem guten Einstieg in Transformationen und Aktionen in Spark
 [Link](https://blog.knoldus.com/deep-dive-into-apache-spark-transformations-and-action)
 
-***
+---
 
 ### Optimierung in Spark
 
@@ -268,7 +268,7 @@ Ein Überblickk über das Tungsten Projekt
 Eine Seite zur Tungsten Execution Engine
 [Link](https://databricks.com/blog/2016/05/23/apache-spark-as-a-compiler-joining-a-billion-rows-per-second-on-a-laptop.html)
 
-***
+---
 
 ### Umgebungen für Spark
 
@@ -349,9 +349,7 @@ Zur Webseite von JupyterLab
 Java 8.0 Open JDK
 [Link](https://openjdk.java.net/projects/jdk8)
 
-
-
-***
+---
 
 ### Python
 
@@ -361,7 +359,7 @@ Homepage von FindSpark
 Homepage von PySpark
 [Link](https://pypi.org/project/pyspark) [GitHub](https://github.com/apache/spark/tree/master/python)
 
-***
+---
 
 ### Markdown
 
@@ -375,7 +373,6 @@ GitHub Style Markdown
 [Link](https://github.github.com/gfm/)
 
 Marktext - Ein guter Editor für Markdown mit Wysiwyg
-
 [Link](https://marktext.app/)
 
 ---

@@ -4,7 +4,7 @@
 
 An dieser Stelle wird eine Variante des zuvor im Kapitel [Wordcount mit Spark und Python](04_Wordcount_mit_Spark_RDDs_und_Python.md "zum Kapitel") beschriebenen Beispiels vorgestellt.
 
-Im Gegensatz zur vorherigen Anwendung finden sich einige entscheidende Änderungen in der Art, wie auf Spark zugegriffen und damit gearbeitet wird. ***Statt RDDs*** kommen nunmehr die neueren ***Data Frames*** zum Einsatz. Um unnötige Wiederholungen zu vermeiden, wird auf die Erklärung bereits zuvor verwendeten Codebestandteile verzichtet. 
+Im Gegensatz zur vorherigen Anwendung finden sich einige entscheidende Änderungen in der Art, wie auf Spark zugegriffen und damit gearbeitet wird. ***Statt RDDs*** kommen nunmehr die neueren ***Data Frames*** zum Einsatz. Um unnötige Wiederholungen zu vermeiden, wird auf die Erklärung bereits zuvor verwendeter Codebestandteile verzichtet. 
 
 Auch der hier vorgestellte Code ist als lauffähiges [_Jupyter Notebook_](notebook/Wordcount_mit_Spark_DataFrame.ipynb "zum Notebook") Teil dieser Arbeit und frei verwendbar.
 
@@ -89,6 +89,5 @@ df=df.withColumn('value2',func.explode(func.split(func.col('value'), ' ')))\
 ```
 
 Das Ergebnis ist eine ***Liste aller Wörter*** mit deren ***Vorkommen*** in ***absteigender Reihenfolge***. Hierbei steht an erster Stelle das Leerzeichen als häufigster Vertreter.
-
 
 ![dataframe_wörter.png](./assets/dataframe_wörter.png "Ausgabe der Wortliste in absteigender Reihenfolge im Notebook")
