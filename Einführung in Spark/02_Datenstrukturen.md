@@ -100,7 +100,7 @@ Es ist wichtig, zwei Dinge zu verstehen:
 * [Spark Datasets](02_Datenstrukturen.md#spark-datasets "zum Abschnitt")
 * [Spark DataFrame vs Spark DataSet](02_Datenstrukturen.md#spark-dataframe-vs-spark-dataset "zum Abschnitt")
 * [Optimierungen](02_Datenstrukturen.md#optimierungen "zum Abschnitt")
-* [Transformationen und Aktionen](02_Datenstrukturen.md#transformationen-und-aktionen "zum Abschnitt")
+* [Transformationen und Aktionen](02_Datenstrukturen.md#transformationen-und-aktionen-rdds "zum Abschnitt")
 
 ### Spark RDDs
 
@@ -132,7 +132,7 @@ integers = list(range(1,6)
 integers_rdd = sc.parallelize(integers)
 ```
 
-Für sehr große Datenbestände kann jedoch beispielsweise die Verwendung der [**_textFile_**](https://spark.apache.org/docs/latest/rdd-programming-guide.html#resilient-distributed-datasets-rdds "zur Dokumenation") Methode sinnvoller sein. Mit ihrer Hilfe können auch sehr große, entfernte Daten einem RDD zugeführt werden:
+Für sehr große Datenbestände kann jedoch beispielsweise die Verwendung der [**_textFile_**](https://spark.apache.org/docs/3.1.1/api/python/reference/api/pyspark.SparkContext.textFile.html "zur Dokumenation") Methode sinnvoller sein. Mit ihrer Hilfe können auch sehr große, entfernte Daten einem RDD zugeführt werden:
 
 ```python
 sc = SparkContext("local", "SampleApp")
