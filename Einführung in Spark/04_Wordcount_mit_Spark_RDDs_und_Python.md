@@ -18,7 +18,7 @@ Für die Vorbereitung des Notebooks kann auf den Abschnitt [_Google Colaboratory
 
 ## Auszählen der Wörter
 
-[_zurück_](04_Wordcount_mit_Spark_RDDs_und_Python.md#4-wordcount-mit-spark-und-python "Zurück")
+[_zurück_](04_Wordcount_mit_Spark_RDDs_und_Python.md#4-wordcount-mit-spark-rdds-und-python "Zurück")
 
 Um die Aufgabe umzusetzen sind zwei Arbeitsschritte erforderlich. Entsprechend finden sich im 
 [_Jupyter Notebook_](notebook/Wordcount_mit_Spark_RDD.ipynb "zum Notebook") zwei Abschnitte.
