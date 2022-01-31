@@ -4,7 +4,7 @@
 
 Dieser Abschnitt gibt einen kurzen Überblick über die Ursprünge von [Apache Spark](https://spark.apache.org "zur Webseite") sowie der unterstützten Programmiersprachen. Den Abschluss bildet eine nähere Betrachtung des Ökosystems von Spark mit seinen wichtigsten Erweiterungen.
 
-* [Was ist Spark](01_Spark_Umfeld.md#sprachunterstützung "zum Abschnitt")
+* [Was ist Spark](01_Spark_Umfeld.md#was-ist-spark "zum Abschnitt")
 * [Bisherige Entwicklungsgeschichte](01_Spark_Umfeld.md#bisherige-entwicklungsgeschichte "zum Abschnitt")
 * [Sprachunterstützung](01_Spark_Umfeld.md#sprachunterstützung "zum Abschnitt")
 * [Spark Ökosystem und Erweiterungen](01_Spark_Umfeld.md#spark-ökosystem-und-erweiterungen "zum Abschnitt")
@@ -24,7 +24,7 @@ Zeitplanung sowie die Bereitstellung von Input- und Output-Operationen. Die zugr
 
 [_zurück_](01_Spark_Umfeld.md#1-Spark "Zurück")
 
-Nach [eigenen Angaben](https://spark.apache.org/history.html "zur Webseite") startete Apache Spark 2009 als ein Forschungsprojekt an der [UC Berkley](https://www.berkeley.edu "zur Web**seit**e") in Kalifornien und wurde 2010 als Open Source Projekt veröffentlicht. In den folgenden Jahren erschienen 
+Nach [eigenen Angaben](https://spark.apache.org/history.html "zur Webseite") startete Apache Spark 2009 als ein Forschungsprojekt an der [UC Berkley](https://www.berkeley.edu "zur Webseite") in Kalifornien und wurde 2010 als Open Source Projekt veröffentlicht. In den folgenden Jahren erschienen 
 mehrere wissenschaftliche Publikationen, die sich mit den zugrunde liegenden Ideen beschäftigten. Es bildete sich eine rasch wachsende Community. Seit 2014 ist es als [Top-Level-Projekt](https://blogs.apache.org/foundation/entry/the_apache_software_foundation_announces50 "zur Webseite") Teil der
 [Apache Software Foundation](https://www.apache.org "zur Webseite"). Als Nutzer werden u.a. IBM, Intel und Yahoo aufgelistet.
 
@@ -105,7 +105,7 @@ Eine erschöpfende Betrachtung würde hierbei den Rahmen und die Zielsetzung die
 
 In den nachfolgenden Versionen wurden beide Konstrukte zusammengeführt. Ein ***DataFrame*** wird hier als ein ***DataSet vom Typ Row*** angesehen und kann auch unstrukturierte Daten enthalten. Ein weiteres wichtiges Feature ist die Möglichkeit, SQL zur Abfrage und Selektion strukturiert vorliegender Daten verwenden zu können.
 
-Im Abschnitt [02 Datenstrukturen](02_Datenstrukturen.md#Spark "zum Abschnitt") wird hierauf näher eingegangen. Daneben existiert auf der Seite von Spark eine umfassende [Dokumentation von SparkSQL](https://spark.apache.org/docs/latest/sql-programming-guide.html "zur Dokumentation"). 
+Im Abschnitt [02 Datenstrukturen](02_Datenstrukturen.md#spark "zum Abschnitt") wird hierauf näher eingegangen. Daneben existiert auf der Seite von Spark eine umfassende [Dokumentation von SparkSQL](https://spark.apache.org/docs/latest/sql-programming-guide.html "zur Dokumentation"). 
 
 ### MLlib
 
@@ -123,7 +123,7 @@ Weiterhin werden die ***Erstellung von Workflows*** für die Verarbeitung (Pipel
 [_zurück_](01_Spark_Umfeld.md#spark-ökosystem-und-erweiterungen "Zurück")
 
 Bei [GraphX](https://spark.apache.org/graphx "zur Webseite") handelt es sich um eine Erweiterung, welche die Möglichkeit eröffnet, im Kontext von Spark mit Graphen zu arbeiten. Nach [eigenen Angaben](https://spark.apache.org/docs/latest/graphx-programming-guide.html "zur Dokumentation") erweitert es die grundlegende und auf Basis der 
-[RDD](02_Datenstrukturen.md#Spark "zum Abschnitt") aufgebaute Struktur um eine ***Graphenabstraktion***. Hierzu wurden mehrere Erweiterungen für die Arbeit mit Graphen hinzugefügt. Zudem enthält es eine Reihe von ***Algorithmen für die Arbeit mit und Analyse von Graphen***, welche stetig wächst.
+[RDD](02_Datenstrukturen.md#spark "zum Abschnitt") aufgebaute Struktur um eine ***Graphenabstraktion***. Hierzu wurden mehrere Erweiterungen für die Arbeit mit Graphen hinzugefügt. Zudem enthält es eine Reihe von ***Algorithmen für die Arbeit mit und Analyse von Graphen***, welche stetig wächst.
 
 Mit Blick auf die immer größere Akzeptanz und den Einsatz von Graphendatenbanken ist diese Erweiterung aus Sicht des Autors sehr wichtig. Um Spark im Kontext von Graphendatenbanken grundsätzlich zu verwenden, ist diese Erweiterung jedoch nicht zwingend notwendig. Als Beispiel sei hier die weit verbreitete Datenbank [Neo4j](https://neo4j.com "zur Webseite") genannt, welche einen eigenen [Konnektor für Spark](https://neo4j.com/docs/spark/current "zur Dokumentation") anbietet.   
 
