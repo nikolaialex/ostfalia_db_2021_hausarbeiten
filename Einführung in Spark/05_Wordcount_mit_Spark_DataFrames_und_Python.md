@@ -13,7 +13,7 @@ Auch der hier vorgestellte Code ist als lauffähiges [_Jupyter Notebook_](notebo
 [_zurück_](05_Wordcount_mit_Spark_DataFrames_und_Python.md#5-wordcount-mit-spark-dataframes-und-python "Zurück")
 
 Der wichtigste Unterschied zum vorhergehenden Beispiel ist die Nutzung der neueren [***Spark Session***](https://spark.apache.org/docs/latest/sql-getting-started.html "zur Dokumentation") 
-statt eines [***Spark Context***](https://spark.apache.org/docs/3.1.1/api/python/reference/api/pyspark.SparkContext.html "zur Dokumentation"). Das Kapitel [Datenstrukturen](02_Datenstrukturen.md) geht hierauf näher ein. Zugriff hierauf erhält man mit Hilfe der Bibliothek [pyspark.sql](https://spark.apache.org/docs/2.4.0/api/python/pyspark.sql.html "zur Dokumentation").
+statt eines [***Spark Context***](https://spark.apache.org/docs/3.1.1/api/python/reference/api/pyspark.SparkContext.html "zur Dokumentation"). Das Kapitel [Datenstrukturen](02_Datenstrukturen.md "zum Kapitel") geht hierauf näher ein. Zugriff hierauf erhält man mit Hilfe der Bibliothek [pyspark.sql](https://spark.apache.org/docs/2.4.0/api/python/pyspark.sql.html "zur Dokumentation").
 
 Die folgende Codesequenz erzeugt eine [Spark Session](https://spark.apache.org/docs/latest/sql-getting-started.html "zur Dokumentation") mit der Bezeichnung *Wordcount*. Ist diese Session noch nicht vorhanden, so wird sie erstellt, ansonsten die vorhandene zurückgegeben:
 
