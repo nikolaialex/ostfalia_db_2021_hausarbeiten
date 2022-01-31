@@ -215,13 +215,13 @@ Dokumentation von Apache Spark in der aktuellen Version
 [Link](https://spark.apache.org/docs/latest)
 
 Apache Spark Dokumentation zur Einführung von DataFrames (nicht mehr aktuelle Dokumentation)
-[Link](https://spark.apache.org/docs/1.3.0 DataFrames)
+[Link](https://spark.apache.org/docs/1.3.0)
 
-Apache Spark Dokumentation zur Einführung von DataSets (nicht mehr aktuelle Dokumentation
-[Link](https://spark.apache.org/docs/1.6.0 DataSet)
+Apache Spark Dokumentation zur Einführung von DataSets (nicht mehr aktuelle Dokumentation)
+[Link](https://spark.apache.org/docs/1.6.0)
 
-Apache Spark Dokumentation zur Verbindung von DataSet und DataFrames (nicht mehr aktuelle Dokumentation
-[Link](https://spark.apache.org/docs/2.0.0 DataSet und DataFrame)
+Apache Spark Dokumentation zur Verbindung von DataSet und DataFrames (nicht mehr aktuelle Dokumentation)
+[Link](https://spark.apache.org/docs/2.0.0)
 
 Spark Python API Docs
 [Link](https://spark.apache.org/docs/2.2.0/api/python/index.html)
