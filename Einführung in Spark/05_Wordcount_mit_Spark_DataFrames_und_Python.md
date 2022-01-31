@@ -63,9 +63,9 @@ df=df.withColumn('value', func.translate('value', '-', ' '))
 df=df.withColumn('value', func.lower('value'))
 ```
 
-Mit Hilfe der Methode [***withColumn***](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.DataFrame.withColumn.html "zur Dokumentation") wird die übergebene Funktion ähnlich der zuvor behandelten [Map Funktion](02_Datenstrukturen.md#transformationen-und-aktionen "zum Abschnitt") auf alle Datensätze angewendet. Jeder Datensatz entspricht einer ***Zeile der Textdatei***.
+Mit Hilfe der Methode [***withColumn***](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.DataFrame.withColumn.html "zur Dokumentation") wird die übergebene Funktion ähnlich der zuvor behandelten [Map Funktion](02_Datenstrukturen.md#transformationen-und-aktionen-rdds "zum Abschnitt") auf alle Datensätze angewendet. Jeder Datensatz entspricht einer ***Zeile der Textdatei***.
 
-Diese Funktion ***splittet*** zunächst die einzelne Zeile durch ihre Leerzeichen. Im Anschluss sorgt die Funktion [***explode***](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.functions.explode.html "zur Dokumentation") dafür, dass ähnlich der zuvor behandelten [FlatMap Funktion](02_Datenstrukturen.md#transformationen-und-aktionen "zum Abschnitt"), aus dem zurück gegebenen Array mit *n* Spalten ein Array mit nur *einer* Spalte - *value2* - und *n* Reihen erzeugt wird.
+Diese Funktion ***splittet*** zunächst die einzelne Zeile durch ihre Leerzeichen. Im Anschluss sorgt die Funktion [***explode***](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.functions.explode.html "zur Dokumentation") dafür, dass ähnlich der zuvor behandelten [FlatMap Funktion](02_Datenstrukturen.md#transformationen-und-aktionen-rdds "zum Abschnitt"), aus dem zurück gegebenen Array mit *n* Spalten ein Array mit nur *einer* Spalte - *value2* - und *n* Reihen erzeugt wird.
 
 ```python
 print("")
