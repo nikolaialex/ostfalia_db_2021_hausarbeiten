@@ -1,14 +1,38 @@
+
+<img src="assets/erlang-logo.svg" width="300" />
+
 # Erlang
 
 Erlang ist eine funktionale Programmiersprache. Allerdings nicht nur eine Sprache, sondern ein komplettes Laufzeitsystem. Sie wurde von Joe Armstrong für Ericcson entwickelt.
-Sie wurde für einen sehr speziellen Anwenungsgrund konzipiert, nämlich die Verwendung in Telekommunkitationsnetzen. Daher sind folgende Anforderungen bereits in die Konzeption der Sprache eingeflossen:
+Sie wurde für einen sehr speziellen Anwendungsgrund konzipiert, nämlich die Verwendung in Telekommunikationsnetzen. Daher sind folgende Anforderungen bereits in die Konzeption der Sprache eingeflossen:
 
-## WICHTIG, die ganze Ausarbeitung wird sich hier drauf beziehen!!!!
+## Kernkonzepte
 * Ausfallsicherheit
 * Nebenläufigkeit
 * Fehlertoleranz
 * Updates im laufenden Betrieb
 
+Jeder dieser Begriffe ist für sich bereits ein beeindruckendes Konzept in der Informatik. Da in dieser Ausarbeitung damit gearbeitet wird, folgt, sollen sie daher kurz definiert werden.
+
+<dl>
+  <dt>Ausfallsicherheit</dt>
+  <dd>Die Eigenschaft, Verfügbarkeit eines Dienstes zu gewährleisten. Joe Armstrong, der Erfinder von Erlang, rühmt sich damit, dass Erlang-Code in einem Sytem, dass für 20 Jahre eingesetzt wurde eine Verfügbarkeit von "nine nines"[], also Eine Ausfallsicherheit von 99,9999999% erreicht zu haben</dd>
+</dl>
+
+<dl>
+  <dt>Nebenläufigkeit</dt>
+  <dd>Nebenläufigkeit ist der große und oftmals unbekannte Bruder der Parallelität. Nebenläufigkeit meint die Fähigkeit eines Systems, mehrere Prozesse unabhängig, bzw. getrennt von einander abzuarbeiten. Es ist eines **der** Kernkonzepte von Erlang und spielt auch für *Mnesia* eine große Rolle.</dd>
+</dl>
+
+<dl>
+  <dt>Fehlertoleranz</dt>
+  <dd>Die Fähigkeit eines Systems kontinuierlich zu funktionieren und in einem Fehlerfall durch verschiedene Mechanismen wieder einen funktionierenden Zustand zu erreichen</dd>
+</dl>
+
+<dl>
+  <dt>Updates im laufenden Betrieb</dt>
+  <dd>Ein weiteres sehr interessantes Konzept der Programmiersprache, die leider diese Ausarbeitung sprengen würde ist die Fähigkeit von Erlang, Frameworks/Richtlinien bereitzustellen, nach deren Implementierung Updates in das laufende System einspielen zu können.</dd>
+</dl>
 
 ## Datentypen
 Wie jede gängige Programmiersprache stellt auch Erlang bestimmte Basis-Datentypen zur Verfügung.
@@ -43,14 +67,25 @@ Strings sind Erlang eine Sonderlösung, eigentlich sind es nur Integerlisten, wo
 ```
 
 ### Binaries
-Binaries sind eine Datenstruktur, um große Datenmengen effizient (platzeffiezient) abzulegen. Es können Strings und Integer abgelegt werden. In diesem Fall sind Strings ASCII kodiert und Integer können nicht größer als 255 sein.  Binaries können außerdem verwendet werden, um UTF-8 kodierte Strings zu definieren.
+Binaries sind eine Datenstruktur, um große Datenmengen effizient (platzeffizient) abzulegen. Es können Strings und Integer abgelegt werden. In diesem Fall sind Strings ASCII kodiert und Integer können nicht größer als 255 sein.  Binaries können außerdem verwendet werden, um UTF-8 kodierte Strings zu definieren.
 ``` erlang
 17> Z = <<"Tür"/utf8>>.
 <<"Tür"/utf8>>
 ```
 
-### TODO: Evtl noch etwas zu Records?
+### Records
 
+Eine weitere wichtige Datenstruktur, die auch intensiv von *Mnesia* genutzt werden sind die sog. **Records**. Möchte man Daten strukturiert ablegen, bieten sich bisher *Tuple* an, allerdings können diese leicht unübersichtlich werden, falls die Anzahl der Elemente zu groß wird. Da die Position der einzelnen Elemente anonym ist, muss sich gemerkt werden an welcher Position welches Datum liegt. In diesem Fall kann der Datentyp **Record** genutzt werden, da jedem Wert ein Key zugerodnet wird.
+
+``` Erlang
+-record(Hund, {
+  name,
+  rasse,
+  alter,
+  farbe,
+}).
+```
+### EVTL Hier noch was zu ETS/DETS?
 ## Programmstruktur
 ### Module
 Die Programmstruktur ist relativ einfach. Abläufe werden in Funktionen definiert, diese Funktionen wiederum werden in sogenannten *Modulen* zusammengefasst. Module werden in Dateien mit dem Suffix **.erl** abgespeichert. Um dieses Modul nutzen zu können, muss es vorher kompiliert werden. Anschließend ist eine *.beam* Datei erstellt worden. Analog zu Java  .java -> .class gibt es bei Erlang .erl -> .beam.

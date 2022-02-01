@@ -3,3 +3,4 @@
 [2] Mattson Hakan, Nilson Hans, Wikström Claes (1999): Mnesia - A Distributed Robust DBMS for Telecommunications Applications
 [3] Wikipedia (2022): Fallacies of Distributed Computing, https://de.wikipedia.org/wiki/Fallacies_of_Distributed_Computing
 [4] Özsu, Valduriez (1999): Principles of distributed Database Systems
+[5]
