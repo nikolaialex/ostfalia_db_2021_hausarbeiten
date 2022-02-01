@@ -1,41 +1,21 @@
 #### [Zum Anfang](README.md "zur Startseite") | [Inhaltsverzeichnis](00_Inhaltsverzeichnis.md "zum Inhaltsverzeichnis")
 
-# 7 Wordcount mit Spark DataFrames und Python
+# 5 Wordcount mit Spark DataFrames und Python
 
-An dieser Stelle wird eine Variante der zuvor im Kapitel
-[Wordcount mit Spark und Python](04_Wordcount_mit_Spark_RDDs_und_Python.md "zum Kapitel")
-vorgestellten Beispiels vorgestellt.
+An dieser Stelle wird eine Variante des zuvor im Kapitel [Wordcount mit Spark und Python](04_Wordcount_mit_Spark_RDDs_und_Python.md "zum Kapitel") beschriebenen Beispiels vorgestellt.
 
-Auch wenn viele der Methoden auf Grund der gleichen Aufgabenstellung gleichbleiben, finden sich im Gegensatz zur
-vorherigen Anwendung entscheidende Änderungen in der Art der Sparknutzung. Statt mit RDDs kommen nunmehr die neueren
-Data Frames Objekte zum Einsatz.
+Im Gegensatz zur vorherigen Anwendung finden sich einige entscheidende Änderungen in der Art, wie auf Spark zugegriffen und damit gearbeitet wird. ***Statt RDDs*** kommen nunmehr die neueren ***Data Frames*** zum Einsatz. Um unnötige Wiederholungen zu vermeiden, wird auf die Erklärung bereits zuvor verwendeten Codebestandteile verzichtet. 
 
-Im folgenden soll nun auf die Unterschiede in der Programmierung kurz eingegangen werden. Um unnötige Wiederholungen zu
-vermeiden wird auf die Erklärung der bereits zuvor verwendeten Codebestandteile verzichtet. Diese werden bereits
-ausführlich im
-[vorhergehenden Kapitel](04_Wordcount_mit_Spark_RDDs_und_Python.md "zum Kapitel")
-erklärt.
-
-Wie bereits zuvor ist auch der Code dieses Abschnitts als lauffähiges  
-[_Jupyter Notebook_](notebook/Wordcount_mit_Spark_DataFrame.ipynb "zum Notebook")
-Teil dieser Arbeit und frei verwendbar.
+Auch der hier vorgestellte Code ist als lauffähiges [_Jupyter Notebook_](notebook/Wordcount_mit_Spark_DataFrame.ipynb "zum Notebook") Teil dieser Arbeit und frei verwendbar.
 
 ## Session statt Context
 
-Ein wichtiger Unterschied im Gegensatz zur Nutzung eines 
-[Spark Context](https://spark.apache.org/docs/3.1.1/api/python/reference/api/pyspark.SparkContext.html "zur Dokumentation") 
-ist, das hier nun eine 
-[Spark Session](https://spark.apache.org/docs/latest/sql-getting-started.html "zur Dokumentation") 
-verwendet werden soll. Zugriff auf
-[Spark Session](https://spark.apache.org/docs/latest/sql-getting-started.html "zur Dokumentation") 
-erhält man über die Bibliothek 
-[pyspark.sql](https://spark.apache.org/docs/2.4.0/api/python/pyspark.sql.html "zur Dokumentation")
-, welche aus Gründen der Übersichtlichkeit erst hier eingebunden wird.
+[_zurück_](05_Wordcount_mit_Spark_DataFrames_und_Python.md#5-wordcount-mit-spark-dataframes-und-python "Zurück")
 
-Mit der folgenden Codesquenz erhält man eine
-[Spark Session](https://spark.apache.org/docs/latest/sql-getting-started.html "zur Dokumentation") 
-mit der Bezeichnung Wordcount. Ist diese Session noch nicht vorhanden, so wird sie erstellt, ansonsten die vorhandene 
-zurückgegeben.
+Der wichtigste Unterschied zum vorhergehenden Beispiel ist die Nutzung der neueren [***Spark Session***](https://spark.apache.org/docs/latest/sql-getting-started.html "zur Dokumentation") 
+statt eines [***Spark Context***](https://spark.apache.org/docs/3.1.1/api/python/reference/api/pyspark.SparkContext.html "zur Dokumentation"). Das Kapitel [Datenstrukturen](02_Datenstrukturen.md) geht hierauf näher ein. Zugriff hierauf erhält man mit Hilfe der Bibliothek [pyspark.sql](https://spark.apache.org/docs/2.4.0/api/python/pyspark.sql.html "zur Dokumentation").
+
+Die folgende Codesequenz erzeugt eine [Spark Session](https://spark.apache.org/docs/latest/sql-getting-started.html "zur Dokumentation") mit der Bezeichnung *Wordcount*. Ist diese Session noch nicht vorhanden, so wird sie erstellt, ansonsten die vorhandene zurückgegeben:
 
 ```python
 # Erzeugen einer Spark Session
@@ -48,48 +28,9 @@ print("Die Spark Session wurde angelegt...")
 
 ## DataFrame Methoden statt Map
 
-Anschließend wird die Textdatei eingelesen. Die Funktion 
-[Session.read.text](https://spark.apache.org/docs/latest/sql-getting-started.html#creating-dataframes "zur Dokumentation")
-liest eine Textdatei ein und gibt ein direkt
-nutzbares typisiertes Spark 
-[DataFrame](https://spark.apache.org/docs/latest/sql-programming-guide.html "zur Dokumentation") 
-zurück. Über ein Reflexion-Prozess kann das Schema der enthaltenen Daten - in
-diesem Fall ein nullable String – erkannt und ausgegeben werden.
+[_zurück_](05_Wordcount_mit_Spark_DataFrames_und_Python.md#5-wordcount-mit-spark-dataframes-und-python "Zurück")
 
-Im Weiteren finden zunächst eine Reihe von Ersetzungen (replace), dann eine Konvertierung in Kleinbuchstaben (lower)
-und am Schluss eine Filterung (filter) auf leere Zeilen statt. Hierbei wird jedes Mal ein neues
-[DataFrame](https://spark.apache.org/docs/latest/sql-programming-guide.html "zur Dokumentation")
-zurückgegeben.
-Da Spark DataFrames auf
-[Spark RDDs](02_Datenstrukturen.md#spark-rdds "zum Abschnitt")
-basieren, sind auch sie immutable. Die Methode 
-[withColumn](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.DataFrame.withColumn.html "zur Dokumentation") 
-bewirkt, dass die übergebene
-Funktion ähnlich der zuvor behandelten
-[Map Funktion](02_Datenstrukturen.md#transformationen-und-aktionen "zum Abschnitt")
-auf alle Datensätze angewendet wird.
-
-Der letzte Schritt erinnert stark an ein 
-[SQL](https://de.wikipedia.org/wiki/SQL "zur Wikipediaseite") 
-Konstrukt. Zunächst wird jeder Zeile durch ihre Leerzeichen gesplittet. Die
-Funktion 
-[explode](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.functions.explode.html "zur Dokumentation") 
-sorgt ähnlich der zuvor behandelten 
-[FlatMap Funktion](02_Datenstrukturen.md#transformationen-und-aktionen "zum Abschnitt")
-dafür, dass das so entstandene Array mit n Spalten als ein Array mit einer Spalte (value2)
-und n Reihen zurückgegeben wird.
-
-Die Funktion 
-[groupBy](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.DataFrame.groupBy.html "zur Dokumentation")
-gruppiert die in value2 enthaltenen Werte (Wörter) und 
-[Count](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.DataFrame.count.html "zur Dokumentation")
-aggregiert die Anzahl der einzelnen
-Vorkommen. Abgeschlossen wir die Anweisung mit einem 
-[sort](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.DataFrame.sort.html)
-und der Ausgabe der sortierten Liste. Die Nutzung der Fluent
-API macht den Code hierbei gut lesbar. Ebenso fällt die Ähnlichkeit zu 
-[Panda DataFrames](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html "zur Dokumentation")
-auf.
+Zunächst wird die Datei mit Hilfe der Funktion [***Session.read.text***](https://spark.apache.org/docs/latest/sql-getting-started.html#creating-dataframes "zur Dokumentation") eingelesen. Die Funktion liefert ein direkt nutzbares und typisiertes [***Spark DataFrame***](https://spark.apache.org/docs/latest/sql-programming-guide.html "zur Dokumentation") zurück. Hieraus werden die ersten 30 Zeilen mit der Funktion [***DataFrame.show***](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.DataFrame.show.html "zur Dokumentation") zurückgegeben:
 
 ```python
 # Auszählen der Wörter
@@ -111,28 +52,43 @@ print("Ausgabe der ersten {} Zeilen des Textes".format(top_out))
 print("")
 
 df.show(n=top_out,truncate=False)
+```
 
-#df.printSchema()
-#df.describe().show()
-#print(df.columns)
+Anschließend folgen eine Reihe von ***Ersetzungen*** (*replace*), eine ***Konvertierung in Kleinbuchstaben*** (*lower*) und am Schluss eine ***Filterung*** (*filter*) auf leere Zeilen. Hierbei wird jedes Mal ein neues [DataFrame](https://spark.apache.org/docs/latest/sql-programming-guide.html "zur Dokumentation") zurückgegeben:
 
+```python
 df=df.withColumn('value', func.translate('value', ',', ' '))
 df=df.withColumn('value', func.translate('value', '.', ' '))
 df=df.withColumn('value', func.translate('value', '-', ' '))
 df=df.withColumn('value', func.lower('value'))
+```
 
+Mit Hilfe der Methode [***withColumn***](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.DataFrame.withColumn.html "zur Dokumentation") wird die übergebene Funktion ähnlich der zuvor behandelten [Map Funktion](02_Datenstrukturen.md#transformationen-und-aktionen "zum Abschnitt") auf alle Datensätze angewendet. Jeder Datensatz entspricht einer ***Zeile der Textdatei***.
+
+Diese Funktion ***splittet*** zunächst die einzelne Zeile durch ihre Leerzeichen. Im Anschluss sorgt die Funktion [***explode***](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.functions.explode.html "zur Dokumentation") dafür, dass ähnlich der zuvor behandelten [FlatMap Funktion](02_Datenstrukturen.md#transformationen-und-aktionen "zum Abschnitt"), aus dem zurück gegebenen Array mit *n* Spalten ein Array mit nur *einer* Spalte - *value2* - und *n* Reihen erzeugt wird.
+
+```python
 print("")
 print("Ausgabe der {} größten Vorkommen".format(top_length))
 print("")
 
 df=df.withColumn('value2',func.explode(func.split(func.col('value'), ' ')))\
+```
+
+Die Funktion [***groupBy***](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.DataFrame.groupBy.html "zur Dokumentation") gruppiert die in *value2* enthaltenen Werte (*Wörter*) und [***count***](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.DataFrame.count.html "zur Dokumentation") aggregiert die Anzahl der einzelnen Vorkommen. Abgeschlossen wird die Anweisung mit einem [***sort***](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.DataFrame.sort.html "zur Dokumentation") und der Ausgabe der nun sortierten Liste. 
+
+Auch hier macht die Nutzung der ***Fluent API*** den Code gut lesbar. Ebenso fällt die Ähnlichkeit zu 
+[Panda DataFrames](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html "zur Dokumentation") auf.
+
+```python
+df=df.withColumn('value2',func.explode(func.split(func.col('value'), ' ')))\
   .groupBy('value2')\
   .count()\
   .sort('count', ascending=False)\
   .show(n=top_length,truncate=False)
-```  
+```
 
-Das Ergebnis ist eine Liste aller Wörter mit deren Vorkommen in absteigender Reihenfolge. Hierbei steht an erster Stelle
-das Leerzeichen als häufigster Vertreter.
+Das Ergebnis ist eine ***Liste aller Wörter*** mit deren ***Vorkommen*** in ***absteigender Reihenfolge***. Hierbei steht an erster Stelle das Leerzeichen als häufigster Vertreter.
 
-![dataframe_wörter.png](./assets/dataframe_wörter.png "Ausgabe der Wortliste in absteigender Reihenfolge")
+
+![dataframe_wörter.png](./assets/dataframe_wörter.png "Ausgabe der Wortliste in absteigender Reihenfolge im Notebook")
