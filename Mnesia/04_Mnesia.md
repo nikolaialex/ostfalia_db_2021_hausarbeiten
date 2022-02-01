@@ -2,7 +2,42 @@
 Wie in den vorrangegangen Kapiteln bereits erläutert, stellt Erlang viel von dem von Haus aus bereit, was in **Kapitel_3** an Anforderungen für verteilte nebenläufige Datenbanken gilt. Da eine Datenbank auch zu den Anforderungen eines modernen Programmier-Ökosystems gehört, ist die Datenbank **Mnesia** in den *OTP* integriert. Hierbei handelt es sich um ein komplettes **DBMS**. Mehrere Features, z.B. das Halten der Daten im Arbeitsspeicher oder das replizieren der Daten auf mehreren Maschinen wird in *Mnesia* von Haus aus unterstützt.
 
 
-Hier noch ein bisschen blabla über: was für ein Datenbanktyp, OIDs, Records
+## Features
+Zu den Features in *Mnesia* gehören:
+<dl>
+  <dt>Transparente Replikation</dt>
+  <dd>Die semi-automatische Replikation zu mehreren Mnesia-Knoten</dd>
+</dl>
+
+<dl>
+  <dt>2-Phasen-Commit</dt>
+  <dd>Schreibende Änderungen werden im 2- (im Fehlerfall: 3-)Phasen-Commit erstellt</dd>
+</dl>
+
+<dl>
+  <dt>Unterstützte Datentypen</dt>
+  <dd>Mnesia unterstützt native Erlang-Datentypen</dd>
+</dl>
+
+<dl>
+  <dt>verschiedene Storagetypen</dt>
+  <dd>Mnesia unterstützt RAM-, Storage- oder RAM+Storage-Schreibvorgänge</dd>
+</dl>
+
+<dl>
+  <dt></dt>
+  <dd></dd>
+</dl>
+
+<dl>
+  <dt></dt>
+  <dd></dd>
+</dl>
+
+<dl>
+  <dt></dt>
+  <dd></dd>
+</dl>
 
 ## Datentypen
 Da Mnesia sehr stark in Erlang integriert sind, entsprechen die unterstützten Datentypen denen von Erlang, darunter fallen z.B. String, atoms, int, float, etc.
