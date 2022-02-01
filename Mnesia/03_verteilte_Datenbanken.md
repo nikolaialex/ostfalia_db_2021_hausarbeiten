@@ -1,5 +1,11 @@
 # verteilte Datenbanken
 
+## Definition
+Im folgenden Kontext wird unter einer verteilten Datenbank eine Sammlung von verschiedenen,logisch miteinander verknüpften Datenbanken verstanden, die Knoten eines verteilten Systems sind.
+Ein verteiltes Datenbankmanagementsystem (*distributed DBMS*) definieren wir davon ableitend als
+![DDBMS](assets/ddbms.png)
+## merkmale einer verteilten Datenbank
+
 # Warum
 
 # Anforderungen
