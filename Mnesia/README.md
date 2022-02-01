@@ -14,6 +14,6 @@ In dieser Ausarbeitung soll die Programmiersprache Erlang und deren Ökosystem v
 4. Mnesia
 5. Literatur
 
-[Start](./01_Einleitung.md)
+[**Start**](./01_Einleitung.md)
 
 
