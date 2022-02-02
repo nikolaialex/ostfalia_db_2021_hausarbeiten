@@ -4,3 +4,5 @@
 [3] Wikipedia (2022): Fallacies of Distributed Computing, https://de.wikipedia.org/wiki/Fallacies_of_Distributed_Computing
 [4] Özsu, Valduriez (1999): Principles of distributed Database Systems
 [5]
+[6] Codd
+[7] Date
