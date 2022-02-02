@@ -28,4 +28,8 @@
 
 [14] Database System Concepts, Nguyen Kim Anh → https://cnx.org/contents/tXuHYGiY@1/Database-System-Concepts, abgerufen am: 01.02.2022
 
-[15] https://www.embedded-software-engineering.de/die-bedeutung-von-verteilten-datenbanken-fuer-das-internet-der-dinge-a-904941/, abgerufen am:01.02.2022
+[15] https://www.embedded-software-engineering.de/die-bedeutung-von-verteilten-datenbanken-fuer-das-internet-der-dinge-a-904941/, abgerufen am: 01.02.2022
+
+[16] Souza et al., Parallel Execution of Workflows Driven by a Distributed Database Management System, 2015
+
+[17] Abdel Raouf, Ahmed & Badr, Nagwa & Tolba, Mohamed. (2017). Distributed Database System (DSS) Design Over a Cloud Environment. 10.1007/978-3-319-44270-9_5. 
