@@ -97,7 +97,6 @@ AWS DynamoDB Logo [^37]
 In today's world data and information is the new currency.
 
 Every second more and more information in the form of data is produced all over the world.
-
 To store this kind of information which is represented in different data types several different types of databases are developed to handle different use cases. Today a database does not only need to save data but other factors for example speed or advanced data transformations are other key factors to consider when choosing a suitable database system.
 
 The most favorite database systems today are relational databases based on “Structured Query Language” (better known as “SQL”). But recently because of the new requirements and different data types another form of database system emerged which are called NoSQL or key-value databases offering new possibilities to save, retrieve and transform data.
@@ -106,9 +105,9 @@ One of these newer databases is the key-value database DynamoDB which has been d
 
 Amazon DynamoDB is a fully managed database service service which means that the customer does not have to take care of tasks like managing servers or its underlying hardware. Amazon Web Services will provide the security, stability and scalability needed for this service.Configurations and setups are already done. Data replications and backups are included and software patches are managed as a service. Optional offerings like encryption for operations with sensitive data or flexible scalability for any level of requested traffic are also possible addons  the customer can use. As well as in-time recovery, seamless scalability and throughput capacity, several management consoles are interesting add-ons. Standards like high availability and durability of data without downtime or performance degradation are included.
 
-Summarizing these marketing facts this paper can give a clue of one the possibilities today's markets are offering for the topic of managing data and databases.
+This paper tries to give an insight into the possibilities of managing data and databases with AWS DynamoDB.
 
-And how does it work? Here’s the point where this paper really starts. The following chapters shall describe the architecture of Amazon DynamoDB and give some real use cases. Data models and data types are introduced . Then we will have a look at  tables and provisioning in the next chapter including read and write data before dealing with transactions, local and global indexes and streams. The last technical chapter will evaluate the in-memory acceleration before this paper ends with a conclusion of the authors.
+We want to take a look at the technology and science behind the offered service by taking a deep dive into the architecture of Amazon DynamoDB and give some real use cases. Data models and data types are introduced. We will have a look at tables and provisioning, we will show how to read and write data before dealing with transactions, local and global indexes and streams. The last technical chapter will evaluate the in-memory acceleration before this paper ends with a conclusion of the authors. This way we will present and in depth look into what lies behind the offered full managed service.
 
 \
 &nbsp;
