@@ -1,0 +1,7 @@
+## 4. Zusammenfassung und Ausblick
+VDMBS sind dezentrale Datensysteme, die komplexe Geschäftsprozesse abbilden können und eine große Rechen- und Speicherleistung bieten. In der Praxis ist die Wartung und der Betrieb deutlich komplexer als bei einem zentralisierten Datenbankmanagementsystem, jedoch überwiegen in einem globalen Kontext die Vorteile der verteilten Speicherung und Replikation von Datenfragmenten, die eine Lastverteilung und Ausfallsicherheit und damit moderne digitale Anwendungen überhaupt ermöglichen. Die Skalierbarkeit ist ein großer Vorteil, um Downtimes beim Austausch bestehender oder bei der Erweiterung um neue Knoten zu eliminieren. Gleichermaßen bedeutet der Ausfall eines Knotens bei entsprechender Konfiguration keine Verschlechterung des Services, da andere Knoten die Aufgaben übernehmen können. Hierbei kann eine Georedundanz erreicht werden, bei der selbst der Ausfall eines Kommunikationsweges in einem Katastrophenfall nicht weiter auffallen würde (zum Beispiel Azure SQL Database). Durch die Transparenz im Bezug auf die Fragmentierung, Allokation und Replikation von Datenelementen verhält sich ein VDBMS wie ein zentralisiertes Datenbanksystem – für die Benutzerin und Anwendungsentwicklerinnen ist die verteilte Struktur transparent und muss nicht in die Benutzung oder Entwicklung mit einbezogen werden.
+
+In Zukunft werden VDBMS an dieser und jener Stelle noch verbessert.
+
+
+Nächstes Kapitel: [Quellen](05-quellen.md)
