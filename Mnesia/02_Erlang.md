@@ -112,3 +112,5 @@ Gelöst wird dies durch sogenanntes **Message Passing** und **Prozesse**. Jede F
 
 ## OTP
 Die Sprache Erlang steht nicht nur alleine, sie hat auch ihr eigenes Ökosystem, die sogenannte **O**pen **T**elecom **P**latform. Es stellt mehrere Bibliotheken und Vorgehensweise bereit, um Anwendungen verteilt und fehlertolerant implementieren zu können, auch bei skalierender Anforderung.
+
+[**Weiter**](./03_verteilte_Datenbanken.md)
