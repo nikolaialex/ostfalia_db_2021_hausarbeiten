@@ -25,13 +25,13 @@ Zu den Features in *Mnesia* gehören:
 </dl>
 
 <dl>
-  <dt></dt>
-  <dd></dd>
+  <dt>ACID</dt>
+  <dd>Mnesia erfüllt den ACID-Eigenschaften</dd>
 </dl>
 
 <dl>
-  <dt></dt>
-  <dd></dd>
+  <dt>Eigene Abfragensprache</dt>
+  <dd>Mnesia nutzt nicht *SQL*, sondern *Erlang* für die Abfragen</dd>
 </dl>
 
 <dl>
@@ -42,6 +42,9 @@ Zu den Features in *Mnesia* gehören:
 ## Datentypen
 Da Mnesia sehr stark in Erlang integriert sind, entsprechen die unterstützten Datentypen denen von Erlang, darunter fallen z.B. String, atoms, int, float, etc.
 
+
+## Datenbankmodell
+Grundsätzlich ist *Mnesia* eine relationale Datenbank, allerdings unterscheidet sie sich von den meisten bekannten. Wie bereits geschrieben unterstützt *Mnesia* kein SQL sondern nutzt eine eigene, Erlang-native Abfragenlogik (BEISPIEL: Hier). Außerdem kennt *Mnesia* keine Relationalen Schemata. Es gibt lediglich Tabellen, die logische Verknüpfung muss durch die Abfrage erfolgen.
 
 ## Beispieltabelle: Warenlager - Buch
 
@@ -80,3 +83,5 @@ Dabei gelten die üblichen Vor- und Nachteile: Eintrage im *RAM* sind sehr schne
 Befinden sich die Daten auf dem lokalen Storage nutzt Mnesia einen *disk log*. Alle Operationen werden zunächst in diesen
 disk log geschrieben und anschließend periodisch in die Datenbank geschrieben. Wenn dieser Schreibzugriff erfolgreich war, wird der Log
 gelöscht. Bei einem Systemcrash kann dieser *disk log* auf genutzt werden, um fehlende oder unvollständige Transaktionen der Datenbank zu korrigieren.
+
+[**Weiter**](./05_Fazit.md)

@@ -29,3 +29,5 @@ Wie genau Mnesia diese Probleme löst, wird im nächsten Kapitel genauer erläut
 die unterliegende Programmiersprache bereits einige der Probleme als Kernprobleme anerkennt und Lösungen bereitstellt.
 
 ## ACID
+
+[**Weiter**](./04_Mnesia.md)
