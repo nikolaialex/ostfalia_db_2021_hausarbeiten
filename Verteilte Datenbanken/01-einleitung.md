@@ -1,0 +1,24 @@
+# Verteilte Datenbanken
+## Inhaltsverzeichnis
+1. Einleitung
+2. Grundlagen
+   1. Abgrenzung zu unverteilten bzw. zentralen Datenbanken
+   2. Aufbau
+   3. Ziele
+3. Funktionsweise
+   1. Fragmentierung
+   2. Replikation
+   3. Allokation
+   4. Transparenz
+   5. CAP-Theorem
+   6. DDBMS on IaaS
+   7. Vor- und Nachteile
+4. Zusammenfassung und Ausblick
+5. Quellen
+  
+## 1. Einleitung
+Digitale Dienstleistungen wie die Speicherung von Daten in einem Cloud-Dienst oder der Analyse von großen Datenmengen innerhalb einer Big-Data-Anwendung stellen neue Anforderungen an die Skalierbarkeit von Datenbanksystemen (vgl. [7], S. V). Die Bereitstellung einer Anwendung, wie einer Suchmaschine im Web, bedarf einer ausfallsicheren und skalierbaren Struktur zur Datenhaltung, die nicht nur eine enorme Kapazität bereitstellt, sondern auch mit einer niedrigen Latenz auf eine Anfrage reagieren kann. Eine niedrige Latenz kann durch eine Verkürzung der Kommunikationswege erreicht werden, in dem beispielsweise ein Knoten eines solchen System geografisch näher an die Benutzerin positioniert wird. Komplexe Geschäftsprozesse von weltweit agierenden Unternehmen in einer globalen Wirtschaft werden unter mit leistungsfähigen Datenbanksystemen abgebildet. Da digitale Anwendungen und Dienstleistungen oftmals performant und hochverfügbar angeboten werden, sind zentralisierte Datenbanksysteme dieser Aufgabe nicht immer gewachsen. Betreibt ein Unternehmen mehrere Standorte, so eignen sich verteilte Datenbankmanagementsysteme (VDBMS) besser im Hinblick auf die Verfügbarkeit, Ausfallsicherheit und Erreichbarkeit von Daten. Doch auch die Erfassung oder Verarbeitung einer großen oder größer werdenden Datenmenge ist mit einem VDBMS einfacher zu bewältigen, da Daten beispielsweise eines Sensorsystems von lokalen Knoten verarbeitet und gespeichert werden könnten und ein Monitoringsystem diese Daten gleichermaßen lokal analysieren und anzeigen könnte. Somit sind Rechen- und Speicheroperationen lokal einfacher durchzuführen und weniger komplex als dies bei einem zentralen Großrechner der Fall wäre, der in seinem Speicher eine große Anzahl von Datensätzen hält. Zusätzlich ist die Transparenz ein wichtiger Bereich, wodurch viele Prozesse innerhalb des VDBMS für eine Benutzerin unbemerkt und verborgen ablaufen und das System nach außen als eine logische Einheit erscheint.
+
+In dieser Ausarbeitung werden die Grundlagen eines VDBMS, der komplexe Aufbau und die Funktionsweise, aber auch die Ziele und Vor- und Nachteile erläutert. In einem Ausblick werden aktuelle und absehbare zukünftige Entwicklungen festgehalten, die sich im Bereich der VDBMS abzeichnen (vgl. [15]).
+
+Nächstes Kapitel: [Grundlagen](02-grundlagen.md)
