@@ -618,6 +618,7 @@ Table 7: Example GameScores Amazon DynamoDB Table
 
 The elements of a composite primary key as a multi-part key were also known as its hash attribute and its range attribute. An explanation of the terms and its functions is given in an Amazon Whitepaper from January 2020:
 “The partition key of an item is also known as its hash attribute and sort key as its range attribute. The term hash attribute arises from the use of an internal hash function that takes the value of the partition key as input and the output of that hash function determines the partition or physical storage node where the item will be stored. The term range attribute derives from the way DynamoDB stores items with the same partition key together, in sorted order by the sort key value.”[^2]
+
 \
 &nbsp;
 
@@ -1059,45 +1060,31 @@ The syntax of the Document Client simplifies this operation and makes it possibl
 \
 &nbsp;
 
-### 4.3 Eventual and strong consistency
+### 4.3 Eventual and Strong Consistency
 
-The previous chapter already introduced the terms **eventual** and **strong-consistency** while taking a look at the read and write capacity.
+The previous chapter already introduced the terms **eventual** and **strong-consistency** while taking a look at the read and write capacity. In the context of reading items this term becomes even more important in regards to the freshness of data[^8].
 
-In the context of reading items this term becomes even more important in regards to the freshness of data[^8].
+DynamoDB data is distributed and sharded to different nodes. If data is altered these changes will be populated to the different nodes in the system. This takes around 200 milliseconds.
 
-DynamoDB data is distributed and sharded to different nodes.
+If you write data and read it again you could end up with stale data from a node which has not yet been updated. When reading data in eventual consistent mode the first result from any node is returned which might already be stale. To cope with use cases where the consistency of data is important the possibility for strongly consistent reads have been introduced.
 
-If data is changed these changes will be populated to the different nodes in the system.
+Imagine fast consecutive writes to a counter value in a table increasing from 0 to 3. An eventual consistent read could return different values from 0 to 3 while a consistent read always returns the right and final end result of 3 reading from more than 1 node. Because of the multiple operations needed for a consistent read the amount of consumed read capacity is higher as well as the network latency. Another disadvantage is that in the case of one node failing the read operation will fail because the end result can not be evaluated. Thus overall a consistent read is less failure tolerant.
 
-This can take some time. From the authors experience around 200 milliseconds.
+\
+&nbsp;
 
-If you now write data and read it again you could end up with stale data from a node which has not yet been updated. When reading data in eventual consistent mode the first result from any node is returned which could maybe already be stale. To cope with use cases where the consistency of data is important the possibility for strongly consistent reads have been introduced.
+## 5. Write Items
 
-Imagine fast consecutive writes to a counter value in a table increasing from 0 to 3. 
+This chapter will introduce different methods to write data to the database. First the single item write is introduced. Then this concept will be expanded to introduce the writing of multiple items. Both operations will be illustrated with example code.
 
-An eventual consistent read could return different values from 0 to 3 while a consistent read always returns the right and final end result of 3 reading from more than 1 node.
+\
+&nbsp;
 
-Because of the multiple operations needed for a consistent read the amount of consumed read capacity is higher as well as the network latency.
+### 5.1 Single Item Write
 
-Another disadvantage is that in the case of one node failing the read operation will fail because the end result can not be evaluated. So overall a consistent read is less failure tolerant.
+To write an item to the database the table name and the attributes to write need to be provided. The used **hash-key** of the table has to be included in the payload, a possible range key is optional. If the **hash-key** is not found in the payload the operation is rejected. Thus before writing data to the table knowledge of its key schema is required.
 
-
-## 5. Write items
-
-In this chapter we will take a closer look at different ways to write data to the database.
-
-At first we see how to write a single item then we will expand this concept to write multiple items. Both operations will be illustrated in code. In the next chapter we will have a look at even more complex writing operations called transactions.
-
-
-### 5.1 Single item write
-
-To write an item to the database the tablename and the attributes to write needs to be provided.
-
-The used **hash-key** of the table needs to be included in the payload, a possible range key is optional. If the **hash-key** is not found in the payload the operation is rejected. So before writing data to the table knowledge of its key schema is needed.
-
-As you can see in the code example below in the DynamoDB SDK the type of the data which should be written needs to be provided and will not be inferred itself from the type of variable provided. But rather the type needs to be specified as map as the key of the attribute and the value to write as the value of this key in the format String.
-
-To write a number for example the Type would be “N” and the value “1”. In the example[^4] Below you can see a string, boolean and a number value are written to the database.
+The DynamoDB SDK code example below depicts the data type that is to be written to the database. To successfully write an item to the database all it’s parameters need to be set. The value of the variable is required, as well as it’s type. It can not be inferred as it can be in several other programming languages. The type needs to be specified as a map: as the key of the attribute and the value to write as the value of this key. All attributes are cast into strings. To write a number, for example, the type would be “N” and the value “1”. The example[^4] below depicts a string, boolean and a number value that are written to the database.
 
 Code Example for the DynamoDB SDK Client.
 
@@ -1127,9 +1114,7 @@ const result = await dynamodb.putItem(params).promise()
 
 This complexity is greatly simplified when using the AWS DynamoDB Document Client.
 
-As you can see in the second example[^4] below which shows the same operation with the Document Client. Data can be provided as it is as variable and the data type will be inferred and translated to the DynamoDB data type.
-
-So instead of writing boolean data with the key “BOOL” and the value itself as String (“true”) we can just pass the value **true **as it is and let the client handle the conversion.
+This can be seen in the second example[^4] below that shows the same operation with the Document Client. Data can be provided as it is as variable and the data type will be inferred and translated to the DynamoDB data type. Thus, instead of writing boolean data with the key “BOOL” and the value itself as String (“true”)  the value **true **can simply be passed** **as it is and the client handles the conversion.
 
 
 ```
@@ -1151,14 +1136,13 @@ const result = await documentClient.put(params).promise()
 ```
 
 
-For most use-cases this automatic conversion of datatypes works quite well and will enhance the developer experience while using Dynamodb to write data.
+For most use-cases this automatic conversion of datatypes works quite well and will enhance the developer experience while using DynamoDB to write data.
 
+\
+&nbsp;
+### 5.2 Multi Item Write
 
-### 5.2 Multi item write
-
-With the same pattern we used  in the previous chapter to write a single item to the database we can write multiple items in a single operation.
-
-The  prerequisite for a successful write is the same as for single item operation meaning the hash-key of the table needs to be provided in the payload  but we can provide as many items to write to different tables in an array and all operations will be executed at once on the server. In the example[^4] below You can see three different write operations to the same table in one array.
+Using the same pattern as in the previous chapter, this section will illustrate how to write multiple items in a single operation instead of writing a single item to the database multiple times. The  prerequisite for a successful write is the same as for single item operation meaning the hash-key of the table needs to be provided in the payload. But now multiple items combined in one array will be written to different tables and all operations will be executed at once on the server. The example[^4] below shows three different write operations to the same table in one array.
 
 DynamoDB SDK
 
@@ -1222,7 +1206,7 @@ const result = await dynamodb.batchWriteItem(params).promise()
 ```
 
 
-A simplified version of a multi-item write can be seen in the second example[^4] based on the DynamoDB Document Client. An interesting fact to notice is that a write operation can not only contain the creation or update of an item but rather as well the deletion of another in a single operation. In the code below we delete the item with the hash-key Name and the value “Peter”.
+A simplified version of a multi-item write can be seen in the second example[^4] based on the DynamoDB Document Client. An interesting fact to notice is that a write operation can not only contain the creation or update of an item but also the deletion of another in a single operation. In the code below the item with the hash-key Name and the value “Peter” is deleted.
 
 
 ```
