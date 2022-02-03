@@ -2,12 +2,13 @@
 
 ## Merkemale einer verteilten Datenbank
 Im folgenden Kontext wird unter einer verteilten Datenbank eine Sammlung von verschiedenen,logisch miteinander verknüpften Datenbanken verstanden, die Knoten eines verteilten Systems sind.
-Ein verteiltes Datenbankmanagementsystem (*distributed DBMS*) definieren wir davon ableitend als System,TODOTODO
+Ein verteiltes Datenbankmanagementsystem (*distributed DBMS*) definieren wir davon ableitend als System, das die Verwaltung der verteilten Datenbanken erlaubt und Verwaltung dieser übernimmt. [4]
+transparent to the users.
 ![DDBMS](assets/ddbms.png)
 
 
 ## Anforderungen
-Analog zu den *Codd's 12 rules*[6],Designregeln mit denen definiert wurden, welche Anforderungen ein DBMS erfüllen muss, um als *relational* zu gelten, wurden *Date's 12 rules**[7] abgeleitet. Diese 12 Regeln spezifizieren, welche Aufgaben ein DDBMS erfüllen muss um als solches zu gelten.
+Analog zu den *Codd's 12 rules* [6], Designregeln mit denen definiert werden kann, welche Anforderungen ein DBMS erfüllen muss, um als *relational* zu gelten, wurden *Date's 12 rules**[7] abgeleitet. Diese 12 Regeln spezifizieren, welche Aufgaben ein DDBMS erfüllen muss um als solches zu gelten.
 <dl>
   <dt>lokale Autonomie</dt>
   <dd>Die einzelnen Knoten eines verteilten Systems sollten autonom sein; alle Operationen finden lokal statt und werden lokal verwaltet und nicht von einem zentralen Standort aus</dd>
@@ -30,7 +31,7 @@ Analog zu den *Codd's 12 rules*[6],Designregeln mit denen definiert wurden, welc
 </dl>
 <dl>
   <dt>Unabhängigkeit der Replikation</dt>
-  <dd>Die Replikation der Daten ist für den User nicht sichtbar, außerdem kann er diese nicht manuell anstoßen und muss sie auch nicht manuel managen</dd>
+  <dd>Die Replikation der Daten ist für den User nicht sichtbar, außerdem kann er diese nicht manuell anstoßen und muss sie auch nicht manuell verwalten</dd>
 </dl>
 <dl>
   <dt>verteilte Anfragenverarbeitung</dt>
@@ -38,7 +39,7 @@ Analog zu den *Codd's 12 rules*[6],Designregeln mit denen definiert wurden, welc
 </dl>
 <dl>
   <dt>verteilte Transaktionsverarbeitung</dt>
-  <dd>Das System muss bei Transaktionen gewährleisten, dass ACID erfüllt ist. Außerdem muss auch verteilten Transaktionen ein System zur Wiederherstellung bei Fehlern implementiert sein. </dd>
+  <dd>Das System muss bei Transaktionen gewährleisten, dass ACID erfüllt ist. Außerdem muss auch bei verteilten Transaktionen ein System zur Wiederherstellung bei Fehlern implementiert sein. </dd>
 </dl>
 <dl>
   <dt>Unabhängigkeit der Hardware</dt>
@@ -54,13 +55,9 @@ Analog zu den *Codd's 12 rules*[6],Designregeln mit denen definiert wurden, welc
 </dl>
 <dl>
   <dt>Unabhängigkeit der Datenbank</dt>
-  <dd>Es soll die Möglichkeit geben, das lokale Knoten des DDBMS heterogen sind, also z.B. Produkte verschiedenere Hersteller, deren Interoperabilität z.B. durch einen gemeinsam genutzten Standard möglich wird.</dd>
+  <dd>Es soll die Möglichkeit geben, das lokale Knoten des DDBMS heterogen sind, also z.B. Produkte verschiedenere Hersteller, deren Interoperabilität z.B. durch einen gemeinsam genutzten Standard möglich wird, genutzt werden.</dd>
 </dl>
 
-Die Anforderungen an verteilte Datenbanken macht sichtbar, warum eine Einführung in Erlang notwendig war, und warum
-Erlang eine gute Grundlage sein kann.
-Die Herausforderungen, auch als **Fallacies of Distributed Computing**[3] bekannt, sind 8 Trugschlüsse, die beim Arbeiten mit nebenläufigen Datenbanken
-angenommen werden könnten.
 
 
 ## verteilte Daten
@@ -68,15 +65,15 @@ Ein Kernthema der verteilten Datenbanken ist die Speicherung der Daten auf versc
 ### Replikation
 Bei der Replikation werden die Daten lokal auf mehreren Knoten vorgehalten. Dies hat den Vorteil, dass lesende Anfragen nun schnell und nebenläufig an mehreren Standorten durchgeführt werden können. Schreibende Zugriffe machen das System deutlich komplexer. Änderungen müssen nun auf mehrere Knoten sofort eingespielt werden und es muss viel Energie darauf verwendet werden, das ganze System konsistent zu halten.
 ### Fragmentierung
-Bei der Fragmentierung wird die Gesamtheit der Daten aufgeteilt auf mehrere Knoten. Dabei muss natürlich beachtet werden, dass auch nach der Fragmentierung wieder die Ursprüngliche Verbindung der Daten wiederherrgestellt werden kann. Diese *Fragmentierung* kann auf verschiedene Arten stattfinden:
+Bei der Fragmentierung wird die Gesamtheit der Daten aufgeteilt auf mehrere Knoten. Dabei muss natürlich beachtet werden, dass auch nach der Fragmentierung wieder die Ursprüngliche Verbindung der Daten wiederhergestellt werden kann. Diese *Fragmentierung* kann auf verschiedene Arten stattfinden:
 
 #### vertikale Fragmentierung
 Ein existierendes Schema wird aufgeteilt in mehrere kleine. Beim Beispiel einer SQL-Tabelle würde man diese *spaltenbasiert* aufteilen und in verschiedenen Knoten speichern.
 #### horizontale Fragmentierung
-Bei der horizontalen Fragmentierung  würde man lediglich die Anzahl der Einträge einer Relation aufteilen, am Beispiel einer SQL-Tabelle ändert sich also nicht die Anzahl der Spalten, sondern der Reihen.
+Bei der horizontalen Fragmentierung  würde man lediglich die Anzahl der Einträge aufteilen, am Beispiel einer SQL-Tabelle ändert sich also nicht die Anzahl der Spalten, sondern der Reihen.
 
 
-Wie genau Mnesia diese Probleme löst, wird im nächsten Kapitel genauer erläutert, allerdings wird hier schon auffällig, dass
+Wie genau *Mnesia* diese Probleme löst, wird im nächsten Kapitel genauer erläutert, allerdings wird hier schon auffällig, dass
 die unterliegende Programmiersprache bereits einige der Probleme als Kernprobleme anerkennt und Lösungen bereitstellt.
 
 
