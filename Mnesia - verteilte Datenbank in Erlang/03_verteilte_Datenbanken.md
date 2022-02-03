@@ -86,4 +86,5 @@ Wie genau *Mnesia* diese Probleme löst, wird im nächsten Kapitel genauer erlä
 die unterliegende Programmiersprache bereits einige der Probleme als Kernprobleme anerkennt und Lösungen bereitstellt.
 
 
+
 [**Weiter**](./04_Mnesia.md)

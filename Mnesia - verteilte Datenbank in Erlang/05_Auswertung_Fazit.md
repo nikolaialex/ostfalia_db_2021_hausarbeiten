@@ -22,4 +22,6 @@ Setzt man nun nochmal die Anforderungen an eine *DDBMS* an und vergleicht mit de
 
 Da 11/12 Anforderungen von *Mnesia* erfüllt werden, und die letzten 4 recht schwammig sind, kann man die Daten so auslegen, dass *Mnesia* ein vollwertiges verteiltes DBMS ist.
 
+
+
 [**Quellen**](./06_Literatur_Quellen.md)

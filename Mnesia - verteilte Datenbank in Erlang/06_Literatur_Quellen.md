@@ -1,4 +1,5 @@
 # Quellen
+
 [Arm07] Armstrong, Joe (2007): Programming Erlang, *The Pragmatic Programmers*
 
 [MNW99] Mattson Hakan, Nilson Hans, Wikström Claes (1999): Mnesia - A Distributed Robust DBMS for Telecommunications Applications
