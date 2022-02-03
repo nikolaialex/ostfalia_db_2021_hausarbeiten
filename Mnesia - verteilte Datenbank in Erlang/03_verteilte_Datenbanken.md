@@ -2,7 +2,7 @@
 ![DDBMS](assets/ddbms.png)
 ## Merkemale einer verteilten Datenbank
 Im folgenden Kontext wird unter einer verteilten Datenbank eine Sammlung von verschiedenen,logisch miteinander verknüpften Datenbanken verstanden, die Knoten eines verteilten Systems sind.
-Ein verteiltes Datenbankmanagementsystem (*distributed DBMS*) definieren wir davon ableitend als System, das die Verwaltung der verteilten Datenbanken erlaubt und Verwaltung dieser übernimmt. [3]
+Ein verteiltes Datenbankmanagementsystem (*distributed DBMS*) definieren wir davon ableitend als System, das die Verwaltung der verteilten Datenbanken erlaubt und Verwaltung dieser übernimmt. [OeV99]
 
 
 
@@ -17,7 +17,7 @@ Ein verteiltes Datenbankmanagementsystem (*distributed DBMS*) definieren wir dav
 Verteilte Datenbanken haben einige Vorteile, die sie für den Einsatz interessant machen, bieten aber auch nicht zu unterschätzende Herausforderungen. Diese Herausforderungen beziehen sich zu großen Teilen auf die Implementierung eines *DDBMS*.
 
 ## Anforderungen
-Um das Thema *DDBMS* ausführlich betrachten zu können, muss neben der Definition noch erläutert werden, was genau die Merkmale eines solchen Systems sind. Analog zu den *Codd's 12 rules* [5], Designregeln mit denen definiert werden kann, welche Anforderungen ein DBMS erfüllen muss, um als *relational* zu gelten, wurden *Date's 12 rules**[6] abgeleitet. Diese 12 Regeln spezifizieren, welche Aufgaben ein DDBMS erfüllen muss um als solches zu gelten.
+Um das Thema *DDBMS* ausführlich betrachten zu können, muss neben der Definition noch erläutert werden, was genau die Merkmale eines solchen Systems sind. Analog zu den *Codd's 12 rules* [Cod70], Designregeln mit denen definiert werden kann, welche Anforderungen ein DBMS erfüllen muss, um als *relational* zu gelten, wurden *Date's 12 rules**[ThC12] abgeleitet. Diese 12 Regeln spezifizieren, welche Aufgaben ein DDBMS erfüllen muss um als solches zu gelten.
 <dl>
   <dt>lokale Autonomie</dt>
   <dd>Die einzelnen Knoten eines verteilten Systems sollten autonom sein; alle Operationen finden lokal statt und werden lokal verwaltet und nicht von einem zentralen Standort aus</dd>
@@ -70,7 +70,7 @@ Um das Thema *DDBMS* ausführlich betrachten zu können, muss neben der Definiti
 
 
 ## verteilte Daten
-Ein Kernthema der verteilten Datenbanken ist die Speicherung der Daten auf verschiedenen Knoten. Eine grobe Einordnung kann über die beiden Konzepte *Replikation* und *Fragmentierung* erfolgen.[7]
+Ein Kernthema der verteilten Datenbanken ist die Speicherung der Daten auf verschiedenen Knoten. Eine grobe Einordnung kann über die beiden Konzepte *Replikation* und *Fragmentierung* erfolgen.[Sil13]
 ### Replikation
 Bei der Replikation werden die Daten lokal auf mehreren Knoten vorgehalten. Dies hat den Vorteil, dass lesende Anfragen nun schnell und nebenläufig an mehreren Standorten durchgeführt werden können. Schreibende Zugriffe machen das System deutlich komplexer. Änderungen müssen nun auf mehrere Knoten sofort eingespielt werden und es muss viel Energie darauf verwendet werden, das ganze System konsistent zu halten.
 ### Fragmentierung
