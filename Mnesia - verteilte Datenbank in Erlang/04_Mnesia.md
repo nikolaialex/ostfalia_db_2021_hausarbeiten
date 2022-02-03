@@ -33,7 +33,7 @@ Zu den Features in *Mnesia* gehören:
 
 <dl>
   <dt>2-Phasen-Commit</dt>
-  <dd>Schreibende Änderungen werden im 2- (im Fehlerfall: 3-)Phasen-Commit erstellt [2]</dd>
+  <dd>Schreibende Änderungen werden im 2- (im Fehlerfall: 3-)Phasen-Commit erstellt [MNW99]</dd>
 </dl>
 
 <dl>
@@ -95,7 +95,7 @@ Tabellen können also auf Knoten entweder im *RAM* oder auf dem *lokalen Storage
 Dabei gelten die üblichen Vor- und Nachteile: Eintrage im *RAM* sind sehr schnell zugreifbar, aber auch flüchtig.
 Befinden sich die Daten auf dem lokalen Storage nutzt Mnesia einen *disk log*. Alle Operationen werden zunächst in diesen
 disk log geschrieben und anschließend periodisch in die Datenbank geschrieben. Wenn dieser Schreibzugriff erfolgreich war, wird der Log
-gelöscht. Bei einem Systemcrash kann dieser *disk log* auf genutzt werden, um fehlende oder unvollständige Transaktionen der Datenbank zu korrigieren [8].
+gelöscht. Bei einem Systemcrash kann dieser *disk log* auf genutzt werden, um fehlende oder unvollständige Transaktionen der Datenbank zu korrigieren [Eri22].
 
 ##### verteilte Daten - fragmentierte Tabellen
 *Mnesia* unterstützt *horizontale Fragmentierung* von Tabellen. Auf diese Weise können sehr große Tabellen aufgeteilt auf viele Knoten abgelegt werden. Es gibt verschiedene Algorithmen, um fragmentierte Tabellen auf mehrere Knoten aufzuteilen. Um bewerten zu können, welcher Algorithmus für die eigenen Anforderungen am Besten ist, müssen verschiedene Faktoren berücksichtigt werden, z.B.
