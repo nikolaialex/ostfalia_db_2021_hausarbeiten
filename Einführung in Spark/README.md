@@ -4,9 +4,6 @@
 
 (Das Apache Spark Loge ist ein eingetragenes Logo der [Apache Software Foundation](https://www.apache.org "zur Webseite") 
 
-
-
-
 **Semesterarbeit im Modul Datenbank-Technologien**
 
 **Wintersemester 2021/22**
@@ -24,6 +21,5 @@ Dieser Code ist frei verfügbar und kann als Startpunkt für eigene Programme di
 Bei allen verwendeten Bildern wird im Text auf die Herkunft verwiesen, sofern es sich nicht um eigene Abbildungen handelt. Gleiches gilt, sofern sich bei Aussagen explizit auf eine fremde Quelle bezogen wird. Weiter wurden alle in der [Linkliste](Anhang_Linkliste.md "Zum Kapitel") dokumentierten Informationsquellen für die Einarbeitung genutzt. Diese kann auch als Ausgangspunkt für eine Vertiefung in die Materie verwendet werden.
 
 Alle in dieser Arbeit genutzten Begrifflichkeiten und Bilder werden hierbei ohne Rücksicht auf etwaige Lizenzen oder Patente genutzt. Die Verwendung von Begriffen oder Bilder in dieser Arbeit impliziert nicht deren freie Verfügbarkeit. 
-
 
 ## [Zum Inhaltsverzeichnis](00_Inhaltsverzeichnis.md "zum Inhaltsverzeichnis")

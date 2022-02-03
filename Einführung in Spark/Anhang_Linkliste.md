@@ -215,13 +215,13 @@ Dokumentation von Apache Spark in der aktuellen Version
 [Link](https://spark.apache.org/docs/latest)
 
 Apache Spark Dokumentation zur Einführung von DataFrames (nicht mehr aktuelle Dokumentation)
-[Link](https://spark.apache.org/docs/1.3.0 DataFrames)
+[Link](https://spark.apache.org/docs/1.3.0)
 
-Apache Spark Dokumentation zur Einführung von DataSets (nicht mehr aktuelle Dokumentation
-[Link](https://spark.apache.org/docs/1.6.0 DataSet)
+Apache Spark Dokumentation zur Einführung von DataSets (nicht mehr aktuelle Dokumentation)
+[Link](https://spark.apache.org/docs/1.6.0)
 
-Apache Spark Dokumentation zur Verbindung von DataSet und DataFrames (nicht mehr aktuelle Dokumentation
-[Link](https://spark.apache.org/docs/2.0.0 DataSet und DataFrame)
+Apache Spark Dokumentation zur Verbindung von DataSet und DataFrames (nicht mehr aktuelle Dokumentation)
+[Link](https://spark.apache.org/docs/2.0.0)
 
 Spark Python API Docs
 [Link](https://spark.apache.org/docs/2.2.0/api/python/index.html)
@@ -252,7 +252,7 @@ Eine sehr gute visuelle Präsentation zu Aktionen und Transformationen in Spark 
 Blogbeitrag mit einem guten Einstieg in Transformationen und Aktionen in Spark
 [Link](https://blog.knoldus.com/deep-dive-into-apache-spark-transformations-and-action)
 
-***
+---
 
 ### Optimierung in Spark
 
@@ -268,7 +268,7 @@ Ein Überblickk über das Tungsten Projekt
 Eine Seite zur Tungsten Execution Engine
 [Link](https://databricks.com/blog/2016/05/23/apache-spark-as-a-compiler-joining-a-billion-rows-per-second-on-a-laptop.html)
 
-***
+---
 
 ### Umgebungen für Spark
 
@@ -349,9 +349,7 @@ Zur Webseite von JupyterLab
 Java 8.0 Open JDK
 [Link](https://openjdk.java.net/projects/jdk8)
 
-
-
-***
+---
 
 ### Python
 
@@ -361,7 +359,7 @@ Homepage von FindSpark
 Homepage von PySpark
 [Link](https://pypi.org/project/pyspark) [GitHub](https://github.com/apache/spark/tree/master/python)
 
-***
+---
 
 ### Markdown
 
@@ -375,7 +373,6 @@ GitHub Style Markdown
 [Link](https://github.github.com/gfm/)
 
 Marktext - Ein guter Editor für Markdown mit Wysiwyg
-
 [Link](https://marktext.app/)
 
 ---

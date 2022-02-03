@@ -2,7 +2,7 @@
 
 # 4 Wordcount mit Spark RDDs und Python
 
-Um einen praktischen Einblick in die Anwendung von Spark zu geben, wurde im Rahmen dieser Arbeit die weit verbreitete Aufgaben ***Zählen von Wortvorkommen*** aufgegriffen und umgesetzt.
+Um einen praktischen Einblick in die Anwendung von Spark zu geben, wurde im Rahmen dieser Arbeit die weit verbreitete Aufgabe ***Zählen von Wortvorkommen*** aufgegriffen und umgesetzt.
 
 Als Basis dient hierbei auf Grund der einfachen Verfügbarkeit [*Google Colaboratory*](03_Mögliche_Umgebungen_für_Spark.md#spark-mit-google-colaboratory-colab "zum Abschnitt"). Das hierbei entstandene [_Jupyter Notebook_](notebook/Wordcount_mit_Spark_RDD.ipynb "zum Notebook") ist Teil dieser Arbeit und kann frei verwendet werden. 
 
@@ -18,7 +18,7 @@ Für die Vorbereitung des Notebooks kann auf den Abschnitt [_Google Colaboratory
 
 ## Auszählen der Wörter
 
-[_zurück_](04_Wordcount_mit_Spark_RDDs_und_Python.md#4-wordcount-mit-spark-und-python "Zurück")
+[_zurück_](04_Wordcount_mit_Spark_RDDs_und_Python.md#4-wordcount-mit-spark-rdds-und-python "Zurück")
 
 Um die Aufgabe umzusetzen sind zwei Arbeitsschritte erforderlich. Entsprechend finden sich im 
 [_Jupyter Notebook_](notebook/Wordcount_mit_Spark_RDD.ipynb "zum Notebook") zwei Abschnitte.
@@ -30,7 +30,7 @@ Im diesen Abschnitt werden zunächst zwei Methoden definiert.
 * Der ersten Methode ***get_file_from_url*** werden als Parameter eine ***URL*** sowie ein ***Speicherort*** übergeben. Bei Ihrem Aufruf lädt die Methode eine Datei von der angegebenen URL herunter und speichert sie in *Google Drive* ab.
 * Die zweite Methode ***cut_file*** nimmt als Parameter einen numerischen ***Start- und Endwert*** sowie die Angabe einer ***Quell- und Zieldatei*** entgegen. Bei Ihrem Aufruf entfernt die Methode alle Zeilen vor bzw. nach den durch Start- und Endwert definierten Zeilenbereich aus der Quelldatei und speichert das Ergebnis in die Zieldatei.
 
-Beide Dateien dienen der Vorbereitung der zu bearbeitenden Datei und stehen in keinen direkten Zusammenhang mit der Nutzung von Spark. Daher wird hier nicht weiter darauf eingegangen. In dem folgenden Block wird zunächst die erste Methode dazu verwendet, die Datei von der Seite des *MIT* herunterzuladen:
+Beide Dateien dienen der Vorbereitung der zu bearbeitenden Datei und stehen in keinem direkten Zusammenhang mit der Nutzung von Spark. Daher wird hier nicht weiter darauf eingegangen. In dem folgenden Block wird zunächst die erste Methode dazu verwendet, die Datei von der Seite des *MIT* herunterzuladen:
 
 ```python
 # Datei von der Quelle nach Colab laden
@@ -66,7 +66,7 @@ In diesem Abschnitt befindet sich der eigentliche Code, der mit Hilfe von Spark 
 
 Um mit Spark arbeiten zu können, muss als erstes eine ***Verbindung zu Spark*** in Form eines
 [SparkContext](https://spark.apache.org/docs/3.1.1/api/python/reference/api/pyspark.SparkContext.html "zur Dokumentation") aufgebaut werden. Weitere Informationen hierzu findet man auch im Kapitel 
-[Datenstrukturen](02_Datenstrukturen.md): 
+[Datenstrukturen](02_Datenstrukturen.md "zum Kapitel"): 
 
 ```python
 # Erzeugen eines Spark Kontext
@@ -83,7 +83,7 @@ Die Angabe von ***local-Stern*** verwendet ***alle verfügbaren Kerne*** des Rec
 
 #### 2 Auszählen
 
-Die Methode [***textFile***](https://spark.apache.org/docs/3.1.1/api/python/reference/api/pyspark.SparkContext.textFile.html "zur Dokumentation") im ermöglicht das Lesen von in UTF-8 codierten Textdateien und gibt ein RDD in Form einer Liste von String zurück. In diesen Fall entsprechen die Strings den ***Zeilen der Textdatei***. 
+Die Methode [***textFile***](https://spark.apache.org/docs/3.1.1/api/python/reference/api/pyspark.SparkContext.textFile.html "zur Dokumentation") ermöglicht das Lesen von in UTF-8 codierten Textdateien und gibt ein RDD in Form einer Liste von String zurück. In diesen Fall entsprechen die Strings den ***Zeilen der Textdatei***. 
 
 Die Methode [***map***](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.RDD.map.html "zur Dokumentation") führt auf ***jedem Element*** des zugrunde liegenden RDDs - also den Zeilen der Textdatei - die angegebene Funktion aus.
 
@@ -99,7 +99,7 @@ lines=sc.textFile(file_target)
 
 #### 3 Ausgabe der ersten 30 Zeilen zur Kontrolle
 
-Nach dem Einlesen werden die ersten 30 Listeneinträge des zurück gegebenen RDD's ausgegeben. Jeder Eintrag entspricht hierbei ***einer Zeile der Datei***. Hierzu kann eine einfach *for Schleife* verwendet werden. 
+Nach dem Einlesen werden die ersten 30 Listeneinträge des zurück gegebenen RDD's ausgegeben. Jeder Eintrag entspricht hierbei ***einer Zeile der Datei***. Hierzu kann eine einfache *for Schleife* verwendet werden. 
 
 Besondere Aufmerksamkeit muss dem Aufruf von [***collect***](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.RDD.collect.html "zur Dokumentation") entgegengebracht werden. Das von Spark erzeugte RDD ist ein ***verteiltes Dataset***, welches auf den Kernen der CPU ist. [***Collect***](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.RDD.collect.html "zur Dokumentation") sammelt nun alle Elemente des RDD ein und macht sie so verfügbar:
 
@@ -117,7 +117,6 @@ for line in lines.collect()[0:top_out]:
 Nach der Ausführung erhalten wir die folgende Ausgabe:
 
 ![rdd_zeilen.png](assets/rdd_zeilen.png "Ausgabe der ersten Zeilen der Textdatei im Notebook")
-
 
 #### 4 Ausgabe der ersten 30 Wortvorkommen
 
@@ -147,6 +146,5 @@ for word, count in sorted_counts.collect()[0:top_length]:
 ```
 
 Das Ergebnis ist eine ***Liste aller Wörter mit deren Vorkommen in absteigender Reihenfolge.*** Hierbei steht an erster Stelle das Leerzeichen als häufigster Vertreter.
-
 
 ![rdd_wörter.png](assets/rdd_wörter.png "Ausgabe der Wortliste in absteigender Reihenfolge im Notebook")
