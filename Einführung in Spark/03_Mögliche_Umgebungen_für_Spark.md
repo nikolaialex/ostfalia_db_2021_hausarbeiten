@@ -4,11 +4,11 @@
 
 In diesen Kapitel werden Wege aufgezeigt, wie eine produktiv einsetzbare Umgebung für Spark mit wenig Aufwand eingerichtet werden kann. 
 
-Als erstes werden hierbei die Möglichkeiten im Umfeld bekannter Clouddienstleisters untersucht. Dies ist vor allem für Unternehmen oftmals eine sinnvolle Lösung, kann aber auch für den ersten Kontakt eine kostengünstige und einfach Möglichkeit darstellen. 
+Als erstes werden hierbei die Möglichkeiten im Umfeld bekannter Clouddienstleister untersucht. Dies ist vor allem für Unternehmen oftmals eine sinnvolle Lösung, kann aber auch für den ersten Kontakt eine kostengünstige und einfach Möglichkeit darstellen. 
 
 Anschließend werden Lösungen auf Basis von *Google Colaboratory* und *Docker* vorgestellt. Beide verbindet, dass sie kostenlos und einfach verfügbar sind.
 
-Grundsätzlich kann Spark auch auf einen lokalen Rechner eingerichtet werden. Dies hat jedoch den Nachteil, dass eine Reihe an Installationen und Einstellungen erforderlich sind, welche das zugrunde liegende System letztlich ändern. Für einen ersten Kontakt ist dies nicht optimal und wird daher nicht berücksichtigt. 
+Grundsätzlich kann Spark auch auf einem lokalen Rechner eingerichtet werden. Dies hat jedoch den Nachteil, dass eine Reihe an Installationen und Einstellungen erforderlich sind, welche das zugrunde liegende System letztlich ändern. Für einen ersten Kontakt ist dies nicht optimal und wird daher nicht berücksichtigt. 
 
 * [_Spark in der Cloud_](03_Mögliche_Umgebungen_für_Spark.md#spark-in-der-cloud "zum Abschnitt")
 * [_Spark mit Google Colaboratory (Colab)_](03_Mögliche_Umgebungen_für_Spark.md#spark-mit-google-colaboratory-colab "zum Abschnitt")
@@ -16,13 +16,13 @@ Grundsätzlich kann Spark auch auf einen lokalen Rechner eingerichtet werden. Di
 
 ## Spark in der Cloud
 
-[_zurück_](03_Mögliche_Umgebungen_für_Spark.md#3-mgliche-umgebungen-fr-spark "Zurück")
+[_zurück_](03_Mögliche_Umgebungen_für_Spark.md#3-mögliche-umgebungen-für-spark "Zurück")
 
-Insbesondere für Unternehmen kann der Einsatz von Spark im Umfeld einer Cloud sinnvoll sein. In der Regel können Lösungen zunächst kostengünstig implementiert und mit zunehmenden Nutzen hoch skaliert werden. 
+Insbesondere für Unternehmen kann der Einsatz von Spark im Umfeld einer Cloud sinnvoll sein. In der Regel können Lösungen zunächst kostengünstig implementiert und mit zunehmendem Nutzen hoch skaliert werden. 
 
 Die einfache Verfügbarkeit macht diese Optionen aber auch für einen ersten Kontakt interessant, da oftmals kostenlose Testzeiträume angeboten werden. Grundsätzlich handelt es sich jedoch in der Regel um kostenpflichtige Lösungen. 
 
-In diesen Abschnitt wird kurz auf die Angebote von ***Microsoft Azure***, ***Amazon AWS*** sowie ***Google Cloud*** 
+In diesem Abschnitt wird kurz auf die Angebote von ***Microsoft Azure***, ***Amazon AWS*** sowie ***Google Cloud*** 
 als größte Anbieter eingegangen. Eine tiefergehende Beschäftigung würde jedoch den Rahmen dieser Arbeit sprengen.
 
 ### Microsoft Azure
@@ -37,14 +37,14 @@ Azur ermöglicht eine einfache, angeleitete und sehr schnelle Einrichtung von au
 Daneben bietet Azur die Integration eines [***Zeppelin Notebooks***](https://zeppelin.apache.org "zur Webseite") und ermöglicht ein ähnlich komfortables Arbeiten wie im Umfeld von [*Google Colab*](https://colab.research.google.com/?utm_source=scs-index "zur Webseite") weiter [unten](03_Mögliche_Umgebungen_für_Spark.md#spark-mit-google-colaboratory-colab "zum Abschnitt") auf dieser Seite. 
 
 Neben der Integration von [*GitHub*](https://github.com "zur Webseite"), können im Umfeld von *Azure Databricks* weitere Dienste einfach 
-genutzt und integriert werden. Hierzu gehören unter anderen:
+genutzt und integriert werden. Hierzu gehören unter anderem:
 
 - **Azure Synapse Analytics** (Auslastung)
 - **Azure Machine Learning** (KI Algorithmen und Unterstützung für eine Vielzahl von KI Frameworks)
 - **Azure Data Factory** (Datenintegration)
 - **Azure Data Lake Storage** (Datenhaltung)
 
-Die [Kosten](https://azure.microsoft.com/de-de/pricing/details/databricks "zur Webseite") richten sich in erster Linie nach den benötigten ***Platz***, der ***Leistungsfähigkeit*** sowie der ***Rechenzeit***. Somit ist es notwendig, hier sehr genau zu planen, um einen angenäherten Preis zu bestimmen. Daneben existieren einige ***kostenlose*** Funktionalitäten.
+Die [Kosten](https://azure.microsoft.com/de-de/pricing/details/databricks "zur Webseite") richten sich in erster Linie nach dem benötigten ***Platz***, der ***Leistungsfähigkeit*** sowie der ***Rechenzeit***. Somit ist es notwendig, hier sehr genau zu planen, um einen angenäherten Preis zu bestimmen. Daneben existieren einige ***kostenlose*** Funktionalitäten.
 
 Azure eignet sich auf Grund seines aufgeräumten Designs, der deutschen Sprache, der umfangreichen Verfügbarkeit sowie des 30 tägigen, kostenlosen ***Testzeitraums*** aber auch für ein erstes Kennenlernen von Spark im Enterprise Bereich. 
 
@@ -64,7 +64,7 @@ Amazon fokussiert auf der [Übersichtsseite für Spark](https://aws.amazon.com/d
 
 - **S3_Sketch_Available**: Zielt auf eine hohe Performance auf Basis gerichteter azyklischer Graphen und RDDs
 - **S3_Sketch_High_Performance**: Ermöglicht die Einbindung von Java, Scala und Python. SparkSQL ist ebenso verfügbar wie eine interaktive Umgebung via Notebooks. Die Schnelle Entwicklung von Anwendungen steht hier im Vordergrund.
-- **S3_Sketch_Simple**: Fokussiert auf das schnelle Erstellung von Workflows. Folgerichtig kann hier auf die Bibliotheken für maschinelles Lernen ([MLib](https://spark.apache.org/mllib "zur Webseite")), Stream Verarbeitung ([Spark Streaming](https://spark.apache.org/streaming "zur Webseite")) sowie der Graphverarbeitung ([GraphX](https://spark.apache.org/graphx "zur Webseite")) einfach zugegriffen werden.
+- **S3_Sketch_Simple**: Fokussiert auf das schnelle Erstellung von Workflows. Folgerichtig kann hier auf die Bibliotheken für maschinelles Lernen ([MLib](https://spark.apache.org/mllib "zur Webseite")), Stream Verarbeitung ([Spark Streaming](https://spark.apache.org/streaming "zur Webseite")) sowie Graphverarbeitung ([GraphX](https://spark.apache.org/graphx "zur Webseite")) einfach zugegriffen werden.
 - **Integration in Amazons EMR-Funktionssatz**: Bietet eine tiefe Integration in *Amazon EMR*. Arbeitsschritte von Spark können hierbei an die sogenannte *Step-API* von *Amazon EWS* zur Ausführung übermittelt werden. Hierbei erfolgt die gesamte Verwaltung von Spark und der verwendeten Infrastruktur durch Amazon. 
 
 Auch bei *Amazon AWS* handelt es sich um einen kostenpflichtigen Dienst. Je nach ***Leistungsfähigkeit*** und ***Funktionalität*** müssen für die Nutzung [Entgelte](https://aws.amazon.com/de/emr/pricing "zur Webseite") entrichtet werden. Wie zuvor ist es daher auch hier wichtig, zu wissen, was genau in Anspruch genommen werden wird.
@@ -72,42 +72,40 @@ Auch bei *Amazon AWS* handelt es sich um einen kostenpflichtigen Dienst. Je nach
 Daneben bietet auch Amazon kostenlose ***Testzeiträume*** und begrenzte bzw. dauernd ***kostenlose*** Dienstleistungen an. Eine [Übersicht](https://aws.amazon.com/de/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=tier%23always-free&awsf.Free%20Tier%20Categories=*all&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all&refid=7f46dc7a-cf36-47f2-8b7b-74dceeb857ff#Free_Tier_details "zur Webseite") geht hierauf detaillierter ein. Zudem stehen umfangreiche Ressourcen in deutscher Sprache für die Einarbeitung in *Amazon AWS*, jedoch eher weniger 
 [speziell für Spark](https://aws.amazon.com/de/big-data/what-is-spark "zur Webseite"), zur Verfügung. 
 
-Alles in allen ist auch *Amazon AWS* für ein erstes Kennenlernen geeignet. Nach Meinung des Autors zeigt sich jedoch die Oberfläche von *Microsofts Azure* aufgeräumter. Daher wird der Einstieg in *Amazon AWS* als komplizierter angesehen.
+Alles in allem ist auch *Amazon AWS* für ein erstes Kennenlernen geeignet. Nach Meinung des Autors zeigt sich jedoch die Oberfläche von *Microsofts Azure* aufgeräumter. Daher wird der Einstieg in *Amazon AWS* als komplizierter angesehen.
 
 ### Google Cloud
 
 [_zurück_](03_Mögliche_Umgebungen_für_Spark.md#spark-in-der-cloud "Zurück")
 
-Unter dem Begriff [*Google Cloud*](https://cloud.google.com "zur Webseite") finden sich das Angebot von Google für seinen Cloudbereich. Ebenso wie die zuvor behandelten Anbieter, verfügt auch Google über eine beachtliche Zahl an Diensten auf Cloudbasis. Positiv ist auch hier, dass alle besuchten Seiten auf Deutsch waren sowie das Vorhandensein einer bemerkenswert umfangreichen [Dokumentation](https://cloud.google.com/docs "zur Webseite").
+Unter dem Begriff [*Google Cloud*](https://cloud.google.com "zur Webseite") findet sich das Angebot von Google für seinen Cloudbereich. Ebenso wie die zuvor behandelten Anbieter, verfügt auch Google über eine beachtliche Zahl an Diensten auf Cloudbasis. Positiv ist auch hier, dass alle besuchten Seiten auf Deutsch waren sowie das Vorhandensein einer bemerkenswert umfangreichen [Dokumentation](https://cloud.google.com/docs "zur Webseite").
 
 Um auf Basis der *Google Cloud* mit Spark zu arbeiten, bedient man sich des [***Dataproc Dienstes***](https://cloud.google.com/dataproc "zur Webseite"). Hierbei handelt es sich nach Google um einen ***verwalteten*** und ***hoch skalierten Dienst***, welcher jedoch nicht nur für [Spark](02_Datenstrukturen.md#spark "zum Abschnitt") oder [Hadoop](02_Datenstrukturen.md#hadoop "zum Abschnitt") reserviert ist, sondern auch ***weitere Open Source Projekte*** zugänglich macht. 
 
-Google fokussiert somit nicht auf die reine Nutzung nur der eigenen Angebote, sondern bietet eine ganze [*Umgebung*](https://cloud.google.com/dataproc#section-9 "zur Webseite") für den *Data Scientisten* unter Einbindung von ***Spark***, anderen ***Apache Projekten*** sowie ***Open Source Anwendungen*** an.
+Google fokussiert somit nicht auf die reine Nutzung nur der eigenen Angebote, sondern bietet eine ganze [*Umgebung*](https://cloud.google.com/dataproc#section-9 "zur Webseite") für den *Data Scientisten* unter Einbindung von ***Spark***, anderen ***Apache Projekten*** sowie ***Open Source Anwendungen***.
 
 Wie bei den zuvor behandelten Cloudanbietern auch, handelt es sich bei *Google Cloud* um einen grundsätzlich [kostenpflichtigen Dienst](https://cloud.google.com/dataproc/pricing "zur Webseite"). Auch hier erfolgt die Preisfindung auf Basis der ***Leistungsfähigkeit*** und des verwendeten ***Dienstes***, sodass eine genaue Planung der tatsächlich benötigten Ressourcen sinnvoll ist. 
 
-Google bietet einen [kostenlosen ***Testzeitraum*** und ***Testguthaben***](https://console.cloud.google.com/freetrial "zur Webseite"), welches 90 Tage nutzbar ist, sowie eine Vielzahl an [freien monatlichen Kontingenten](https://cloud.google.com/free "zur Webseite") für verschiedene Dienste an. Interessant ist die klare Versicherung, dass die anzugebene Kreditkarte nur dann belastet wird, wenn ein ***manuelles Upgrade*** auf ein ***kostenpflichtiges Konto*** erfolgt. Diese Versicherung findet man bei den vorherigen Anbietern in dieser Klarheit nicht.
+Google bietet einen [kostenlosen ***Testzeitraum*** und ***Testguthaben***](https://console.cloud.google.com/freetrial "zur Webseite"), welche 90 Tage nutzbar sind, sowie eine Vielzahl an [freien monatlichen Kontingenten](https://cloud.google.com/free "zur Webseite") für verschiedene Dienste an. Interessant ist die klare Versicherung, dass die anzugebende Kreditkarte nur dann belastet wird, wenn ein ***manuelles Upgrade*** auf ein ***kostenpflichtiges Konto*** erfolgt. Diese Versicherung findet man bei den vorherigen Anbietern in dieser Klarheit nicht.
 
-Nach Meinung des Autors handelt es sich bei dem Angebot von Google um ein sehr aufgeräumtes Angebot ähnlich dem von *Microsofts Azure*, wobei dies direkter auf die Spark Nutzung abzielt und je nach Ziel sinnvoller sein kann. 
+Nach Meinung des Autors handelt es sich im Fall von Google um ein sehr aufgeräumtes Angebot ähnlich dem von *Microsofts Azure*, wobei dies direkter auf die Spark Nutzung abzielt und je nach Ziel sinnvoller sein kann. 
 
 ## Spark mit Google Colaboratory (Colab)
 
-[_zurück_](03_Mögliche_Umgebungen_für_Spark.md#3-mgliche-umgebungen-fr-spark "Zurück")
+[_zurück_](03_Mögliche_Umgebungen_für_Spark.md#3-mögliche-umgebungen-für-spark "Zurück")
 
-Eine sehr einfache Möglichkeit, um mit Spark zu arbeiten, bietet [***Google Colaboraty***](https://colab.research.google.com/?utm_source=scs-index "zur Webseite") oder einfach ***Google Colab***. Bei *Google Colab* handelt es sich um eine von Google ***kostenlos*** zur Verfügung gestelltes
+Eine sehr einfache Möglichkeit, um mit Spark zu arbeiten, bietet [***Google Colaboraty***](https://colab.research.google.com/?utm_source=scs-index "zur Webseite") oder einfach ***Google Colab***. Bei *Google Colab* handelt es sich um ein von Google ***kostenlos*** zur Verfügung gestelltes
 ***Jupyter Notebook***:
 
-
 <img src="assets/google_colab.png" title="Ausschnitt der Jupyter Notebooks in Google Colaboratory" alt="docker_ide_jupyter.png" width="511">
-
 
 Das Notebook eignet sich zum ***kollaborativen Arbeiten*** und kann wie andere Dokumente innerhalb von ***Google Drive*** gehalten und freigegeben werden. Aus dem Notebook ist grundsätzlich ein ***Zugriff auf das eigene Drive-Laufwerk*** möglich, jedoch ***nicht zwingend notwendig***.
 
 Der Vorteil dieses Vorgehens ist die ***vorhandene Infrastruktur*** für das Notebook und die Möglichkeiten einer doch ***beachtenswerten Rechenleistung*** der darunter liegenden virtuellen Maschine. Als Betriebssystem dient ***Linux***. Sowohl [***Python***](https://www.python.org "zur Webseite") als auch [***Jupyter Notebook***](https://jupyter.org "zur Webseite") sind mit den gängigsten Bibliotheken ***vorinstalliert***.
 
-Als größter Nachteil ist die ***Flüchtigkeit der Daten*** zu nennen. Jedes Ergebnis, aber auch jede gemachte Installation und Download von Daten wird nach einer Zeit der Inaktivität ***gelöscht***. Daher empfiehlt es sich, in seinen Routinen immer auch die Vorbereitung des Notebooks zu hinterlegen.
+Als größter Nachteil ist die ***Flüchtigkeit der Daten*** zu nennen. Jedes Ergebnis, aber auch jede gemachte Installation und jeder Download von Daten wird nach einer Zeit der Inaktivität ***gelöscht***. Daher empfiehlt es sich, in seinen Routinen immer auch die Vorbereitung des Notebooks zu hinterlegen.
 
-Alle im folgenden verwendete Beispiele wurden den ***lauffähige Jupyter Notebooks*** in [_Jupyter Notebook mit RDD_](notebook/Wordcount_mit_Spark_RDD.ipynb "zum Notebook") oder [_Jupyter Notebook mit DataFrame_](notebook/Wordcount_mit_Spark_DataFrame.ipynb "zum Notebook") entnommen.
+Alle im folgenden verwendete Beispiele wurden den ***lauffähigen Jupyter Notebooks*** in [_Jupyter Notebook mit RDD_](notebook/Wordcount_mit_Spark_RDD.ipynb "zum Notebook") oder [_Jupyter Notebook mit DataFrame_](notebook/Wordcount_mit_Spark_DataFrame.ipynb "zum Notebook") entnommen.
 
 ### Vorbereiten des Notebooks
 
@@ -255,14 +253,11 @@ cp [DOWNLOAD VERZEICHNIS] pyspark:/home/jovyan/work
 
 [_zurück_](03_Mögliche_Umgebungen_für_Spark.md#spark-mit-docker "Zurück")
 
-Während des Startvorgangs erfolgen eine Reihe von Ausgaben auf der Konsole. Wichtig ist hierbei zunächst die am Ende ausgegebene ***URL*** mit einem angehangenen ***Token*** wie in der folgenden Abbildung zu sehen ist:
-
+Während des Startvorgangs erfolgen eine Reihe von Ausgaben auf der Konsole. Wichtig ist hierbei zunächst die am Ende ausgegebene ***URL*** mit einem angehangenen ***Token***, wie in der folgenden Abbildung zu sehen ist:
 
 <img title="Ausgabe von Docker nach Start des Containers" src="assets/docker_ausgabe_konsole.png" alt="docker_ausgabe_konsole.png" width="629">
 
-
-Nach dem erfolgreichen Start ist das Jupyter Notebook über die ***angegebene URL*** erreichbar. Da bereits alle für Spark benötigten Installationen und Einstellungen vorhanden sind, kann dort direkt gearbeitet werden. Die im oberen Abschnitt [_Google Colaboratory_](03_Mögliche_Umgebungen_für_Spark.md#spark-mit-google-colaboratory-colab "zum Abschnitt") beschrieben Arbeiten für die Installation müssen hier nicht durchgeführt werden:
-
+Nach dem erfolgreichen Start ist das Jupyter Notebook über die ***angegebene URL*** erreichbar. Da bereits alle für Spark benötigten Installationen und Einstellungen vorhanden sind, kann dort direkt gearbeitet werden. Die im oberen Abschnitt [_Google Colaboratory_](03_Mögliche_Umgebungen_für_Spark.md#spark-mit-google-colaboratory-colab "zum Abschnitt") beschriebenen Arbeiten für die Installation müssen hier nicht durchgeführt werden:
 
 <img title="Ausschnitt der Web IDE von Jupyter mit Docker" src="assets/docker_ide_jupyter.png" alt="docker_ide_jupyter.png" width="553">
 
