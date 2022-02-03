@@ -4,20 +4,20 @@ Das Ökosystem *Erlang* und die verteilte Datenbank *Mnesia* sind leider zu gro�
 
 ## Anforderungen
 
-Anforderung | von Mnesia erfüllt
+|Anforderung | von Mnesia erfüllt |
 --------------------------------
-lokale Autonomie | ✓
-keine Abhängigkeit von zentralen Standorten | ✓
-kontinuierlicher Betrieb | ✓
-lokale Unabhängigkeit | ✓
-Unabhängigkeit der Fragmentierung | ✓
-Unabhängigkeit der Replikation | ✓
-verteilte Anfragenverarbeitung | ✓
-verteilte Transaktionsverarbeitung | ✓
-Unabhängigkeit der Hardware | ✓
-Unabhängigkeit des Betriebssystems | ✓
-Unabhängigkeit des Netzwerks | ✓
-Unabhängigkeit der Datenbank | (X)
+| lokale Autonomie | ✓ |
+| keine Abhängigkeit von zentralen Standorten | ✓ |
+| kontinuierlicher Betrieb | ✓ |
+| lokale Unabhängigkeit | ✓ |
+| Unabhängigkeit der Fragmentierung | ✓ |
+| Unabhängigkeit der Replikation | ✓ |
+| verteilte Anfragenverarbeitung | ✓ |
+| verteilte Transaktionsverarbeitung | ✓ |
+| Unabhängigkeit der Hardware | ✓ |
+| Unabhängigkeit des Betriebssystems | ✓ |
+| Unabhängigkeit des Netzwerks | ✓ |
+| Unabhängigkeit der Datenbank | (X) |
 
 Da 11/12 Anforderungen von *Mnesia* erfüllt werden, und die letzten 4 recht schwammig sind, kann man die Daten so auslegen, dass *Mnesia* ein vollwertiges verteiltes DBMS ist.
 

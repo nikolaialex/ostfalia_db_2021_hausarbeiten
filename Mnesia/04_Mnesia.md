@@ -1,5 +1,5 @@
 # Mnesia
-Wie in den vorrangegangen Kapiteln bereits erläutert, stellt Erlang viel von dem von Haus aus bereit, was in **Kapitel_3** an Anforderungen für verteilte nebenläufige Datenbanken gilt. Da eine Datenbank auch zu den Anforderungen eines modernen Programmier-Ökosystems gehört, ist die Datenbank **Mnesia** in den *OTP* integriert. Hierbei handelt es sich um ein komplettes **DBMS**. Mehrere Features, z.B. das Halten der Daten im Arbeitsspeicher oder das replizieren der Daten auf mehreren Maschinen wird in *Mnesia* von Haus aus unterstützt.
+Wie in den vorangegangen Kapiteln bereits erläutert, stellt *Erlang* viel von dem von Haus aus bereit, was in **Kapitel_3** an Anforderungen für verteilte nebenläufige Datenbanken gilt. Da eine Datenbank auch zu den Anforderungen eines modernen Software-Ökosystems gehört, ist die Datenbank **Mnesia** in den *OTP* integriert. Hierbei handelt es sich um ein komplettes **DDBMS**.
 
 
 ## Features
@@ -15,8 +15,8 @@ Zu den Features in *Mnesia* gehören:
   <dd>Tabellen können direkt Eigenschaft wie *Persistenz*, *Replikation* und weitere zugeordnet werden</dd>
 </dl>
 <dl>
-  <dt>steigern der Ausfallsicherhit von Tabellen</dt>
-  <dd>Tabellen können auf andere Knoten bewegt oder repliziert werden, um eine höhere Ausfallsicherheit zu gewehrleisten.</dd>
+  <dt>steigern der Ausfallsicherheit von Tabellen</dt>
+  <dd>Tabellen können auf andere Knoten bewegt oder repliziert werden, um eine höhere Ausfallsicherheit zu gewährleisten.</dd>
 </dl>
 <dl>
   <dt>Transparente Replikation und Verschiebung</dt>
@@ -33,7 +33,7 @@ Zu den Features in *Mnesia* gehören:
 
 <dl>
   <dt>2-Phasen-Commit</dt>
-  <dd>Schreibende Änderungen werden im 2- (im Fehlerfall: 3-)Phasen-Commit erstellt</dd>
+  <dd>Schreibende Änderungen werden im 2- (im Fehlerfall: 3-)Phasen-Commit erstellt [2]</dd>
 </dl>
 
 <dl>
@@ -47,21 +47,19 @@ Zu den Features in *Mnesia* gehören:
 </dl>
 
 <dl>
-  <dt>Eigene Abfragensprache</dt>
+  <dt>Eigene Abfragesprache</dt>
   <dd>Mnesia nutzt nicht *SQL*, sondern eine *Erlang* eigene für die Abfragen</dd>
 </dl>
 
 
 ### Abfragesprache
-*Mnesia* stellt die eigene Abfragesprache **QLC** (Query List Comprehension) bereit. Mit ihr können erweiterte Funktionen erstellt werden, die zu verbesserten Abfragen führen, da sie von einem Kompiler ausgewertet und optimiert werden. Außerdem können komplexe Abfragen z.T. vereinfacht dargestellt werden, da QLC die Auswertung über *List Comprehensions* erlaubt.
+*Mnesia* stellt die eigene Abfragesprache **QLC** (Query List Comprehension) bereit. Mit ihr können erweiterte Funktionen erstellt werden, die zu verbesserten Abfragen führen, da sie von einem Compiler ausgewertet und optimiert werden. Außerdem können komplexe Abfragen z.T. vereinfacht dargestellt werden, da QLC die Auswertung über *List Comprehensions* erlaubt.
 
 ### Datentypen
-Da Mnesia sehr stark in Erlang integriert sind, entsprechen die unterstützten Datentypen denen von Erlang, darunter fallen z.B. String, atoms, int, float, etc.
+Da *Mnesia* sehr stark in *Erlang* integriert sind, entsprechen die unterstützten Datentypen denen von *Erlang*, darunter fallen z.B. String, atoms, int, float, etc.
 
 
-### Datenbankmodell
-Grundsätzlich ist *Mnesia* eine relationale Datenbank, allerdings unterscheidet sie sich von den meisten bekannten. Wie bereits geschrieben unterstützt *Mnesia* kein SQL sondern nutzt eine eigene, Erlang-native Abfragenlogik (BEISPIEL: Hier). Außerdem kennt *Mnesia* keine Relationalen Schemata. Es gibt lediglich Tabellen, die logische Verknüpfung muss durch die Abfrage erfolgen.
-
+### Datenbank
 #### Beispieltabelle: Warenlager - Buch
 
 | Titel |  Autor | Verlag | Jahr | Preis | Anzahl |
@@ -75,8 +73,7 @@ Um Tabellendefinitionen darzustellen, werden in Mnesia **Records** genutzt. Dies
 ```
 
 
-
-### Verteilung und Fehlertoleranz
+#### Verteilung und Fehlertoleranz
 Mnesia erfüllt die Anforderung der *lokalen Transparenz* und erlaubt es somit, direkt mit den Tabellen zu arbeiten, ohne ihren tatsächlichen Speicherort spezifizieren zu müssen. Um eine gewisse Fehlertoleranz ermöglichen zu können, erlaubt es *Mnesia* beim Anlegen der Tabellen festzulegen, wie viele Replicas erzeugt werden sollen. Dabei unterscheidet *Mnesia* 3 verschiedene Arten von Kopien die genutzt werden können:
 
 <dl>
@@ -100,7 +97,7 @@ Befinden sich die Daten auf dem lokalen Storage nutzt Mnesia einen *disk log*. A
 disk log geschrieben und anschließend periodisch in die Datenbank geschrieben. Wenn dieser Schreibzugriff erfolgreich war, wird der Log
 gelöscht. Bei einem Systemcrash kann dieser *disk log* auf genutzt werden, um fehlende oder unvollständige Transaktionen der Datenbank zu korrigieren.
 
-#### verteilte Daten - fragmentierte Tabellen
+##### verteilte Daten - fragmentierte Tabellen
 *Mnesia* unterstützt *horizontale Fragmentierung* von Tabellen. Auf diese Weise können sehr große Tabellen aufgeteilt auf viele Knoten abgelegt werden. Es gibt verschiedene Algorithmen, um fragmentierte Tabellen auf mehrere Knoten aufzuteilen. Um bewerten zu können, welcher Algorithmus für die eigenen Anforderungen am Besten ist, müssen verschiedene Faktoren berücksichtigt werden, z.B.
 
  -  ist das System stabil oder werden oft neue Knoten dazu- oder abgeschaltet
@@ -127,7 +124,7 @@ add_new_book(Titel,Autor,Verlag,Jahr,Preis,Anzahl) ->
   mnesia:transaction(Operation).
 ```
 
-### Lesender Zugriff mit Bedingung
+#### Lesender Zugriff mit Bedingung
 Um Bedingungen in den Abfragen nutzen zu können, definieren wir eine Methode, die einen *QLC*-Query auslöst, z.B. die Ausgabe aller Bücher, die vor 2010 erschienen sind:
 
 ``` Erlang
