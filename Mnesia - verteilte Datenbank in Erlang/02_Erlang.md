@@ -135,4 +135,5 @@ In diesem Beispiel wurden 2 Funktionen definiert. `demo_print/0` ist die Methode
 ## OTP
 Die Sprache Erlang steht nicht nur alleine, sie hat auch ihr eigenes Ökosystem, die sogenannte **O**pen **T**elecom **P**latform. Es stellt mehrere Bibliotheken und Vorgehensweise bereit, um Anwendungen verteilt und fehlertolerant implementieren zu können, auch bei skalierender Anforderung. So gibt es z.B. verschiedene gebündelte Konzepte, sogenannte *behaviors* bereit. Eines der wichtigsten Konzepte hierbei ist der *generic servers*. Diese Konzepte können mit Application Frameworks verglichen werden, die bei Erlang durch eine Definition verschiedener *callbacks* umgesetzt werden. Implementiert man einen *generic server* erlaubt dieser einem z.B. Code-Updates im laufenden Betrieb eines Programms einspielen zu können [Arm07].
 
+
 [**Weiter**](./03_verteilte_Datenbanken.md)

@@ -6,4 +6,5 @@ Das DBMS ist eng verzahnt mit der Sprache und ihrem Ökosystem, darum wird und m
 
 Diese Ausarbeitung wird daher dreigeteilt sein, bestehend aus einer sehr kompakten Einführung in Erlang, Eingrenzung und Umrahmung von verteilten Datenbanken und schließlich einer Einführung in **Mnesia**.
 
+
 [**Weiter**](./02_Erlang.md)
