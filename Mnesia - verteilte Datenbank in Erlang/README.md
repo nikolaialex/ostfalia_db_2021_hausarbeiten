@@ -1,5 +1,5 @@
 
-# Mnesia und Erlang - Umsetzung eines nebenläufigen DBMS in einem verteilten und nebenläufigen Ökosystems
+# Mnesia und Erlang - Umsetzung eines nebenläufigen DBMS in einem verteilten und nebenläufigen Ökosystem
 
 In dieser Ausarbeitung soll die Programmiersprache Erlang und deren Ökosystem vorgestellt werden mit Augenmark auf das im Ökosystem implementierte DBMS *Mnesia*. Im Kontext dieser Aufgabenstellung soll auf die Anforderung an verteilte Datenbanken eingegangen werden und wie diese Probleme im direkten Kontext dieser Sprache gelöst werden.
 
