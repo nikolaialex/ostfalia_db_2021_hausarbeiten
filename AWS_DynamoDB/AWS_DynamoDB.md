@@ -1334,12 +1334,13 @@ For simultaneous reading of a shard in DynamoDB there’s a limit set for two pr
 &nbsp;
 ## 9. In-memory acceleration
 
-AWS DynamoDB itself already offers quite fast read and write operations in a couple of milliseconds. For use-cases which needed even faster read and write operations AWS introduced in the year 2017 a new addon for in-memory acceleration which is called DAX[^9]. As you can see in the image[^9] Below it can for example be used in front of any Dynamodb table and act as an in-memory cache cluster which will automatically scale in a serverless fashion. As a result, accelerating performance by factor 10 offering faster read and write operations. Making it possible to read and write data not in milliseconds but microseconds. 
+AWS DynamoDB itself already offers quite fast read and write operations that only take a couple of milliseconds. In the year 2017 AWS introduced a new addon for in-memory acceleration, which is called DAX[^9], that is specifically designed for use-cases that require even faster read and write operations. The image[^9] below shows that DAX can be used in front of any DynamoDB table and act as an in-memory cache cluster that will automatically scale in a serverless fashion. As a result, the performance is accelerated by a factor of ten offering faster read and write operations. Making it possible to read and write data not in milliseconds but microseconds. 
+ 
 
 ![AWS Dax](data/dax.png)
 
 
-In the code example[^10] Below we will create a DynamoDB Table which will contain our test data. As you can see the read and write capacity is quite low which will lead to requests being throttled if fast recurring read operations are executed without any acceleration using DAX.
+In the code example[^10] below shows how a DynamoDB Table is created. It contains some test data for this specific example. It is quite obvious that the read and write capacity is rather low. This will lead to requests being throttled if fast recurring read operations are executed without any acceleration using DAX.
 
 
 ```
@@ -1362,9 +1363,7 @@ const params = {
 const result = await dynamodb.createTable(params).promise()
 ```
 
-
-If we now query the data with the normal document client the capacity will be exhausted quickly. So instead of using the normal document client we use the dax client which will read and write to the caching layer.
-
+If the data is now queried with the normal document client the capacity will be exhausted quickly. So instead of using the normal document client, the dax client is used. The dax client will read and write to the caching layer.
 
 ```
 // Initiate dax client
@@ -1390,7 +1389,7 @@ const result = await client.query(params).promise()
 ```
 
 
-Reading with the dax client will now get the data from the DynamoDB client once saving it to the cache layer. All consecutive read operations will then be handled by the cache layer greatly accelerating reading speed and preventing request throttling in the underprovisioned dynamodb table. 
+Reading with the dax client will now get the data from the DynamoDB client once saving it to the cache layer. All consecutive read operations will then be handled by the cache layer greatly accelerating reading speed and preventing request throttling in the underprovisioned DynamoDB table. 
 
 \
 &nbsp;
@@ -1410,39 +1409,37 @@ This report aims to provide a clear overview of the architecture and the feature
 Tables 1 - 8:   Amazon Web Services - Comparing the Use of Amazon DynamoDB and Apache HBase for NoSQL
 
 [^1]:
-     Dynamo: Amazon’s Highly Available Key-value Store
+    [Dynamo: Amazon’s Highly Available Key-value Store](https://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf)
 
 [^2]:
-      Amazon Web Services - Comparing the Use of Amazon DynamoDB and Apache HBase for NoSQL
+      [Amazon Web Services - Comparing the Use of Amazon DynamoDB and Apache HBase for NoSQL](https://d1.awsstatic.com/whitepapers/AWS_Comparing_the_Use_of_DynamoDB_and_HBase_for_NoSQL.pdf)
 
 [^3]:
-     Amazon DynamoDB Developer Guide API Version 2012-08-10
+     [Amazon DynamoDB Developer Guide API Version 2012-08-10](https://docs.aws.amazon.com/de_de/amazondynamodb/latest/developerguide/dynamodb-dg.pdf)
 
 [^4]:
-     Amazon DynamoDB SDK for NodeJS https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB.html
+     [Amazon DynamoDB SDK for NodeJS](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB.html)
 
 [^5]:
-     Amazon DynamoDB On-Demand
-    [https://aws.amazon.com/de/blogs/aws/amazon-dynamodb-on-demand-no-capacity-planning-and-pay-per-request-pricing/](https://aws.amazon.com/de/blogs/aws/amazon-dynamodb-on-demand-no-capacity-planning-and-pay-per-request-pricing/)
+     [Amazon DynamoDB On-Demand](https://aws.amazon.com/de/blogs/aws/amazon-dynamodb-on-demand-no-capacity-planning-and-pay-per-request-pricing/)
 
 [^6]:
-     AWS DynamoDB Throughput Default Quotas
-    https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ServiceQuotas.html#default-limits-throughput
+    [AWS DynamoDB Throughput Default Quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ServiceQuotas.html#default-limits-throughput)
 
 [^7]:
-     TypeScript 1.7 Documenation https://www.typescriptlang.org/docs/handbook/release-notes/typescript-1-7.html
+     [TypeScript 1.7 Documenation](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-1-7.html)
 
 [^8]:
-     AWS DynamoDB Developer Guide Read and Write Capacity https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual
+     [AWS DynamoDB Developer Guide Read and Write Capacity](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual)
 
 [^9]:
-     AWS DynamoDB Dax https://aws.amazon.com/de/dynamodb/dax/
+     [AWS DynamoDB Dax](https://aws.amazon.com/de/dynamodb/dax/)
 
 [^10]:
-     AWS DynamoDB SDK Dax https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.client.run-application-nodejs.01-create-table.html
+     [AWS DynamoDB SDK Dax](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.client.run-application-nodejs.01-create-table.html)
 
 [^11]:
-     AWS DynamoDB Service Level Agreement https://aws.amazon.com/de/dynamodb/sla/
+     [AWS DynamoDB Service Level Agreement](https://aws.amazon.com/de/dynamodb/sla/)
 
 [^12]:
-     Creative Commons: https://openclipart.org/detail/317121/aws-db-dynamo-icon
+     [Logo Creative Commons](https://openclipart.org/detail/317121/aws-db-dynamo-icon)
