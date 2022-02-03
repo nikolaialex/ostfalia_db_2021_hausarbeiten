@@ -64,13 +64,17 @@ angenommen werden könnten.
 
 
 ## verteilte Daten
-Ein Kernthema der verteilten Datenbanken ist die Speicherung der Daten auf verschiedenen Knoten. Eine grobe Einordnung kann über die beiden Konzepte *Replikation* und *Fragmentierung* erfolgen.
+Ein Kernthema der verteilten Datenbanken ist die Speicherung der Daten auf verschiedenen Knoten. Eine grobe Einordnung kann über die beiden Konzepte *Replikation* und *Fragmentierung* erfolgen.[8]
 ### Replikation
-
+Bei der Replikation werden die Daten lokal auf mehreren Knoten vorgehalten. Dies hat den Vorteil, dass lesende Anfragen nun schnell und nebenläufig an mehreren Standorten durchgeführt werden können. Schreibende Zugriffe machen das System deutlich komplexer. Änderungen müssen nun auf mehrere Knoten sofort eingespielt werden und es muss viel Energie darauf verwendet werden, das ganze System konsistent zu halten.
 ### Fragmentierung
-#### vertikale Fragmentierung
+Bei der Fragmentierung wird die Gesamtheit der Daten aufgeteilt auf mehrere Knoten. Dabei muss natürlich beachtet werden, dass auch nach der Fragmentierung wieder die Ursprüngliche Verbindung der Daten wiederherrgestellt werden kann. Diese *Fragmentierung* kann auf verschiedene Arten stattfinden:
 
+#### vertikale Fragmentierung
+Ein existierendes Schema wird aufgeteilt in mehrere kleine. Beim Beispiel einer SQL-Tabelle würde man diese *spaltenbasiert* aufteilen und in verschiedenen Knoten speichern.
 #### horizontale Fragmentierung
+Bei der horizontalen Fragmentierung  würde man lediglich die Anzahl der Einträge einer Relation aufteilen, am Beispiel einer SQL-Tabelle ändert sich also nicht die Anzahl der Spalten, sondern der Reihen.
+
 
 Wie genau Mnesia diese Probleme löst, wird im nächsten Kapitel genauer erläutert, allerdings wird hier schon auffällig, dass
 die unterliegende Programmiersprache bereits einige der Probleme als Kernprobleme anerkennt und Lösungen bereitstellt.

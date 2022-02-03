@@ -6,3 +6,5 @@
 [5]
 [6] Codd
 [7] Date
+[8] Silberschatz, Forth (2013): Database System Concepts, McGraw Hill Education
+[9] Ericcson (2022), Mnesia, Ericcson AB
