@@ -57,3 +57,5 @@
 ### Anhänge
 
 * [Anhang Linksliste](Anhang_Linkliste.md "zur Linkliste")
+* [Notebook : Wordcount_mit_Spark_RDD](notebook/Wordcount_mit_Spark_RDD.ipynb "zum Notebook")
+* [Notebook : Wordcount_mit_Spark_DataFrame](notebook/Wordcount_mit_Spark_DataFrame.ipynb "zum Notebook")
