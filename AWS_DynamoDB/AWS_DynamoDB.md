@@ -8,7 +8,7 @@
   margin-right: auto;
   width: 50%;"/>
 
-AWS DynamoDB Logo [^37]
+AWS DynamoDB Logo [^12]
 ### Authors
 \
 &nbsp;
@@ -127,7 +127,7 @@ Finally the conclusion  illustrates the authors’ evaluations of DynamoDB round
 
 “The architecture of a storage system that needs to operate in a production setting is complex. In addition to the actual data persistence component, the system needs to have scalable and robust solutions for load balancing, membership and failure detection, failure recovery, replica synchronization, overload handling, state transfer, concurrency and job scheduling, request marshaling, request routing, system monitoring and alarming, and configuration management.”[^1]
 
-As a short summary of some techniques used in DynamoDB and their benefits is listed in the following table[^2]:
+As a short summary of some techniques used in DynamoDB and their benefits is listed in the following table[^1]:
 
 Table 1: Summary of techniques used in Dynamo and their advantages
 
@@ -229,9 +229,9 @@ For sure this is just seen as a kind of an overview and not as a final compendiu
 
 ### 2.3 Data Models
 
-Although Amazon DynamoDB is a key-value-store as well as a document store, this paper focuses on the key-value data model as a NoSQL data store. According to “simpler and less constrained data models than traditional relational databases”[^3] key-value stores “are designed with the goal to deliver significant performance benefits with low latency and high throughput”[^4].
+Although Amazon DynamoDB is a key-value-store as well as a document store, this paper focuses on the key-value data model as a NoSQL data store. According to “simpler and less constrained data models than traditional relational databases”[^2] key-value stores “are designed with the goal to deliver significant performance benefits with low latency and high throughput”[^2].
 
-Generally, the core of relational databases are tables. These tables were called relations. Each relation is a sample of rows. Within these rows exists one or more columns. Usually a formal scheme is not required in NoSQL database tables “except for a mandatory primary key that uniquely identifies each row”[^5]. An example is given in the following table.
+Generally, the core of relational databases are tables. These tables were called relations. Each relation is a sample of rows. Within these rows exists one or more columns. Usually a formal scheme is not required in NoSQL database tables “except for a mandatory primary key that uniquely identifies each row”[^2]. An example is given in the following table.
 
 Table 2: High-Level NoSQL Database Table Representation
 
@@ -256,7 +256,7 @@ Table 2: High-Level NoSQL Database Table Representation
 </table>
 
 
-Separated column storage operations for each column result in obviously faster operations due to “aggregate operations for one column of the entire table … than the traditional row storage model”[^6].
+Separated column storage operations for each column result in obviously faster operations due to “aggregate operations for one column of the entire table … than the traditional row storage model”[^2].
 
 According to the high-level concept of Amazon DynamoDB a row is related to an item, which itself can have several numbers of attributes without restrictions. Each attribute includes a key beside its own value. The attributes name and value are usually referred to the key as a name-value pair. The number of items stored in an Amazon DynamoDB table is not limited but indexed by primary key as shown in the following table.
 
@@ -323,7 +323,7 @@ Table 3: High-Level Representation of Amazon DynamoDB Table
 </table>
 
 
-There are two options defined for using primary keys in Amazon DynamoDB. The first one is called partition key which is a simple primary key with one attribute. “The minimum length of a partition key value is 1 byte. The maximum length is 2048 bytes. There is no practical limit on the number of distinct partition key values, for tables or for secondary indexes.”[^7] In this outlined setting, every item in this table has to have different partition key values.
+There are two options defined for using primary keys in Amazon DynamoDB. The first one is called partition key which is a simple primary key with one attribute. “The minimum length of a partition key value is 1 byte. The maximum length is 2048 bytes. There is no practical limit on the number of distinct partition key values, for tables or for secondary indexes.”[^3] In this outlined setting, every item in this table has to have different partition key values.
 
 Table 4: Amazon DynamoDB Simple Primary Key (Partition Key)
 
@@ -441,7 +441,7 @@ Table 5: Example Person Amazon DynamoDB Table
 </table>
 
 
-The second option is a composite primary key which comprises two attributes. This key is indexed as a partition key and a sort key. As a result of this construction it is significantly quicker to get the right items with these two hierarchical element values. “The minimum length of a sort key value is 1 byte. The maximum length is 1024 bytes. In general, there is no practical limit on the number of distinct sort key values per partition key value. The exception is for tables with secondary indexes. With a local secondary index, there is a limit on item collection sizes: For every distinct partition key value, the total sizes of all table and index items cannot exceed 10 GB. This might constrain the number of sort keys per partition key value.”[^8]
+The second option is a composite primary key which comprises two attributes. This key is indexed as a partition key and a sort key. As a result of this construction it is significantly quicker to get the right items with these two hierarchical element values. “The minimum length of a sort key value is 1 byte. The maximum length is 1024 bytes. In general, there is no practical limit on the number of distinct sort key values per partition key value. The exception is for tables with secondary indexes. With a local secondary index, there is a limit on item collection sizes: For every distinct partition key value, the total sizes of all table and index items cannot exceed 10 GB. This might constrain the number of sort keys per partition key value.”[^3]
 
 In this presented setting it is possible for multiple items to have the same partition key value. But therefore these items have to have different sort key values. 
 
@@ -618,7 +618,7 @@ Table 7: Example GameScores Amazon DynamoDB Table
 
 The elements of a composite primary key as a multi-part key were also known as its hash attribute and its range attribute. An explanation of the terms and its functions is given in an Amazon Whitepaper from January 2020:
 
-“The partition key of an item is also known as its hash attribute and sort key as its range attribute. The term hash attribute arises from the use of an internal hash function that takes the value of the partition key as input and the output of that hash function determines the partition or physical storage node where the item will be stored. The term range attribute derives from the way DynamoDB stores items with the same partition key together, in sorted order by the sort key value.”[^9]
+“The partition key of an item is also known as its hash attribute and sort key as its range attribute. The term hash attribute arises from the use of an internal hash function that takes the value of the partition key as input and the output of that hash function determines the partition or physical storage node where the item will be stored. The term range attribute derives from the way DynamoDB stores items with the same partition key together, in sorted order by the sort key value.”[^2]
 
 \
 &nbsp;
@@ -762,7 +762,7 @@ Primary keys are always scalar types with only one the following data types allo
 
 1. String:
 
-“The length of a String is constrained by the maximum item size of 400 KB. Strings are Unicode with UTF-8 binary encoding. Because UTF-8 is a variable width encoding, DynamoDB determines the length of a String using its UTF-8 bytes.”[^10]
+“The length of a String is constrained by the maximum item size of 400 KB. Strings are Unicode with UTF-8 binary encoding. Because UTF-8 is a variable width encoding, DynamoDB determines the length of a String using its UTF-8 bytes.”[^3]
 
 
 
@@ -776,13 +776,13 @@ Primary keys are always scalar types with only one the following data types allo
 
 DynamoDB uses JSON strings to represent Number data in requests and replies. If number precision is important, you should pass numbers to DynamoDB using strings that you convert
 
-from a number type.”[^11]
+from a number type.”[^3]
 
 
 
 3. Binary:
 
-“The length of a Binary is constrained by the maximum item size of 400 KB. Applications that work with Binary attributes must encode the data in base64 format before sending it to DynamoDB. Upon receipt of the data, DynamoDB decodes it into an unsigned byte array and uses that as the length of the attribute.”[^12]
+“The length of a Binary is constrained by the maximum item size of 400 KB. Applications that work with Binary attributes must encode the data in base64 format before sending it to DynamoDB. Upon receipt of the data, DynamoDB decodes it into an unsigned byte array and uses that as the length of the attribute.”[^3]
 
 These restrictions are only determined for key attributes, not for other, non-key ones. 
 
@@ -800,7 +800,7 @@ The following chapter will demonstrate table creation using Amazon's Software De
 
 As highlighted in the architecture section a table will be managed and sharded into smaller individual parts in the background by the AWS DynamoDB business logic.
 
-The key parameters for this operation are the **hash-key **and the** range-key,** that can only be set at the creation phase of a table. The reason for this kind of restriction is that the data is stored and distributed to nodes based on these values. For a later change the data would need to be redistributed between nodes on the fly, which is not trivial. A change of this structure is handled by the creation of an entirely new table, followed by copying the data into said table. A table can be created in code which we illustrate by the following code example[^13].
+The key parameters for this operation are the **hash-key **and the** range-key,** that can only be set at the creation phase of a table. The reason for this kind of restriction is that the data is stored and distributed to nodes based on these values. For a later change the data would need to be redistributed between nodes on the fly, which is not trivial. A change of this structure is handled by the creation of an entirely new table, followed by copying the data into said table. A table can be created in code which we illustrate by the following code example[^4].
 
 
 ```
@@ -836,7 +836,7 @@ const result = await dynamodb.createTable(params).promise()
 ```
 
 
-As you can see in this example[^14] only the Key Schema needs to be defined. The attributes of the data will be created by putting data to the table. Therefore the attributes will change on the fly by the process of adding data. This is a totally different concept compared to SQL databases, where the schema needs to be defined before putting data in the table. You can always alter the table and its schema with SQL databases but this needs to happen manually and is not automated as it is with MySQL databases.  \
+As you can see in this example[^4] only the Key Schema needs to be defined. The attributes of the data will be created by putting data to the table. Therefore the attributes will change on the fly by the process of adding data. This is a totally different concept compared to SQL databases, where the schema needs to be defined before putting data in the table. You can always alter the table and its schema with SQL databases but this needs to happen manually and is not automated as it is with MySQL databases.  \
 In the example above you might also notice the term “ProvisionedThroughput”. Here five read and five write units are used. This refers to the read and write capacity for operations on the data, which will be illustrated in the following section.
 
 \
@@ -879,7 +879,7 @@ You can  lower or increase the capacity and once every twenty four hours you can
 
 **Provisioned Throughput**
 
-This mode is the classic way to provision capacity[^15] which has been available since the introduction of AWS DynamoDB in the year 2012.
+This mode is the classic way to provision capacity[^3] which has been available since the introduction of AWS DynamoDB in the year 2012.
 
 It is meant for predictable read and write usage of the underlying table.
 
@@ -901,7 +901,7 @@ To overcome this kind of problem Amazon web services introduced in 2018 an new p
 
 **On-Demand**
 
-With on-demand[^16] mode you do not need to provision capacity at all and only pay what you really use. The table will scale automatically to the needed capacity up to a default set quota[^17] of 40 000 read or write units. This limit can be increased and is in place to avoid unwanted costs for customers new to this kind of serverless services. With on-demand mode enabled the application can react to unpredictable workloads like they often happen with a web  application. The example often cited at this discussion is a startup web application going viral overnight and the need for the online store to scale with the demand to not interrupt service. Another use-case is infrequent workloads like a monthly report which do not need a table with provisioned capacity for the rest of the month.
+With on-demand[^5] mode you do not need to provision capacity at all and only pay what you really use. The table will scale automatically to the needed capacity up to a default set quota[^6] of 40 000 read or write units. This limit can be increased and is in place to avoid unwanted costs for customers new to this kind of serverless services. With on-demand mode enabled the application can react to unpredictable workloads like they often happen with a web  application. The example often cited at this discussion is a startup web application going viral overnight and the need for the online store to scale with the demand to not interrupt service. Another use-case is infrequent workloads like a monthly report which do not need a table with provisioned capacity for the rest of the month.
 
 The Downside is the higher price which Amazon will charge for providing this on demand capacity at any given time.
 
@@ -925,7 +925,7 @@ As highlighted in the architecture section DynamoDB needs to identify the right 
 
 The name of the method wrapped in the DynamoDB Object of the SDK is **getItem**.
 
-Additional possible parameters for this method call are: **AttributesToGet, ConsistentRead, ReturnConsumedCapacity**[^18]**.**
+Additional possible parameters for this method call are: **AttributesToGet, ConsistentRead, ReturnConsumedCapacity**[^4]**.**
 
 Which we will describe in a short manner.
 
@@ -947,7 +947,7 @@ Which we will describe in a short manner.
     To find out how much capacity an operation consumed we can directly return the consumption in the read result by passing this parameter.
 
 
-To illustrate the previously introduced method we will have a look at a coding example[^19] in the DynamoDB Node SDK and the simplified DynamoDB Document Client SDK which has a slightly different syntax. Both parts of the SDK offer the same functionality but the Document Client tries to abstract some of the complexity.
+To illustrate the previously introduced method we will have a look at a coding example[^4] in the DynamoDB Node SDK and the simplified DynamoDB Document Client SDK which has a slightly different syntax. Both parts of the SDK offer the same functionality but the Document Client tries to abstract some of the complexity.
 
 The following code will try to retrieve an item from the table specifying the hash key “Ärzte” in the table “Songs”.
 
@@ -995,7 +995,7 @@ In both code blocks data is returned in an async way.
 
 For more information on async programming in typescript you can refer to the
 
-[documentation of typescript](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-1-7.html)[^20].
+[documentation of typescript](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-1-7.html)[^7].
 
 The response from the DynamoDB SDK for example then looks like this.
 
@@ -1098,7 +1098,7 @@ The syntax of the Document Client simplifies this operation and makes it possibl
 
 The previous chapter already introduced the terms **eventual** and **strong-consistency** while taking a look at the read and write capacity.
 
-In the context of reading items this term becomes even more important in regards to the freshness of data[^21].
+In the context of reading items this term becomes even more important in regards to the freshness of data[^8].
 
 DynamoDB data is distributed and sharded to different nodes.
 
@@ -1132,7 +1132,7 @@ The used **hash-key** of the table needs to be included in the payload, a possib
 
 As you can see in the code example below in the DynamoDB SDK the type of the data which should be written needs to be provided and will not be inferred itself from the type of variable provided. But rather the type needs to be specified as map as the key of the attribute and the value to write as the value of this key in the format String.
 
-To write a number for example the Type would be “N” and the value “1”. In the example[^22] Below you can see a string, boolean and a number value are written to the database.
+To write a number for example the Type would be “N” and the value “1”. In the example[^4] Below you can see a string, boolean and a number value are written to the database.
 
 Code Example for the DynamoDB SDK Client.
 
@@ -1162,7 +1162,7 @@ const result = await dynamodb.putItem(params).promise()
 
 This complexity is greatly simplified when using the AWS DynamoDB Document Client.
 
-As you can see in the second example[^23] below which shows the same operation with the Document Client. Data can be provided as it is as variable and the data type will be inferred and translated to the DynamoDB data type.
+As you can see in the second example[^4] below which shows the same operation with the Document Client. Data can be provided as it is as variable and the data type will be inferred and translated to the DynamoDB data type.
 
 So instead of writing boolean data with the key “BOOL” and the value itself as String (“true”) we can just pass the value **true **as it is and let the client handle the conversion.
 
@@ -1193,7 +1193,7 @@ For most use-cases this automatic conversion of datatypes works quite well and w
 
 With the same pattern we used  in the previous chapter to write a single item to the database we can write multiple items in a single operation.
 
-The  prerequisite for a successful write is the same as for single item operation meaning the hash-key of the table needs to be provided in the payload  but we can provide as many items to write to different tables in an array and all operations will be executed at once on the server. In the example[^24] below You can see three different write operations to the same table in one array.
+The  prerequisite for a successful write is the same as for single item operation meaning the hash-key of the table needs to be provided in the payload  but we can provide as many items to write to different tables in an array and all operations will be executed at once on the server. In the example[^4] below You can see three different write operations to the same table in one array.
 
 DynamoDB SDK
 
@@ -1257,7 +1257,7 @@ const result = await dynamodb.batchWriteItem(params).promise()
 ```
 
 
-A simplified version of a multi-item write can be seen in the second example[^25] based on the DynamoDB Document Client. An interesting fact to notice is that a write operation can not only contain the creation or update of an item but rather as well the deletion of another in a single operation. In the code below we delete the item with the hash-key Name and the value “Peter”.
+A simplified version of a multi-item write can be seen in the second example[^4] based on the DynamoDB Document Client. An interesting fact to notice is that a write operation can not only contain the creation or update of an item but rather as well the deletion of another in a single operation. In the code below we delete the item with the hash-key Name and the value “Peter”.
 
 
 ```
@@ -1301,7 +1301,7 @@ Furthermore the database allows incremental and conditional operations what is m
 
 “Amazon DynamoDB provides atomic item and attribute operations for adding, updating, or deleting data. Further, item-level transactions can specify a condition that must be satisfied before that transaction is fulfilled. For example, you can choose to update an item only if it already has a certain value.
 
-Conditional operations allow you to implement optimistic concurrency control systems on Amazon DynamoDB. For conditional updates, Amazon DynamoDB allows atomic increment and decrement operations on existing scalar values without interfering with other write requests.”[^26]
+Conditional operations allow you to implement optimistic concurrency control systems on Amazon DynamoDB. For conditional updates, Amazon DynamoDB allows atomic increment and decrement operations on existing scalar values without interfering with other write requests.”[^2]
 
 The Amazon DynamoDB Developer Guide gives more technical informations and examples to the restrictions and constraints of transactions setted up in DynamoDB:
 
@@ -1322,7 +1322,7 @@ DynamoDB transactional API operations have the following constraints:
 * A transaction cannot contain more than 4 MB of data.
 * No two actions in a transaction can work against the same item in the same table. For example, you cannot both ConditionCheck and Update the same item in one transaction.
 * A transaction cannot operate on tables in more than one AWS account or Region.
-* Transactional operations provide atomicity, consistency, isolation, and durability (ACID) guarantees only within the AWS Region where the write is made originally. Transactions are not supported across Regions in global tables. For example, suppose that you have a global table with replicas in the US East (Ohio) and US West (Oregon) Regions and you perform a TransactWriteItems operation in the US East (N. Virginia) Region. In this case, you might observe partially completed transactions in the US West (Oregon) Region as changes are replicated. Changes are replicated to other Regions only after they have been committed in the source Region.”[^27]
+* Transactional operations provide atomicity, consistency, isolation, and durability (ACID) guarantees only within the AWS Region where the write is made originally. Transactions are not supported across Regions in global tables. For example, suppose that you have a global table with replicas in the US East (Ohio) and US West (Oregon) Regions and you perform a TransactWriteItems operation in the US East (N. Virginia) Region. In this case, you might observe partially completed transactions in the US West (Oregon) Region as changes are replicated. Changes are replicated to other Regions only after they have been committed in the source Region.”[^3]
 \
 &nbsp;
 
@@ -1335,7 +1335,7 @@ If a table is defined with a primary key and a sort key, Amazon DynamoDB support
 
 
 * “Global secondary index—An index with a partition and optional sort key that can be different from those on the table.
-* Local secondary index—An index that has the same partition key as the table, but a different sort key.”[^28]
+* Local secondary index—An index that has the same partition key as the table, but a different sort key.”[^2]
 Each table can be set up with one or more of each secondary indexes, global and local. It's also possible for documents to define secondary indexes either global or local on any top-level JSON element.
 
 “Names for tables and secondary indexes must be at least 3 characters long, but no greater than 255 characters long. The following are the allowed characters:
@@ -1350,7 +1350,7 @@ Each table can be set up with one or more of each secondary indexes, global and 
 
 • - (hyphen)
 
-• . (dot)”[^29]
+• . (dot)”[^3]
 \
 &nbsp;
 
@@ -1363,16 +1363,16 @@ Table activities can be gathered using an optional feature called Amazon DynamoD
 
 * ”A new item is added to the table: The stream captures an image of the entire item, including all of its attributes.
 * An item is updated: The stream captures the "before" and "after" image of any attributes that were modified in the item.
-* An item is deleted from the table: The stream captures an image of the entire item before it was deleted.”[^30]
+* An item is deleted from the table: The stream captures an image of the entire item before it was deleted.”[^3]
 Together with other solutions there’s even more automation possible like this:
 
-“Amazon DynamoDB Streams can be used with AWS Lambda to create trigger-code that executes automatically whenever an event of interest (add, update, delete) appears in a stream. This pattern enables powerful solutions, such as data replication within and across AWS Regions, materialized views of data in DynamoDB tables, data analysis using Amazon Kinesis, notifications via Amazon Simple Notification Service (Amazon SNS) or Amazon Simple Email Service (Amazon SES) and much more.”[^31]
+“Amazon DynamoDB Streams can be used with AWS Lambda to create trigger-code that executes automatically whenever an event of interest (add, update, delete) appears in a stream. This pattern enables powerful solutions, such as data replication within and across AWS Regions, materialized views of data in DynamoDB tables, data analysis using Amazon Kinesis, notifications via Amazon Simple Notification Service (Amazon SNS) or Amazon Simple Email Service (Amazon SES) and much more.”[^2]
 
 An important note is the fact of stream records lifetime, which exceeds after 24 hours. Afterwards they'll be removed automatically from the stream. 
 
 The following example from the developers guide gives a clinch of the possibilities:
 
-“consider a Customers table that contains customer information for a company. Suppose that you want to send a "welcome" email to each new customer. You could enable a stream on that table, and then associate the stream with a Lambda function. The Lambda function would run whenever a new stream record appears, but only process new items added to the Customers table. For any item that has an EmailAddress attribute, the Lambda function would invoke Amazon Simple Email Service (Amazon SES) to send an email to that address.”[^32]
+“consider a Customers table that contains customer information for a company. Suppose that you want to send a "welcome" email to each new customer. You could enable a stream on that table, and then associate the stream with a Lambda function. The Lambda function would run whenever a new stream record appears, but only process new items added to the Customers table. For any item that has an EmailAddress attribute, the Lambda function would invoke Amazon Simple Email Service (Amazon SES) to send an email to that address.”[^3]
 
 ![Streams](./data/streams.png "image_tooltip")
 
@@ -1385,12 +1385,12 @@ For simultaneous reading of a shard in DynamoDB there’s a limit set for two pr
 &nbsp;
 ## 9. In-memory acceleration
 
-AWS DynamoDB itself already offers quite fast read and write operations in a couple of milliseconds. For use-cases which needed even faster read and write operations AWS introduced in the year 2017 a new addon for in-memory acceleration which is called DAX[^33]. As you can see in the image[^34] Below it can for example be used in front of any Dynamodb table and act as an in-memory cache cluster which will automatically scale in a serverless fashion. As a result, accelerating performance by factor 10 offering faster read and write operations. Making it possible to read and write data not in milliseconds but microseconds. 
+AWS DynamoDB itself already offers quite fast read and write operations in a couple of milliseconds. For use-cases which needed even faster read and write operations AWS introduced in the year 2017 a new addon for in-memory acceleration which is called DAX[^9]. As you can see in the image[^9] Below it can for example be used in front of any Dynamodb table and act as an in-memory cache cluster which will automatically scale in a serverless fashion. As a result, accelerating performance by factor 10 offering faster read and write operations. Making it possible to read and write data not in milliseconds but microseconds. 
 
 ![AWS Dax](data/dax.png)
 
 
-In the code example[^35] Below we will create a DynamoDB Table which will contain our test data. As you can see the read and write capacity is quite low which will lead to requests being throttled if fast recurring read operations are executed without any acceleration using DAX.
+In the code example[^10] Below we will create a DynamoDB Table which will contain our test data. As you can see the read and write capacity is quite low which will lead to requests being throttled if fast recurring read operations are executed without any acceleration using DAX.
 
 
 ```
@@ -1449,7 +1449,7 @@ Reading with the dax client will now get the data from the DynamoDB client once 
 
 In a world where data is getting increasingly important, the diverse databases known today are required to store multifold data types in countless different formats. AWS DynamoDB has found a good spot in the niche of NoSQL databases to play out its advantages. It stores the data in a reliable, secure and very cost-effective manner.
 
-Its very complex business logic for sharding, saving data, automatic failover, and data backup is abstracted in a very easy to use Software-Development-Kit. It offers a high percentage of availability (99.999%) as documented in the Aws service Level Agreements[^36]  while still being very cost-effective. Although it does not fit all use cases and will not be able to replace SQL based databases, it has a lot of advantages.  \
+Its very complex business logic for sharding, saving data, automatic failover, and data backup is abstracted in a very easy to use Software-Development-Kit. It offers a high percentage of availability (99.999%) as documented in the Aws service Level Agreements[^11]  while still being very cost-effective. Although it does not fit all use cases and will not be able to replace SQL based databases, it has a lot of advantages.  \
 The in depth view into the system offered in this report illustrated the multitude of operations and features offered to developers and customers. By examining the processes of creating tables and efficiently provisioning the required capacity in different modes as well as the advantages and disadvantages for using them in different use cases, the benefits of using DynamoDB reveal themselves evidently. Furthermore it was demonstrated how data is read and written with the DynamoDB SDK and the effortless usage of the DynamoDB Document Client displayed in code examples. This is further shown by explaining some more complex uses-cases, like transactions and update streams. Finally the massive performance boost, using in-memory acceleration, is illustrated.  \
 All in all it can be said that although AWS DynamoDB is only one of the many systems on the market it is clearly able to stand out. Given it is applied to the right use-case, for example in a serverless stack and combined with other AWS Services like Lambda and SQS, it is effortless and fun to use. \
 This report aims to provide a clear overview of the architecture and the features of DynamoDB. The code examples are designed to facilitate the usage of the system and expedite the “getting started phase” of developers. Furthermore highlighting of advantages and disadvantages aims to assist with the question: “Is this the right database for my use case?”. Thus the key information required to set up a project with DynamoDB and to maintain it is hereby provided.
@@ -1464,114 +1464,36 @@ Tables 1 - 8:   Amazon Web Services - Comparing the Use of Amazon DynamoDB and A
      Dynamo: Amazon’s Highly Available Key-value Store
 
 [^2]:
-     Dynamo: Amazon’s Highly Available Key-value Store
+      Amazon Web Services - Comparing the Use of Amazon DynamoDB and Apache HBase for NoSQL
 
 [^3]:
-      Amazon Web Services - Comparing the Use of Amazon DynamoDB and Apache HBase for NoSQL
+     Amazon DynamoDB Developer Guide API Version 2012-08-10
 
 [^4]:
-      Amazon Web Services - Comparing the Use of Amazon DynamoDB and Apache HBase for NoSQL
+     Amazon DynamoDB SDK for NodeJS https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB.html
 
 [^5]:
-      Amazon Web Services - Comparing the Use of Amazon DynamoDB and Apache HBase for NoSQL
-
-[^6]:
-      Amazon Web Services - Comparing the Use of Amazon DynamoDB and Apache HBase for NoSQL
-
-[^7]:
-     Amazon DynamoDB Developer Guide API Version 2012-08-10
-
-[^8]:
-     Amazon DynamoDB Developer Guide API Version 2012-08-10
-
-[^9]:
-      Amazon Web Services - Comparing the Use of Amazon DynamoDB and Apache HBase for NoSQL
-
-[^10]:
-     Amazon DynamoDB Developer Guide API Version 2012-08-10
-
-[^11]:
-     Amazon DynamoDB Developer Guide API Version 2012-08-10
-
-[^12]:
-     Amazon DynamoDB Developer Guide API Version 2012-08-10
-
-[^13]:
-     Amazon DynamoDB SDK for NodeJS https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB.html
-
-[^14]:
-     Amazon DynamoDB SDK for NodeJS https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB.html
-
-[^15]:
-     Amazon DynamoDB Developer Guide API Version 2012-08-10
-
-[^16]:
      Amazon DynamoDB On-Demand
     [https://aws.amazon.com/de/blogs/aws/amazon-dynamodb-on-demand-no-capacity-planning-and-pay-per-request-pricing/](https://aws.amazon.com/de/blogs/aws/amazon-dynamodb-on-demand-no-capacity-planning-and-pay-per-request-pricing/)
 
-[^17]:
+[^6]:
      AWS DynamoDB Throughput Default Quotas
     https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ServiceQuotas.html#default-limits-throughput
 
-[^18]:
-     Amazon DynamoDB SDK for NodeJS https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB.html
-
-[^19]:
-     Amazon DynamoDB SDK for NodeJS https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB.html
-
-[^20]:
+[^7]:
      TypeScript 1.7 Documenation https://www.typescriptlang.org/docs/handbook/release-notes/typescript-1-7.html
 
-[^21]:
+[^8]:
      AWS DynamoDB Developer Guide Read and Write Capacity https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual
 
-[^22]:
-     Amazon DynamoDB SDK for NodeJS https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB.html
-
-[^23]:
-      Amazon DynamoDB SDK for NodeJS https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB.html
-
-[^24]:
-      Amazon DynamoDB SDK for NodeJS https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB.html
-
-[^25]:
-      Amazon DynamoDB SDK for NodeJS https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB.html
-
-[^26]:
-     Amazon Web Services - Comparing the Use of Amazon DynamoDB and Apache HBase for NoSQL
-
-[^27]:
-
-     Amazon DynamoDB Developer Guide API Version 2012-08-10
-
-[^28]:
-
-      Amazon Web Services - Comparing the Use of Amazon DynamoDB and Apache HBase for NoSQL
-
-[^29]:
-     Amazon DynamoDB Developer Guide API Version 2012-08-10
-
-[^30]:
-
-     Amazon DynamoDB Developer Guide API Version 2012-08-10
-
-[^31]:
-     Amazon Web Services - Comparing the Use of Amazon DynamoDB and Apache HBase for NoSQL
-
-[^32]:
-     Amazon DynamoDB Developer Guide API Version 2012-08-10
-
-[^33]:
+[^9]:
      AWS DynamoDB Dax https://aws.amazon.com/de/dynamodb/dax/
 
-[^34]:
-     AWS DynamoDB Dax https://aws.amazon.com/de/dynamodb/dax/
-
-[^35]:
+[^10]:
      AWS DynamoDB SDK Dax https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.client.run-application-nodejs.01-create-table.html
 
-[^36]:
+[^11]:
      AWS DynamoDB Service Level Agreement https://aws.amazon.com/de/dynamodb/sla/
 
-[^37]:
+[^12]:
      Creative Commons: https://openclipart.org/detail/317121/aws-db-dynamo-icon
