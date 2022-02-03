@@ -1,14 +1,23 @@
 # verteilte Datenbanken
-
+![DDBMS](assets/ddbms.png)
 ## Merkemale einer verteilten Datenbank
 Im folgenden Kontext wird unter einer verteilten Datenbank eine Sammlung von verschiedenen,logisch miteinander verknüpften Datenbanken verstanden, die Knoten eines verteilten Systems sind.
 Ein verteiltes Datenbankmanagementsystem (*distributed DBMS*) definieren wir davon ableitend als System, das die Verwaltung der verteilten Datenbanken erlaubt und Verwaltung dieser übernimmt. [3]
-transparent to the users.
-![DDBMS](assets/ddbms.png)
 
+
+
+## Vor- und Nachteile einer verteilten Datenbanken
+
+| Vorteile | Nachteile |
+|----------|-----------|
+| Ein verteiltes Datenbanksystem kann einfacher erweitert werden, z.B. durch das Hinzufügen neuer Knoten         | Implementierung einer verteilten Datenbank ist deutlich komplexer |
+| Die Verteilung der Daten kann an die Art der Nutzung angepasst werden  | Das Gewährleisten der Sicherheit bei verteilten Datenbanken ist schwieriger umzusetzen |
+| Höhere Ausfallsicherheit durch Redundanz der Daten        | Das Sicherstellen der Datenintegrität bei mehreren Knoten ist deutlich komplexer |
+
+Verteilte Datenbanken haben einige Vorteile, die sie für den Einsatz interessant machen, bieten aber auch nicht zu unterschätzende Herausforderungen. Diese Herausforderungen beziehen sich zu großen Teilen auf die Implementierung eines *DDBMS*.
 
 ## Anforderungen
-Analog zu den *Codd's 12 rules* [5], Designregeln mit denen definiert werden kann, welche Anforderungen ein DBMS erfüllen muss, um als *relational* zu gelten, wurden *Date's 12 rules**[6] abgeleitet. Diese 12 Regeln spezifizieren, welche Aufgaben ein DDBMS erfüllen muss um als solches zu gelten.
+Um das Thema *DDBMS* ausführlich betrachten zu können, muss neben der Definition noch erläutert werden, was genau die Merkmale eines solchen Systems sind. Analog zu den *Codd's 12 rules* [5], Designregeln mit denen definiert werden kann, welche Anforderungen ein DBMS erfüllen muss, um als *relational* zu gelten, wurden *Date's 12 rules**[6] abgeleitet. Diese 12 Regeln spezifizieren, welche Aufgaben ein DDBMS erfüllen muss um als solches zu gelten.
 <dl>
   <dt>lokale Autonomie</dt>
   <dd>Die einzelnen Knoten eines verteilten Systems sollten autonom sein; alle Operationen finden lokal statt und werden lokal verwaltet und nicht von einem zentralen Standort aus</dd>

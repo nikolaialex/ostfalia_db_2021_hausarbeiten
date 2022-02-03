@@ -9,7 +9,7 @@ Sie wurde für einen sehr speziellen Anwendungsgrund konzipiert, nämlich die Ve
 ## Kernkonzepte
 <dl>
   <dt>Ausfallsicherheit</dt>
-  <dd>Die Eigenschaft, Verfügbarkeit eines Dienstes zu gewährleisten. Joe Armstrong, der Erfinder von Erlang, rühmt sich damit, dass Erlang-Code in einem Sytem, dass für 20 Jahre eingesetzt wurde eine Verfügbarkeit von "nine nines"[], also Eine Ausfallsicherheit von 99,9999999% erreicht zu haben</dd>
+  <dd>Die Eigenschaft, Verfügbarkeit eines Dienstes zu gewährleisten. Joe Armstrong, der Erfinder von Erlang, rühmt sich damit, dass Erlang-Code in einem Sytem, dass für 20 Jahre eingesetzt wurde eine Verfügbarkeit von "nine nines¨, also Eine Ausfallsicherheit von 99,9999999% erreicht zu haben</dd>
 </dl>
 
 <dl>
@@ -133,6 +133,6 @@ start_demo(DemoText) ->
 In diesem Beispiel wurden 2 Funktionen definiert. `demo_print/0` ist die Methode, die in einen eigenen Prozess ausgelagert werden soll. Sie erwartet Nachrichten vom Typ String und gibt diese auf STDOUT aus. In der zweiten Methode `start_demo/1` wird Text übergeben. Zuerst wird ein neuer Prozess der Methode `demo_print` erzeugt, anschließend wird über den `!`-Operator an die neue Prozess-ID der Text übergeben. Ab diesen Zeitpunkt wir der weitere Programmcode vom `start_demo` (in diesem Fall zufällig gewählte Berechnungen) und die Auswertung der an den Prozess geschickten Nachricht *nebenläufig* ausgeführt.
 
 ## OTP
-Die Sprache Erlang steht nicht nur alleine, sie hat auch ihr eigenes Ökosystem, die sogenannte **O**pen **T**elecom **P**latform. Es stellt mehrere Bibliotheken und Vorgehensweise bereit, um Anwendungen verteilt und fehlertolerant implementieren zu können, auch bei skalierender Anforderung. So gibt es z.B. verschiedene gebündelte Konzepte, sogenannte *behaviors* bereit. Eines der wichtigsten Konzepte hierbei ist der *generic servers*. Diese Konzepte können mit Application Frameworks verglichen werden, die bei Erlang durch eine Definition verschiedener *callbacks* umgesetzt werden. Implementiert man einen *generic server* erlaubt dieser einem z.B. Code-Updates im laufenden Betrieb eines Programms einspielen zu können [1].
+Die Sprache Erlang steht nicht nur alleine, sie hat auch ihr eigenes Ökosystem, die sogenannte **O**pen **T**elecom **P**latform. Es stellt mehrere Bibliotheken und Vorgehensweise bereit, um Anwendungen verteilt und fehlertolerant implementieren zu können, auch bei skalierender Anforderung. So gibt es z.B. verschiedene gebündelte Konzepte, sogenannte *behaviors* bereit. Eines der wichtigsten Konzepte hierbei ist der *generic servers*. Diese Konzepte können mit Application Frameworks verglichen werden, die bei Erlang durch eine Definition verschiedener *callbacks* umgesetzt werden. Implementiert man einen *generic server* erlaubt dieser einem z.B. Code-Updates im laufenden Betrieb eines Programms einspielen zu können [Arm07].
 
 [**Weiter**](./03_verteilte_Datenbanken.md)
