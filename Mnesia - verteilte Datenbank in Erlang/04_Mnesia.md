@@ -136,4 +136,4 @@ alte_buecher() ->
 Hier wird die Logik der Anfrage in der *List Comprehension* ausgedrückt.
 
 
-[**Weiter**](./05_Fazit.md)
+[**Weiter**](./05_Auswertung_Fazit.md)
