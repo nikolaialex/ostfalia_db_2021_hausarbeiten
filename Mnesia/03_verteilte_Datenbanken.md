@@ -7,7 +7,7 @@ Ein verteiltes Datenbankmanagementsystem (*distributed DBMS*) definieren wir dav
 
 
 ## Anforderungen
-Analog zu den *Codd's 12 rules*[6],Designregeln mit denen definiert wurden, welche Anforderungen ein DBMS erfüllen muss, um als *relational* zu gelten wurden *Date's 12 rules**[7] abgeleitet. Diese 13 Regeln spezifizieren, welche Aufgaben ein DDBMS erfüllen muss um als solches zu gelten.
+Analog zu den *Codd's 12 rules*[6],Designregeln mit denen definiert wurden, welche Anforderungen ein DBMS erfüllen muss, um als *relational* zu gelten, wurden *Date's 12 rules**[7] abgeleitet. Diese 12 Regeln spezifizieren, welche Aufgaben ein DDBMS erfüllen muss um als solches zu gelten.
 <dl>
   <dt>lokale Autonomie</dt>
   <dd>Die einzelnen Knoten eines verteilten Systems sollten autonom sein; alle Operationen finden lokal statt und werden lokal verwaltet und nicht von einem zentralen Standort aus</dd>
@@ -79,6 +79,5 @@ Bei der horizontalen Fragmentierung  würde man lediglich die Anzahl der Einträ
 Wie genau Mnesia diese Probleme löst, wird im nächsten Kapitel genauer erläutert, allerdings wird hier schon auffällig, dass
 die unterliegende Programmiersprache bereits einige der Probleme als Kernprobleme anerkennt und Lösungen bereitstellt.
 
-## ACID
 
 [**Weiter**](./04_Mnesia.md)
