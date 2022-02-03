@@ -4,7 +4,7 @@
 
 An dieser Stelle wird eine Variante des zuvor im Kapitel [Wordcount mit Spark und Python](04_Wordcount_mit_Spark_RDDs_und_Python.md "zum Kapitel") beschriebenen Beispiels vorgestellt.
 
-Im Gegensatz zur vorherigen Anwendung finden sich einige entscheidende Änderungen in der Art, wie auf Spark zugegriffen und damit gearbeitet wird. ***Statt RDDs*** kommen nunmehr die neueren ***Data Frames*** zum Einsatz. Um unnötige Wiederholungen zu vermeiden, wird auf die Erklärung bereits zuvor verwendeten Codebestandteile verzichtet. 
+Im Gegensatz zur vorherigen Anwendung finden sich einige entscheidende Änderungen in der Art, wie auf Spark zugegriffen und damit gearbeitet wird. ***Statt RDDs*** kommen nunmehr die neueren ***Data Frames*** zum Einsatz. Um unnötige Wiederholungen zu vermeiden, wird auf die Erklärung bereits zuvor verwendeter Codebestandteile verzichtet. 
 
 Auch der hier vorgestellte Code ist als lauffähiges [_Jupyter Notebook_](notebook/Wordcount_mit_Spark_DataFrame.ipynb "zum Notebook") Teil dieser Arbeit und frei verwendbar.
 
@@ -13,7 +13,7 @@ Auch der hier vorgestellte Code ist als lauffähiges [_Jupyter Notebook_](notebo
 [_zurück_](05_Wordcount_mit_Spark_DataFrames_und_Python.md#5-wordcount-mit-spark-dataframes-und-python "Zurück")
 
 Der wichtigste Unterschied zum vorhergehenden Beispiel ist die Nutzung der neueren [***Spark Session***](https://spark.apache.org/docs/latest/sql-getting-started.html "zur Dokumentation") 
-statt eines [***Spark Context***](https://spark.apache.org/docs/3.1.1/api/python/reference/api/pyspark.SparkContext.html "zur Dokumentation"). Das Kapitel [Datenstrukturen](02_Datenstrukturen.md) geht hierauf näher ein. Zugriff hierauf erhält man mit Hilfe der Bibliothek [pyspark.sql](https://spark.apache.org/docs/2.4.0/api/python/pyspark.sql.html "zur Dokumentation").
+statt eines [***Spark Context***](https://spark.apache.org/docs/3.1.1/api/python/reference/api/pyspark.SparkContext.html "zur Dokumentation"). Das Kapitel [Datenstrukturen](02_Datenstrukturen.md "zum Kapitel") geht hierauf näher ein. Zugriff hierauf erhält man mit Hilfe der Bibliothek [pyspark.sql](https://spark.apache.org/docs/2.4.0/api/python/pyspark.sql.html "zur Dokumentation").
 
 Die folgende Codesequenz erzeugt eine [Spark Session](https://spark.apache.org/docs/latest/sql-getting-started.html "zur Dokumentation") mit der Bezeichnung *Wordcount*. Ist diese Session noch nicht vorhanden, so wird sie erstellt, ansonsten die vorhandene zurückgegeben:
 
@@ -63,9 +63,9 @@ df=df.withColumn('value', func.translate('value', '-', ' '))
 df=df.withColumn('value', func.lower('value'))
 ```
 
-Mit Hilfe der Methode [***withColumn***](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.DataFrame.withColumn.html "zur Dokumentation") wird die übergebene Funktion ähnlich der zuvor behandelten [Map Funktion](02_Datenstrukturen.md#transformationen-und-aktionen "zum Abschnitt") auf alle Datensätze angewendet. Jeder Datensatz entspricht einer ***Zeile der Textdatei***.
+Mit Hilfe der Methode [***withColumn***](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.DataFrame.withColumn.html "zur Dokumentation") wird die übergebene Funktion ähnlich der zuvor behandelten [Map Funktion](02_Datenstrukturen.md#transformationen-und-aktionen-rdds "zum Abschnitt") auf alle Datensätze angewendet. Jeder Datensatz entspricht einer ***Zeile der Textdatei***.
 
-Diese Funktion ***splittet*** zunächst die einzelne Zeile durch ihre Leerzeichen. Im Anschluss sorgt die Funktion [***explode***](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.functions.explode.html "zur Dokumentation") dafür, dass ähnlich der zuvor behandelten [FlatMap Funktion](02_Datenstrukturen.md#transformationen-und-aktionen "zum Abschnitt"), aus dem zurück gegebenen Array mit *n* Spalten ein Array mit nur *einer* Spalte - *value2* - und *n* Reihen erzeugt wird.
+Diese Funktion ***splittet*** zunächst die einzelne Zeile durch ihre Leerzeichen. Im Anschluss sorgt die Funktion [***explode***](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.sql.functions.explode.html "zur Dokumentation") dafür, dass ähnlich der zuvor behandelten [FlatMap Funktion](02_Datenstrukturen.md#transformationen-und-aktionen-rdds "zum Abschnitt"), aus dem zurück gegebenen Array mit *n* Spalten ein Array mit nur *einer* Spalte - *value2* - und *n* Reihen erzeugt wird.
 
 ```python
 print("")
@@ -89,6 +89,5 @@ df=df.withColumn('value2',func.explode(func.split(func.col('value'), ' ')))\
 ```
 
 Das Ergebnis ist eine ***Liste aller Wörter*** mit deren ***Vorkommen*** in ***absteigender Reihenfolge***. Hierbei steht an erster Stelle das Leerzeichen als häufigster Vertreter.
-
 
 ![dataframe_wörter.png](./assets/dataframe_wörter.png "Ausgabe der Wortliste in absteigender Reihenfolge im Notebook")
