@@ -381,7 +381,7 @@ Table 5: Example Person Amazon DynamoDB Table
    </td>
   </tr>
   <tr>
-   <td>Item
+   <td><strong>Item</strong>
    </td>
    <td>PersonId
 <p>
@@ -397,7 +397,7 @@ Table 5: Example Person Amazon DynamoDB Table
    </td>
   </tr>
   <tr>
-   <td>Item 1
+   <td><strong>Item 1</strong>
    </td>
    <td>1001
    </td>
@@ -411,7 +411,7 @@ Table 5: Example Person Amazon DynamoDB Table
    </td>
   </tr>
   <tr>
-   <td>Item 2
+   <td><strong>Item 2</strong>
    </td>
    <td>1002
    </td>
@@ -425,7 +425,7 @@ Table 5: Example Person Amazon DynamoDB Table
    </td>
   </tr>
   <tr>
-   <td>Item 3
+   <td><strong>Item 3</strong>
    </td>
    <td>2002
    </td>
@@ -484,7 +484,7 @@ Table 6: Amazon DynamoDB Composite Primary Key (Partition & Sort Key)
 </table>
 
 
-Another representation of the table above is given in JSON format with additional nested attributes below:
+Another representation of the table above is given in JSON format with additional nested attributes below[^3]:
 
 
 ```
@@ -550,7 +550,7 @@ Table 7: Example GameScores Amazon DynamoDB Table
    </td>
   </tr>
   <tr>
-   <td>item1
+   <td><strong>item1</strong>
    </td>
    <td>1001
    </td>
@@ -566,7 +566,7 @@ Table 7: Example GameScores Amazon DynamoDB Table
    </td>
   </tr>
   <tr>
-   <td>item2
+   <td><strong>item2</strong>
    </td>
    <td>1001
    </td>
@@ -582,7 +582,7 @@ Table 7: Example GameScores Amazon DynamoDB Table
    </td>
   </tr>
   <tr>
-   <td>item3
+   <td><strong>item3</strong>
    </td>
    <td>1002
    </td>
@@ -598,7 +598,7 @@ Table 7: Example GameScores Amazon DynamoDB Table
    </td>
   </tr>
   <tr>
-   <td>item4
+   <td><strong>item4</strong>
    </td>
    <td>2002
    </td>
@@ -617,9 +617,7 @@ Table 7: Example GameScores Amazon DynamoDB Table
 
 
 The elements of a composite primary key as a multi-part key were also known as its hash attribute and its range attribute. An explanation of the terms and its functions is given in an Amazon Whitepaper from January 2020:
-
 “The partition key of an item is also known as its hash attribute and sort key as its range attribute. The term hash attribute arises from the use of an internal hash function that takes the value of the partition key as input and the output of that hash function determines the partition or physical storage node where the item will be stored. The term range attribute derives from the way DynamoDB stores items with the same partition key together, in sorted order by the sort key value.”[^2]
-
 \
 &nbsp;
 
@@ -871,85 +869,56 @@ A transactional write will consume 2 capacity units per 1 KB. So, for example, i
 
 ### 3.3 Capacity Provisioning
 
-On creation read and write capacity need to be provisioned.
-
-In contrast to the key schema these values can be changed later on the fly.
-
-You can  lower or increase the capacity and once every twenty four hours you can change the capacity mode which is either provisioned throughput or on-demand. We will now take a closer look at how these two modes differ. 
+On creation read and write capacity need to be provisioned. In contrast to the key schema these values can be changed later on the fly. The capacity can be decreased or increased. Once every twenty four hours the capacity mode can be changed. The mode is either provisioned throughput or on-demand. In the following the differences of these two modes will be illuminated.
 
 **Provisioned Throughput**
 
-This mode is the classic way to provision capacity[^3] which has been available since the introduction of AWS DynamoDB in the year 2012.
-
-It is meant for predictable read and write usage of the underlying table.
-
-Like in a closed system where you control the number of reads and writes to the table from functions or servers.
-
-For example with a Lambda Function which will get items from a queue and concurrent execution is set to a specific limit you can ensure by design that the used capacity will not exceed the provisioned capacity. 
-
-The advantage if you use this type of provisioning is the price. 
-
-The price will be lower as in the other provisioning mode because you can define the exact capacity needed and AWS does not need to provide excess capacity in the background.
-
-The downside is the behavior to exhaustion of this capacity which will result in throttling.
-
-Throttled calls are queued until the capacity is available again which can slow down operations significantly which is not acceptable in many us-cases.
-
-In use cases where the capacity can not be defined like for example a webapp this provisioning mode can lead to unwanted behavior. Like for example not returning calls if the capacity is exceeded rendering the web app useless. Overprovisioning of capacity is another problem which will waste capacity and therefore money. Imagine up to 500 requests per second during the day but zero during the night. If capacity is now provisioned in provisioned throughput mode to the maximum possible capacity there is a lot of capacity wasted just to be available at peak times which will not be needed for example in the middle of the night.
-
-To overcome this kind of problem Amazon web services introduced in 2018 an new provisioning mode which is called On-Demand provisioning.
+This mode is the classic way to provision capacity[^1]. It has been available since the introduction of AWS DynamoDB in the year 2012. It is meant for predictable read and write usage of the underlying table. It is most favorable in a closed system, where the number of reads and writes to the table from functions or servers can be controlled.
+A nice example is a Lambda Function with its attribute “concurrent execution” set to a specific limit. This ensures that when the Function runs and contacts the database the used capacity will not exceed the provisioned capacity. The main advantage of this type of provisioning is the costs for continuous workloads. Since the exact amount of required capacity can be set AWS does not need to provide excess capacity in the background which will lower the price. However, if the provisioned capacity is exceeded, throttling behavior will arise. Throttled calls are queued until the capacity is available again. This can slow down operations significantly, which in many use-cases is not acceptable.
+In use-cases, where the capacity can not be defined, for example a web app, this provisioning mode can lead to undesirable behavior. For instance: calls that do not return and get lost at the moment the capacity is exceeded, rendering the web app useless. Overprovisioning of capacity is another problem, that will waste capacity and therefore money and resources. Imagine up to 500 requests per second during the day but zero during the night. If capacity is now provisioned in provisioned throughput mode to the maximum possible capacity there is a lot of capacity wasted. 
+To overcome this problem, Amazon Web Services introduced in 2018 a new provisioning mode which is called On-Demand provisioning. As the name implies this modus will solve the provisioning of capacity for a service that is used extensively during specific times. 
+The provisioned throughput though is in most cases the cheaper solution.
 
 **On-Demand**
-
-With on-demand[^5] mode you do not need to provision capacity at all and only pay what you really use. The table will scale automatically to the needed capacity up to a default set quota[^6] of 40 000 read or write units. This limit can be increased and is in place to avoid unwanted costs for customers new to this kind of serverless services. With on-demand mode enabled the application can react to unpredictable workloads like they often happen with a web  application. The example often cited at this discussion is a startup web application going viral overnight and the need for the online store to scale with the demand to not interrupt service. Another use-case is infrequent workloads like a monthly report which do not need a table with provisioned capacity for the rest of the month.
-
-The Downside is the higher price which Amazon will charge for providing this on demand capacity at any given time.
+When using on-demand[^5] mode there is no need to provision capacity. The capacity is adjusted to the number of requests and so is the price. The table will scale automatically to the required capacity up to a default set quota[^6] of 40 000 read or write units. This limit can be increased and is in place to avoid unwanted costs for customers new to this kind of serverless services. With on-demand mode enabled the application can react to unpredictable workloads. This is especially useful for web applications, as the peak usage times are hard to predict. The example often cited at this discussion is a startup web application going viral overnight. The wep app's capacity needs to scale with the demand to not interrupt the service. Another use-case are infrequent workloads, like a monthly report, which do not need a table with provisioned capacity for the rest of the month. As mentioned before this can result in higher costs than the previous mode when used continuously, as this on demand capacity needs to be provided by AWS at any given moment.
 
 \
 &nbsp;
 
-## 4. Read items
+## 4. Read Items
 
-A main operation for every database system is the retrieval of its stored content.
-
-AWS DynamoDB offers several functions to read items in several ways. In this chapter these methods are highlighted and illustrated by showing working coding examples.
+A main operation for every database system is the retrieval of its stored content. AWS DynamoDB offers several functions to read items using various methods. In this chapter these methods are highlighted and illustrated with coding examples.
 
 \
 &nbsp;
 
-### 4.1 Single item read
+### 4.1 Single Item Read
 
-The simplest read operation is the retrieval of a single item.
-
-As highlighted in the architecture section DynamoDB needs to identify the right table and then in this table the shard from where it should read the data. To do this a hash-key in combination with an optional range-key (sort-key) is used which we need to provide as a parameter to the method call.
+The simplest read operation is the retrieval of a single item. As highlighted in the architecture section, DynamoDB is required to first identify the right table and then the shard that specifies the location of the data in that specific table. To achieve this a hash-key in combination with an optional range-key (sort-key) is used. These must be provided as a parameter to the method call.
 
 The name of the method wrapped in the DynamoDB Object of the SDK is **getItem**.
 
-Additional possible parameters for this method call are: **AttributesToGet, ConsistentRead, ReturnConsumedCapacity**[^4]**.**
-
-Which we will describe in a short manner.
+Additional possible parameters for this method call are: **AttributesToGet, ConsistentRead, ReturnConsumedCapacity**[^4]. These three attributes will be shortly explained in the following paragraphs.
 
 
 
 * **AttributesToGet**
 
-    This option will filter the attributes we want to get on the server side before sending the response.  Rows with different attributes can get quite big and maybe we do not want to retrieve all of them. This way partial results can be returned and only the needed data is transferred back to the client over the network.
+    This option will filter the attributes that are required on the server side before sending the response. This is quite useful because rows with different attributes can get quite big and for the task at hand it might not be necessary to retrieve all of them. This way partial results can be returned and only the desired data is transferred back to the client over the network.
 
 * **ConsistentRead**
 
-    As highlighted in the architecture chapter data is distributed in different shards but data is read only from a single shard. This can lead to inconsistencies between an update and the retrieval of data from a single shard. To tackle this the consistentRead Parameter was introduced which forces a consistent result reading from more than one shard.
+    As highlighted in the architecture chapter, data is distributed in different shards but data is read only from a single shard. This can lead to inconsistencies between an update and the retrieval of data from a single shard. To tackle this the consistentRead Parameter was introduced which forces a consistent result reading from more than one shard.
 
 * **ReturnConsumedCapacity**
 
-    Every operation based on the size of the object in Kilobytes and the number of items returned (here we get only a single item) will consume DynamoDB Capacity.
+    Every operation based on the size of the object in Kilobytes and the number of items returned (in the following example it is a single item) will consume DynamoDB Capacity.
 
 
-    To find out how much capacity an operation consumed we can directly return the consumption in the read result by passing this parameter.
+    To find out how much capacity an operation consumed, the consumption can directly be returned in the read result by passing this parameter.
 
 
-To illustrate the previously introduced method we will have a look at a coding example[^4] in the DynamoDB Node SDK and the simplified DynamoDB Document Client SDK which has a slightly different syntax. Both parts of the SDK offer the same functionality but the Document Client tries to abstract some of the complexity.
-
-The following code will try to retrieve an item from the table specifying the hash key “Ärzte” in the table “Songs”.
+To illustrate the previously introduced method a coding example[^4] in the DynamoDB Node SDK and the simplified DynamoDB Document Client SDK, which has a slightly different syntax, is provided. Both parts of the SDK offer the same functionality but the Document Client tries to abstract some of the complexity. The following code will try to retrieve an item from the table specifying the hash key “Ärzte” in the table “Songs”.
 
 
 ```
@@ -970,7 +939,7 @@ const result = await dynamodb.getItem(params).promise()
 ```
 
 
-Code for the DynamoDB Document Client looks quite similar besides the parameters we pass to the method. In the Document Client it is not needed to specify the data-type of the used key for example it is abstracted from the variable type by the client.
+Code for the DynamoDB Document Client looks quite similar besides the parameters that are passed to the method. In the Document Client it is not needed to specify the data-type of the used key. It is abstracted from the variable type by the client.
 
 
 ```
@@ -991,13 +960,9 @@ const params = {
 ```
 
 
-In both code blocks data is returned in an async way.
+In both code blocks data is returned in an async way. For more information on async programming in typescript you can refer to the [documentation of typescript](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-1-7.html)[^7].
 
-For more information on async programming in typescript you can refer to the
-
-[documentation of typescript](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-1-7.html)[^7].
-
-The response from the DynamoDB SDK for example then looks like this.
+The next example shows a possible response  from the DynamoDB SDK.
 
 
 ```
@@ -1014,7 +979,7 @@ The response from the DynamoDB SDK for example then looks like this.
 ```
 
 
-The response indicates the Variable type which is returned. In this example you can see a **String **and a **number **returned as response.
+The response indicates the variable type that is returned. In this example you can see that a **string **and a **number **are** **returned.
 
 \
 &nbsp;
