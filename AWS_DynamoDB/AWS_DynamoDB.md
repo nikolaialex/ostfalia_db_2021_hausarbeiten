@@ -96,18 +96,26 @@ AWS DynamoDB Logo [^37]
 
 In today's world data and information is the new currency.
 
-Every second more and more information in the form of data is produced all over the world.
-To store this kind of information which is represented in different data types several different types of databases are developed to handle different use cases. Today a database does not only need to save data but other factors for example speed or advanced data transformations are other key factors to consider when choosing a suitable database system.
+Every second an increasing amount of information in the form of data is produced all over the world. To store this kind of information, which is represented as different data types, a variety of databases are developed to handle diverse use cases. Today a database does not only need to store data but other factors, for example speed or advanced data transformations, are other key factors to consider when choosing a suitable database system.
 
-The most favorite database systems today are relational databases based on “Structured Query Language” (better known as “SQL”). But recently because of the new requirements and different data types another form of database system emerged which are called NoSQL or key-value databases offering new possibilities to save, retrieve and transform data.
+The most favorite database systems today are relational databases based on “Structured Query Language” (better known as “SQL”). Given the increasing number of requirements and variations in data types, another form of database systems emerged recently. These are called NoSQL or key-value databases and offer new possibilities to save, retrieve and transform data.
 
-One of these newer databases is the key-value database DynamoDB which has been developed by Amazon Web Services and which has been introduced to the world in the year 2012. It is just one of the hundred possibilities to choose from but will it be able to stand out from its competitors?
+One of these newer databases is the key-value database DynamoDB, which was developed by Amazon Web Services in 2012. It is just one of the many prospects to choose from. How and if DynamoDB is able to stand out compared to its competitors will be discussed in detail in the following report. 
 
-Amazon DynamoDB is a fully managed database service service which means that the customer does not have to take care of tasks like managing servers or its underlying hardware. Amazon Web Services will provide the security, stability and scalability needed for this service.Configurations and setups are already done. Data replications and backups are included and software patches are managed as a service. Optional offerings like encryption for operations with sensitive data or flexible scalability for any level of requested traffic are also possible addons  the customer can use. As well as in-time recovery, seamless scalability and throughput capacity, several management consoles are interesting add-ons. Standards like high availability and durability of data without downtime or performance degradation are included.
+Amazon DynamoDB is a fully managed database service. The customer does not have to deal with tedious tasks, like managing servers or its underlying hardware. Amazon Web Services provides security, stability and scalability. All configurations of the system are set up and ready for usage. Data replication and backups are included and software patches are managed as a service. Optional offerings like encryption for operations with sensitive data or flexible scalability for any level of requested traffic are also possible addons the customer can use. Furthermore in-time recovery, seamless scalability and throughput capacity, several management consoles are interesting add-ons. Standards like high availability and durability of data without downtime or performance degradation are included.
 
-This paper tries to give an insight into the possibilities of managing data and databases with AWS DynamoDB.
+This report gives the reader an insight into the possibilities of managing data and databases with AWS DynamoDB. The focus lies on the technology of DynamoDB. \
+In the following chapter the architecture of the system will be described in detail, which is followed by the depiction of use cases. Subsequently several models and data types are introduced.  \
+In Chapter 3 the creation and usage of tables and provisioning is illustrated.  \
+This is followed by a chapter on how data is read. 
 
-We want to take a look at the technology and science behind the offered service by taking a deep dive into the architecture of Amazon DynamoDB and give some real use cases. Data models and data types are introduced. We will have a look at tables and provisioning, we will show how to read and write data before dealing with transactions, local and global indexes and streams. The last technical chapter will evaluate the in-memory acceleration before this paper ends with a conclusion of the authors. This way we will present and in depth look into what lies behind the offered full managed service.
+Chapter 5 consequently depicts how data is written. 
+
+The next three chapters elucidate how to deal with transactions, local and global indices, and streams.  \
+In Chapter 9 the in-memory acceleration is evaluated. 
+
+Finally the conclusion  illustrates the authors’ evaluations of DynamoDB rounding off the in-depth view into the technical backgrounds of this fully managed service. 
+
 
 \
 &nbsp;
@@ -782,11 +790,9 @@ These restrictions are only determined for key attributes, not for other, non-ke
 &nbsp;
 
 ## 3. Tables and capacity provisioning
+A key aspect for AWS DynamoDB is the creation and usage of tables and its provisioning of read and write capacity for operations on the data.
 
-A key aspect for AWS DynamoDB is the creation and usage of tables and how to provision read and write capacity for operations on the data.
-
-In the following chapter we will have a look at the table creation and show how to create a table in code using Amazon's Software Development Kit (SDK). Then we will look at the terms read- and write-capacity of the database and the different provisioning modes which are available to set capacity on the tables.
-
+The following chapter will demonstrate table creation using Amazon's Software Development Kit (SDK). This is followed by a detailed explanation of the terms “read-” and “write-capacity” of the database and the different provisioning modes, which determine the capacity of the tables.
 \
 &nbsp;
 
@@ -794,9 +800,7 @@ In the following chapter we will have a look at the table creation and show how 
 
 As highlighted in the architecture section a table will be managed and sharded into smaller individual parts in the background by the AWS DynamoDB business logic.
 
-The key parameters for this operation are the **hash-key **and the** range-key** which can only be set at the creation phase of a table. The reason for this kind of restriction is that the data is stored and distributed to nodes based on these values. For a later change the data would need to be redistributed between nodes on the fly which is not easily possible. So a change of this structure is handled by the creation of an entirely new table to which the data can be copied.
-
-A table can be created in code which we illustrate in this code example[^13]
+The key parameters for this operation are the **hash-key **and the** range-key,** that can only be set at the creation phase of a table. The reason for this kind of restriction is that the data is stored and distributed to nodes based on these values. For a later change the data would need to be redistributed between nodes on the fly, which is not trivial. A change of this structure is handled by the creation of an entirely new table, followed by copying the data into said table. A table can be created in code which we illustrate by the following code example[^13].
 
 
 ```
@@ -832,34 +836,25 @@ const result = await dynamodb.createTable(params).promise()
 ```
 
 
-As you can see in this example[^14] only the Key Schema needs to be defined. The attributes of the data will be created by putting data to the table so it will change on the fly by adding data. Which is a totally different concept compared to SQL databases where the schema needs to be defined before putting data in the table. You can alter the table and its schema with SQL databases like MySQL as well later but the schema will not change on the fly.
-
-Another topic to note in this example is the usage of the term “ProvisionedThroughput”. In this example we use 5 read and 5 write units.
-
-In the next part we will have a closer look at what this means.
+As you can see in this example[^14] only the Key Schema needs to be defined. The attributes of the data will be created by putting data to the table. Therefore the attributes will change on the fly by the process of adding data. This is a totally different concept compared to SQL databases, where the schema needs to be defined before putting data in the table. You can always alter the table and its schema with SQL databases but this needs to happen manually and is not automated as it is with MySQL databases.  \
+In the example above you might also notice the term “ProvisionedThroughput”. Here five read and five write units are used. This refers to the read and write capacity for operations on the data, which will be illustrated in the following section.
 
 \
 &nbsp;
 
 ### **3.2 Read and write capacity**
 
-For any operation on the table either read or write capacity is needed.
-
-As the name itself indicates “read” for reading data and “write” for writing, transforming or executing transactions on items in the table.
+For any operation on the table either read or write capacity is needed. As the name itself indicates, “read” stands for reading data and “write” for writing, transforming, or executing transactions on items in the table.
 
 **Read**
 
-For every read operation, read capacity is used which is measured in read capacity units.
+For every read operation, read capacity is used. This is measured in read capacity units.
 
-One read capacity unit is the strongly consistent read of an item with a size up to 4 KB per second. So for every read at least one read capacity unit is used.
+One read capacity unit is the strongly consistent read of an item with a size up to four KB per second. So for every read at least one read capacity unit is required. \
+For a bigger item more read capacity is required. It increments in four KB intervals. Eventually consistent reads give a 50% discount. Read and write consistency will be explained in depth in Chapter 4. \
+The following example will illuminate how this process works:
 
-If the item is bigger I will need more read capacity which will increment in 4 KB intervals.
-
-Eventually consistent reads give a 50% discount. For read and write consistency please refer to chapter 4. 
-
-For example:
-
-If you want to read one item with a size of 8 KB this would be two read capacity units per second because of the size (8 / 4 = 2). If you choose eventual consistency as read attribute including the discount for this type of operation the cost would be one read unit.
+Imagine you want to read one item with a size of 8 KB. Given a read capacity unit of 4 KB/s this operation would need two read capacity units, as 8 divided by 4 results in 2.  If you choose eventual consistency as read attribute including the discount for this type of operation the cost would be one read unit.
 
 **Write**
 
@@ -869,7 +864,7 @@ One write capacity unit is one write action per second with a size up to 1 KB.
 
 If the item is bigger DynamoDB will consume additional write capacity units.
 
-A transactional write will consume 2 capacity units per 1 KB. So for example if we want to write a 128 KB sized object with a transaction the total capacity needed for this operation sums up to 256 capacity.
+A transactional write will consume 2 capacity units per 1 KB. So, for example, if you want to write a 128 KB sized object with a transaction the total capacity needed for this operation sums up to 256 capacity units.
 
 \
 &nbsp;
@@ -1386,7 +1381,8 @@ Referring to the conditional clauses mentioned above, no email will be sent to t
 
 For simultaneous reading of a shard in DynamoDB there’s a limit set for two processes at the same time. Ignoring this limit can lead to request throttling.
 
-
+\
+&nbsp;
 ## 9. In-memory acceleration
 
 AWS DynamoDB itself already offers quite fast read and write operations in a couple of milliseconds. For use-cases which needed even faster read and write operations AWS introduced in the year 2017 a new addon for in-memory acceleration which is called DAX[^33]. As you can see in the image[^34] Below it can for example be used in front of any Dynamodb table and act as an in-memory cache cluster which will automatically scale in a serverless fashion. As a result, accelerating performance by factor 10 offering faster read and write operations. Making it possible to read and write data not in milliseconds but microseconds. 
@@ -1447,28 +1443,19 @@ const result = await client.query(params).promise()
 
 Reading with the dax client will now get the data from the DynamoDB client once saving it to the cache layer. All consecutive read operations will then be handled by the cache layer greatly accelerating reading speed and preventing request throttling in the underprovisioned dynamodb table. 
 
-
+\
+&nbsp;
 ## 10. Conclusion
 
-In a world where data is getting more and more important and the many databases we today know to save all kinds of data in different formats. AWS Dynamodb has found a good spot in the niche of NoSQL databases to play out its advantages to store data in a reliable, secure and very cost-effective manner.
+In a world where data is getting increasingly important, the diverse databases known today are required to store multifold data types in countless different formats. AWS DynamoDB has found a good spot in the niche of NoSQL databases to play out its advantages. It stores the data in a reliable, secure and very cost-effective manner.
 
-Its very complex business logic for sharding, saving data, automatic failover and data backup is abstracted in a very easy to use Software-Development-Kit.
+Its very complex business logic for sharding, saving data, automatic failover, and data backup is abstracted in a very easy to use Software-Development-Kit. It offers a high percentage of availability (99.999%) as documented in the Aws service Level Agreements[^36]  while still being very cost-effective. Although it does not fit all use cases and will not be able to replace SQL based databases, it has a lot of advantages.  \
+The in depth view into the system offered in this report illustrated the multitude of operations and features offered to developers and customers. By examining the processes of creating tables and efficiently provisioning the required capacity in different modes as well as the advantages and disadvantages for using them in different use cases, the benefits of using DynamoDB reveal themselves evidently. Furthermore it was demonstrated how data is read and written with the DynamoDB SDK and the effortless usage of the DynamoDB Document Client displayed in code examples. This is further shown by explaining some more complex uses-cases, like transactions and update streams. Finally the massive performance boost, using in-memory acceleration, is illustrated.  \
+All in all it can be said that although AWS DynamoDB is only one of the many systems on the market it is clearly able to stand out. Given it is applied to the right use-case, for example in a serverless stack and combined with other AWS Services like Lambda and SQS, it is effortless and fun to use. \
+This report aims to provide a clear overview of the architecture and the features of DynamoDB. The code examples are designed to facilitate the usage of the system and expedite the “getting started phase” of developers. Furthermore highlighting of advantages and disadvantages aims to assist with the question: “Is this the right database for my use case?”. Thus the key information required to set up a project with DynamoDB and to maintain it is hereby provided.
 
-It offers a high percentage of availability (99.999%) as documented in the Aws service Level Agreements[^36]  while still being very cost-effective.
-
-It certainly does not fit all use cases and will never conquer the world of other SQL based databases. But we discovered a lot of advantages by an in depth look at the different operations and features offered to developers and customers.
-
-We examined how to create tables and how to provision the needed capacity in different modes as well as the advantages and disadvantages for using them in different use cases.
-
-We showed how to read and write data with the Dynamodb SDK as well as the easier to use DynamoDB Document Client in small code examples. We tackled the more complex uses-cases covered by transactions and update streams until finally exploring the massive performance boost which is possible by using in-memory acceleration.
-
-So the conclusion is that AWS DynamoDB, even if it is just one of the hundred possibilities to choose from, is able to stand out from its competitors.
-
-For the right use-case for example in a serverless stack and combined with other AWS Services like Lambda and SQS it is easy and fun to use.
-
-The authors of this document hope they could give the reader a good overview of the architecture, the features, some code examples to get started as well as some advantages and disadvantages to look out for when using this kind of database.
-
-
+\
+&nbsp;
 ## 11. Bibliography
 
 Tables 1 - 8:   Amazon Web Services - Comparing the Use of Amazon DynamoDB and Apache HBase for NoSQL
