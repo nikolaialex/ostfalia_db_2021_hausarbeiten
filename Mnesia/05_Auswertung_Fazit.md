@@ -5,7 +5,7 @@ Das Ökosystem *Erlang* und die verteilte Datenbank *Mnesia* sind leider zu gro�
 ## Anforderungen
 
 |Anforderung | von Mnesia erfüllt |
---------------------------------
+|-----------|-------------------|
 | lokale Autonomie | ✓ |
 | keine Abhängigkeit von zentralen Standorten | ✓ |
 | kontinuierlicher Betrieb | ✓ |
