@@ -1406,8 +1406,6 @@ This report aims to provide a clear overview of the architecture and the feature
 &nbsp;
 ## 11. Bibliography
 
-Tables 1 - 8:   Amazon Web Services - Comparing the Use of Amazon DynamoDB and Apache HBase for NoSQL
-
 [^1]:
     [Dynamo: Amazon’s Highly Available Key-value Store](https://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf)
 
