@@ -108,8 +108,6 @@ gelöscht. Bei einem Systemcrash kann dieser *disk log* auf genutzt werden, um f
  -  ist die Systemauslastung auf Dauer tragbar
 
 
-
-
 ### Nebenläufige Prozesse in Mnesia
 Wie bereits hier erwähnt, können mehrere Funktionen (und somit Prozesse) innerhalb einer Transaktion aufgerufen werden. Dies beinhaltet nicht nur lesende, sondern auch schreibende Operationen. Diese Operationen können nebenläufig durchgeführt werden, wobei keine Synchronisation der Prozesse durch den User nötig ist. Alle Anfragen können so geschrieben werden, als ob dies der einzige Zugriff auf diese Daten ist, sämtliche Schritte um das System konsistent zu halten, werden vom System selbst durchgeführt.
 
