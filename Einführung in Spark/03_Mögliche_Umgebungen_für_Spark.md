@@ -208,7 +208,7 @@ Als Nachteile sind zu nennen:
 
 ## Spark mit Docker
 
-[_zurück_](03_Mögliche_Umgebungen_für_Spark.md#3-mgliche-umgebungen-fr-spark "Zurück")
+[_zurück_](03_Mögliche_Umgebungen_für_Spark.md#3-mögliche-umgebungen-für-spark "Zurück")
 
 Die Verwendung von *Google Colaboratory* zeigte bereits eine einfache Möglichkeit, eine Umgebung für die Verwendung Spark mit Python zu erstellen. Verfügbar war diese Lösung jedoch nur innerhalb des *Google Ökosystems*. Spark mit [Docker](https://www.docker.com "zur Webseite") bietet eine weitere, einfache Möglichkeit. 
 
