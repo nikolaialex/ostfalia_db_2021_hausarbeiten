@@ -4,7 +4,7 @@
 <br>
 
 
-![](.idea/bonga/media/image1.png)
+![](bonga/media/image1.png)
 
 <br>
 <br>
@@ -16,7 +16,7 @@
 
 
 
-![](.idea/images/cloud_firestore_logo.png)
+![](images/cloud_firestore_logo.png)
 
 <br>
 <br>
@@ -71,4 +71,4 @@ Text
 
 # 4. Cloud Firestore Abfragen
 
-![img.png](.idea/images/img.png)
+![img.png](images/img.png)
