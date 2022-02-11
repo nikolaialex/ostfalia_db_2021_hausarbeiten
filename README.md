@@ -1,24 +1,51 @@
+<center>
+<br>
+<br>
+<br>
+
+
+![](.idea/bonga/media/image1.png)
+
+<br>
+<br>
+
 # Firebase Cloud Firestore
 
+<br>
+<br>
 
 
-**Firebase Cloud Firestore**
+
+![](.idea/images/cloud_firestore_logo.png)
+
+<br>
+<br>
 
 **Datenbank-Technologien**
+
+<br>
+<br>
 
 Georges A. K. Bonga
 
 Matrikel: 20223343
 
-Betreuer: Prof.
+<br>
+<br>
+
+Betreuer: Prof. Dr.-Ing. Nils Jensen EUR ING
+
+<br>
+<br>
 
 Brandenburg an der Havel, 25. Dezember 2021
 
+<br>
+<br>
 
 
+</center>
 
-
-**Keywords**
 
 
 
@@ -44,4 +71,4 @@ Text
 
 # 4. Cloud Firestore Abfragen
 
-![img.png](img.png)
+![img.png](.idea/images/img.png)
