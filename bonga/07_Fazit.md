@@ -1,0 +1,3 @@
+# 7	Fazit
+
+Cloud Firestore ist eine NoSQL-Datenbank für sehr viele Optionen für Entwickler anbietet, besonders, wenn man flexible sein will. Die NoSQL-Datenbank ist im Vergleich zu SQL-Datenbanken flexibler bei Änderungen oder bei Skalierungen. Außerdem verschwendet man bei Cloud Firestore keine Zeit für die Verwaltung der Hardware, das Cloud Firestore komplett in der Cloud von Google verwaltet wird. Cloud Firestore kann automatisch skalieren, wenn mehr Leistung gebraucht wird. Mit der nativen Unterstützung des Offline-Modus wird die Arbeit der Entwickler noch einfacher gemacht, aber Entwickler müssen bei den Abfragen und bei der Struktur der Daten aufpassen, weil sie mit einer ungünstigen Struktur höhere Kosten verursachen können.

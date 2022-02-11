@@ -57,5 +57,5 @@ Brandenburg an der Havel, 10. Januar 2022
 4 [Entwicklungsumgebung und Cloud Firestore Abfragen](bonga/04_EntwicklungsumgebungUndAbfragen.md)\
 5 [Cloud Firestore Nutzung, Grenzen und Preis](bonga/05_NutzungGrenzenUndPreis.md)\
 6 [Vor – und Nachteile von Firebase Cloud Firestore](bonga/06_VorUndNachteile.md)\
-7 [Fazit](bonga/07_Zusammenfassung.md)
+7 [Fazit](bonga/07_Fazit.md)
 

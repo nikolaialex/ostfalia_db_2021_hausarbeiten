@@ -21,7 +21,7 @@ Tabelle 2: Cloud Firestore Preise pro Aktion und Region
 <br><br>
 
 Für alle Cloud Firestore Aktionen oder Funktionen gibt es kostenlose Kontingente. Diese Preise der Tabelle 2 werden aber nur angewendet, nachdem die kostenlose Kontingente verbraucht wurden. Die Grenzen für kostenlose Kontingente sind in der Tabelle 3 aufgelistet.
-<br><br>
+
 
 
 
