@@ -116,4 +116,94 @@ Abbildung 16: set-Befehl mit Fehlerbehandlung
 
 Oft arbeitet man mit Klassen und es ist dann einfacher das set-Befehl statt mit Map oder Dictionary, direkt mit Klassen zu verwenden. Damit das Möglich wird, müssen die Klassen einen Constructor ohne Argumente und, getter und setter für alle Attribute haben. Für das Beispiel der Abbildung 11, könnte man folgende Klasse haben:
 
-<br><br><br><br>
+![](media/image20.png)
+
+Abbildung 17: Beispiel-Klasse "Person"
+
+<br><br>
+
+Um die Daten einer Person zu speichern wie in dem Beispiel der Abbildung 11, würde man nur den folgenden Code brauchen:
+
+![](media/image21.png)
+
+Abbildung 18: Verwendung vom set-Befehl mit einer Klasse
+
+<br><br>
+
+**add:**<br>
+Mit dem set-Befehl muss man in der Regel einen Dokumentennamen vergeben. Manchmal will man aber, dass Cloud Firestore die Dokumentennamen automatisch generiert. In solchen Fällen benutzt man das add-Befehl.
+Wenn man das set-Befehl verwendet ohne Dokumentennamen zu vergeben, hat man genau die gleiche Funktion wie das add-Befehl. Die zwei Zeilen auf der Abbildung 19 sind äquivalent.
+
+![](media/image22.png)
+
+Abbildung 19: add-Befehl mit dem äquivalenten set-Befehl
+
+<br><br>
+
+**update:** <br>
+Das Update-Befehl wird verwendet, um bestimmte Felder eines Dokumentes ohne das gesamte Dokument zu aktualisieren. Für Felder, die sicher existieren, ist ein set-Befehl mit SetOptions.merge() äquivalent.
+Wenn man zahlen verwendet, kann man auch die Funktion „increment“ verwenden, um den Wert zu ändern.
+
+### 4.2.2	Daten lesen
+
+Wenn man Daten in einer Datenbank speichert, will man sie irgendwann auch wieder lesen. Cloud Firestore bietet zwei Möglichkeiten an, Daten zu lesen. Man kann eine Funktion aufrufen, um Daten zu lesen oder man kann ein „Listener“ verwenden, um bei jeder Änderung, Daten zu lesen.
+Wenn man eine Funktion verwendet, um Daten zu lesen, hat man die Möglichkeit ein einziges Dokument zu lesen oder auch mehrere Dokumente zu lesen. Wenn man mehrere Dokumente lesen will, verwendet man Schlüsselwörter wie „where()“ in der Abfrage, um nur Dokumente zu lesen, die eine bestimmte Bedingung erfüllen. Die Abbildung 20 zeigt ein Beispiel Code, der verwendet werden kann, um die „person1“ zu lesen, die wir in 4.2.1 gespeichert haben.
+
+![](media/image23.png)
+
+Abbildung 20: Ein Dokument lesen
+
+<br><br>
+
+Cloud Firebase unterstützt den Offline-Modus. Um diese Funktionalität zu ermöglichen, werden Daten im Cache gespeichert, aber standardmäßig werden die Daten immer direkt von der Datenbank gelesen, außer wenn man wirklich offline ist. Um auch mit einer verfügbaren Internetverbindung Daten vom dem Cache Speicher zu lesen, kann man die „source-option“ von get() verwenden. Die Abbildung 21 zeigt eine modifizierte Version des Beispiels der Abbildung 20. In dieser Version werden Daten aus dem Cache-Speicher gelesen.
+
+
+![](media/image24.png)
+
+Abbildung 21: Ein Dokument aus dem Cache lesen
+<br><br>
+
+Um jetzt alle Personen mit der Größe „165 cm“ zu lesen, die wir gespeichert haben, können wir „whereEqualTo("groesse", "165 cm") verwenden.
+
+
+![](media/image25.png)
+
+Abbildung 22: Mehrere Dokumente lesen
+
+<br><br>
+
+Um alle Dokumente einer Kollektion zu lesen, kann man die where()-Bedingung weglassen. In dem Beispiel der Abbildung 22, würde man nur whereEqualTo("groesse", "165 cm") weglassen. Der Rest würde gleichbleiben. <br>
+
+Um bei jeder Änderung ein Dokument zu lesen, muss man einen „Listerner“ verwenden. Wenn wir „person1“ bei jeder Änderung lesen wollen, kann der Code der Abbildung 23 verwendet werden.
+
+![](media/image26.png)
+
+Abbildung 23: Dokument bei jeder Änderung lesen
+<br><br>
+
+Cloud Firestore hat viele weiteren Möglichkeiten Lese-operationen zu kombinieren, zu filtern, die nicht alle hier vorgestellt werden können. Es gibt auch die Möglichkeit die Anzahl der Ergebnisse zu begrenzen oder die Möglichkeit die Ergebnisse zu paginieren.
+
+### 4.2.3	Transaktionen und Batched Writes
+
+Transaktionen und Batched Writes sind Cloud Firestore „Funktionen“, die es ermöglichen mehrere Operationen atomisch auszuführen. Das bedeutet, entweder werden alle Operationen ausgeführt oder gar keine Operation wird ausgeführt. <br><br>
+•	**Transaktionen** sind Sätze von Lese- und Schreiboperationen in einem oder mehreren Dokumenten.\
+•	**Batched Writes** sind Sätze von und Schreiboperationen in einem oder mehreren Dokumenten
+<br><br>
+Transaktionen und Batched Writes können in Cloud Firestore in maximum 500 Dokumente schreiben.
+
+<br>
+
+**Transaktionen:** <br>
+Transaktionen bestehen in der Regel aus get-Operationen gefolgt von set-, update- oder delete-Operationen.
+In Cloud Firestore gibt es Regeln, die bei der Verwendung von Transaktionen beachtet werden müssen. <br>
+•	Wenn eine Transaktion Dokumente liest, und mindestens eins von diesen Dokumenten während der Transaktion geändert wird, wird die Transaktion noch einmal ausgeführt.\
+•	Leseoperationen sollten vor Schreiboperationen kommen.\
+•	Transaktionen sollten den Zustand einer Anwendung direkt ändern.\
+•	Transaktionen funktionieren nicht, wenn die Anwendung offline ist.\
+
+<br><br>
+**Batched Writes:** <br>
+Batched Writes sind fast wie Transaktionen aber unterstützen keine Lese-Operationen. Sie sind atomische Operationen wie Transaktionen aber sie haben ein paar Vorteile im Vergleich zu Transaktionen.<br><br>
+Batched Writes werden nicht von Lese-Operationen beeinflusst. Das bedeutet, dass Batched Writes nicht wiederholt werden müssen, wenn Dokumente geändert werden, die gerade von einer anderen Operation gelesen werden.
+
+
