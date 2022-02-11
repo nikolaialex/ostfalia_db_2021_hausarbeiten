@@ -4,6 +4,9 @@ Cloud Firestore ist eine dokumentorientierte NoSQL-Datenbank. Das bedeutet, dass
 
 ![](media/image2.png)
 
+Abbildung 1: Cloud Firestore Datenmodell
+
+<br/>
 
 Für eine Cloud Firestore Datenbank, gelten folgende Regeln:
 
